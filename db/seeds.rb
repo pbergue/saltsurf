@@ -8,6 +8,8 @@
 
 
 # spots seeds
+
+
   puts "wiping out spots seeds"
 
   30.times do |i|
@@ -15,15 +17,25 @@
     sleep(0.05)
   end
 
+  1.times do |i|
+    sleep(1.0)
+    printf("", i)
+  end
+
   Spot.destroy_all
   puts "all spots ate shit"
 
   1.times do |i|
-    sleep(0.2)
-    printf("-------------------", i)
+    sleep(1.0)
+    printf("", i)
   end
 
   puts "generating spots"
+
+  1.times do |i|
+    sleep(1.0)
+    printf("", i)
+  end
 
   100.times do |i|
     printf("🤙", i)
@@ -209,4 +221,8 @@
   surfreport_id: "not assigned",
   )
 
+   1.times do |i|
+    sleep(1.0)
+    printf("", i)
+  end
   puts "spots generated yeeeeeew 🤙"
