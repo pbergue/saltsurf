@@ -18,31 +18,31 @@ require "open-uri"
 
   10.times do |i|
     printf(".", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
   puts "all spots ate shit"
 
   1.times do |i|
-    sleep(0.01)
+    sleep(0.02)
     printf("", i)
   end
 
   puts "generating spots"
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
   10.times do |i|
     printf("🤙", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   spot1 = Spot.new(
@@ -363,7 +363,7 @@ require "open-uri"
   spot15.save!
 
    1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
   puts "spots generated yeeeeeew 🤙"
@@ -374,11 +374,11 @@ require "open-uri"
 
   10.times do |i|
     printf(".", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
@@ -386,20 +386,20 @@ require "open-uri"
   puts "all forecasts ate shit"
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
   puts "generating forecasts"
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
   10.times do |i|
     printf("🌊", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   Spot.all.each do |spot|
@@ -428,31 +428,31 @@ puts "forecasts generated yeeeeeew 🌊"
 
   10.times do |i|
     printf(".", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
   puts "all users ate shit"
 
   1.times do |i|
-    sleep(0.01)
+    sleep(0.02)
     printf("", i)
   end
 
   puts "generating users"
 
   1.times do |i|
-    sleep(0.05)
+    sleep(0.02)
     printf("", i)
   end
 
   10.times do |i|
     printf("🏄‍♂️", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   user1 = User.new(
@@ -502,65 +502,53 @@ puts "forecasts generated yeeeeeew 🌊"
 
   puts "users generated yeeeeeew 🏄‍♂️"
 
-  # #sessions seeds
+  #sessions seeds
 
-  #   puts "wiping out session seeds"
+    puts "wiping out session seeds"
 
-  #   10.times do |i|
-  #     printf(".", i)
-  #     sleep(0.05)
-  #   end
+    10.times do |i|
+      printf(".", i)
+      sleep(0.02)
+    end
 
-  #   1.times do |i|
-  #     sleep(0.05)
-  #     printf("", i)
-  #   end
+    1.times do |i|
+      sleep(0.02)
+      printf("", i)
+    end
 
-  # puts "all sessions ate shit"
+  puts "all sessions ate shit"
 
-  # 1.times do |i|
-  #   sleep(0.05)
-  #   printf("", i)
-  # end
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
 
-  # puts "generating sessions"
+  puts "generating sessions"
 
-  # 1.times do |i|
-  #   sleep(0.05)
-  #   printf("", i)
-  # end
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
 
-  # 10.times do |i|
-  #   printf("🌊", i)
-  #   sleep(0.05)
-  # end
+  10.times do |i|
+    printf("🐋", i)
+    sleep(0.02)
+  end
 
-  # Spot.all.each do |spot|
-  #   forecast = Forecast.new(
-  #     wave_height: rand(0..300),
-  #     wind_direction: rand(0..360),
-  #     wind_speed: rand(0..50),
-  #     swell_height: rand(0..300),
-  #     rating: rand(0..5),
-  #     swell_direction: rand(0..360),
-  #     period: rand(4..16),
-  #     source: "not assigned",
-  #     low_tide: DateTime.now,
-  #     high_tide: DateTime.now + 6.25.hours,
-  #     spot_id: spot.id,
-  #     timestamp: DateTime.now
-  #     )
-  #   forecast.save!
-  # end
+  5.times do |i|
+    User.all.each do |user|
+      session = Session.new(
+        spot_id: rand(Spot.first.id..Spot.last.id),
+        user_id: rand(User.first.id..User.last.id),
+        title: "my session",
+        description: "I'm frothing! sooooooo stoked",
+        rating: rand(1..5),
+        timestamp: DateTime.now,
+        )
+      session.save!
+    end
+  end
 
-  #     t.bigint "spot_id", null: false
-  #   t.bigint "user_id", null: false
-  #   t.string "title"
-  #   t.text "description"
-  #   t.integer "rating"
-  #   t.datetime "timestamp"
-  #   t.datetime "created_at", precision: 6, null: false
-  #   t.datetime "updated_at", precision: 6, null: false
-  #   t.index ["spot_id"], name: "index_sessions_on_spot_id"
-  #   t.index ["user_id"], name: "index_sessions_on_user_id"
+puts "sessions generated yeeeeeew 🐋"
+
 
