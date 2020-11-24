@@ -10,34 +10,35 @@
 # spots seeds
 
 
-  puts "wiping out spots seeds"
+  puts "wiping out seeds"
 
-  30.times do |i|
+  10.times do |i|
     printf(".", i)
     sleep(0.05)
   end
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.05)
     printf("", i)
   end
 
+  Forecast.destroy_all
   Spot.destroy_all
   puts "all spots ate shit"
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.01)
     printf("", i)
   end
 
   puts "generating spots"
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.05)
     printf("", i)
   end
 
-  70.times do |i|
+  10.times do |i|
     printf("🤙", i)
     sleep(0.05)
   end
@@ -239,9 +240,63 @@
   spot15.save!
 
    1.times do |i|
-    sleep(0.5)
+    sleep(0.05)
     printf("", i)
   end
   puts "spots generated yeeeeeew 🤙"
+
+  #forecasts seeds
+
+  puts "wiping out forecast seeds"
+
+  10.times do |i|
+    printf(".", i)
+    sleep(0.05)
+  end
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+
+  puts "all forecasts ate shit"
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+  puts "generating forecasts"
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+  10.times do |i|
+    printf("🌊", i)
+    sleep(0.05)
+  end
+
+  Spot.all.each do |spot|
+    forecast = Forecast.new(
+      wave_height: rand(0..300),
+      wind_direction: rand(0..360),
+      wind_speed: rand(0..50),
+      swell_height: rand(0..300),
+      rating: rand(0..5),
+      swell_direction: rand(0..360),
+      period: rand(4..16),
+      source: "not assigned",
+      low_tide: DateTime.now,
+      high_tide: DateTime.now + 6.25.hours,
+      spot_id: spot.id,
+      timestamp: DateTime.now
+      )
+    forecast.save!
+  end
+
+puts "forecasts generated yeeeeeew 🌊"
 
 
