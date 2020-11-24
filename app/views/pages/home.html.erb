@@ -1,11 +1,27 @@
 
 <div class="home-banner">
-  <div class="relative text-right h-90">
-    <%=  link_to "Login", root_path, class: "text-white" %>
+  <div class="p-3 mb-3 d-flex justify-content-between align-items-center">
+    <%= image_tag("salt_logo_fake.png", class: "icon") %>
+    <%=  link_to "Login", root_path, class: "btn-white" %>
   </div>
   <div class="vertical-align d-flex flex-column justify-content-center">
-    <h1 class="text-center">Find where the surf is cracking near you</h1>
-    
+    <h1 class="text-center">FIND WHERE THE SURF IS PUMPING NEAR YOU</h1>
+    <p class="text-center"> Choose your location and range</p>
+      <div class="container">
+        <%= form_tag root_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "address-input",
+          placeholder: "Enter your location",
+          class: "address-input form-control .restrict-width mx-2 mw-50"
+        %>
+        <div class="range-slider">
+          <input class="range-slider__range" type="range" value="100" min="0" max="500">
+          <span class="range-slider__value">0</span>
+        </div>
+        <%= submit_tag "Find your board", class: "my-3 btn btn-danger" %>
+      <% end %>
+      </div>
   </div>
 </div>
 
