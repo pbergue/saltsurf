@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+# require "open-uri"
+require "open-uri"
 
 # spots seeds
 
@@ -53,7 +55,17 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  photos_links = ["https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-right_x9ihm6.webp","https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-Main_lpcur9.jpg","https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/baie-trepasses-left_srzl2i.jpg"]
+  counter = 1
+  photos_links.each do |link|
+    file = URI.open(link)
+    spot1.photos.attach(io:file, filename: "#{spot1.name}-#{counter}"content_type: 'image/png')
+    counter += 1
+  end
+
   spot1.save!
+
 
   spot2 = Spot.new(
   latitude: "48.3704",
