@@ -1,5 +1,5 @@
 // Base Colors
-$shade-10: $lighter-gray !default;
+$shade-10: $gray !default;
 $shade-1: $light-gray !default;
 $shade-0: $light-gray !default;
 $teal: $light-gray !default;
@@ -21,7 +21,6 @@ $teal: $light-gray !default;
 
 
 // Range Slider
-$range-width: 250px !default;
 
 $range-handle-color: $shade-10 !default;
 $range-handle-color-hover: $teal !default;
@@ -34,7 +33,8 @@ $range-label-color: $shade-10 !default;
 $range-label-width: 60px !default;
 
 .range-slider {
-  width: $range-width;
+  width: 200px !important;
+  
 }
 
 .range-slider__range {
@@ -42,7 +42,7 @@ $range-label-width: 60px !default;
   width: calc(100% - (#{$range-label-width + 13px}));
   height: $range-track-height;
   border-radius: 5px;
-  background: $range-track-color;
+  // background: $range-track-color;
   outline: none;
   padding: 0;
   margin: 0;
@@ -100,12 +100,11 @@ $range-label-width: 60px !default;
   display: inline-block;
   position: relative;
   width: $range-label-width;
-  color: $shade-0;
   line-height: 20px;
   text-align: center;
   border-radius: 3px;
-  background: $range-label-color;
-  padding: 5px 10px;
+  // background: $range-label-color;
+  padding: 0px;
   margin-left: 8px;
 
   &:after {
@@ -114,9 +113,9 @@ $range-label-width: 60px !default;
     left: -7px;
     width: 0;
     height: 0;
-    border-top: 7px solid transparent;
-    border-right: 7px solid $range-label-color;
-    border-bottom: 7px solid transparent;
+    // border-top: 7px solid transparent;
+    // border-right: 7px solid $range-label-color;
+    // border-bottom: 7px solid transparent;
     content: '';
   }
 }

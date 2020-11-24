@@ -13,13 +13,15 @@
           params[:query],
           class: "address-input",
           placeholder: "Enter your location",
-          class: "address-input form-control .restrict-width mx-2 mw-50"
+          class: "address-input custom-form mx-2 mw-50"
         %>
-        <div class="range-slider">
-          <input class="range-slider__range" type="range" value="100" min="0" max="500">
+        <div class="range-slider custom-form d-flex align-items-center justify-content-center">
+          <p class="my-0 mx-1">0</p>
+          <input class="range-slider__range" type="range" value="100" min="0" max="100">
           <span class="range-slider__value">0</span>
+          <p class="my-0 mx-1">km</p>
         </div>
-        <%= submit_tag "Find your board", class: "my-3 btn btn-danger" %>
+        <%= submit_tag "Find your board", class: "my-3 ml-2 btn btn-danger" %>
       <% end %>
       </div>
   </div>
