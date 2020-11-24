@@ -2,8 +2,14 @@ class SessionsController < ApplicationController
   def create
     @spot = Spot.find(params[:id])
     @session = Session.new(session_params)
-    @user = current_user
-    @spot.session = @session
+    @session.spot = @spot
+    @session.user = current_user
+
+    if @session.save
+      redirect_to profile_path
+    else
+      render 'spots/show'
+    end
   end
 
   private
