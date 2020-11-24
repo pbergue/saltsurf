@@ -243,3 +243,5 @@
     printf("", i)
   end
   puts "spots generated yeeeeeew 🤙"
+
+
