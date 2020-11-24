@@ -37,7 +37,7 @@
     printf("", i)
   end
 
-  100.times do |i|
+  70.times do |i|
     printf("🤙", i)
     sleep(0.05)
   end
@@ -53,6 +53,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot1.save!
 
   spot2 = Spot.new(
   latitude: "48.3704",
@@ -65,6 +66,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot2.save!
 
   spot3 = Spot.new(
   latitude: "49.4812",
@@ -77,6 +79,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot3.save!
 
   spot4 = Spot.new(
   latitude: "48.64",
@@ -89,6 +92,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot4.save!
 
   spot5 = Spot.new(
   latitude: "48.0465",
@@ -101,6 +105,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot5.save!
 
   spot6 = Spot.new(
   latitude: "48.6575",
@@ -109,7 +114,10 @@
   description: "A concentration of some of the best spots in Brittany, with some hollow and powerful waves on a 2km stretch. Top-to-bottom, hard breathing barrels when a WSW swell meets an E wind. Port-Blanc is the first bay, gets some N wind shelter from a cliff and will probably be the busiest spot. Port Marie breaks far offshore and Port-Rhu is a well-defined, localised peak, while Port-Bara is more accessible. Some reef anchors the sandbars and large clusters of rock affect the line-up at high tides, so exit before dead high.",
   webcam_link: "none",
   windy_id: "not assigned",  msw_id: "1579",
-  windguru_id: "not assigned",  surfreport_id: "not assigned",  )
+  windguru_id: "not assigned",
+  surfreport_id: "not assigned",
+  )
+  spot6.save!
 
   spot7 = Spot.new(
   latitude: "47.5161",
@@ -122,6 +130,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot7.save!
 
   spot8 = Spot.new(
   latitude: "47.584",
@@ -134,6 +143,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot8.save!
 
   spot9 = Spot.new(
   latitude: "47.7531",
@@ -146,6 +156,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot9.save!
 
   spot10 = Spot.new(
   latitude: "48.3378",
@@ -158,6 +169,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot10.save!
 
   spot11 = Spot.new(
   latitude: "48.8242",
@@ -170,6 +182,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot11.save!
 
   spot12 = Spot.new(
   latitude: "48.6392",
@@ -182,6 +195,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot12.save!
 
   spot13 = Spot.new(
   latitude: "48.204",
@@ -194,6 +208,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot13.save!
 
   spot14 = Spot.new(
   latitude: "48.57",
@@ -206,6 +221,7 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot14.save!
 
   spot15 = Spot.new(
   latitude: "48.1094",
@@ -220,9 +236,10 @@
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+  spot15.save!
 
    1.times do |i|
-    sleep(1.0)
+    sleep(0.5)
     printf("", i)
   end
   puts "spots generated yeeeeeew 🤙"
