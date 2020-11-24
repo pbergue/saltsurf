@@ -5,41 +5,42 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-# require "open-uri"
 require "open-uri"
+
+  User.destroy_all
+  Forecast.destroy_all
+  Session.destroy_all
+  Spot.destroy_all
 
 # spots seeds
 
+  puts "wiping out seeds"
 
-  puts "wiping out spots seeds"
-
-  30.times do |i|
+  10.times do |i|
     printf(".", i)
     sleep(0.05)
   end
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.05)
     printf("", i)
   end
 
-  Spot.destroy_all
   puts "all spots ate shit"
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.01)
     printf("", i)
   end
 
   puts "generating spots"
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.05)
     printf("", i)
   end
 
-  70.times do |i|
+  10.times do |i|
     printf("🤙", i)
     sleep(0.05)
   end
@@ -362,7 +363,204 @@ require "open-uri"
   spot15.save!
 
    1.times do |i|
-    sleep(0.5)
+    sleep(0.05)
     printf("", i)
   end
   puts "spots generated yeeeeeew 🤙"
+
+  #forecasts seeds
+
+  puts "wiping out forecast seeds"
+
+  10.times do |i|
+    printf(".", i)
+    sleep(0.05)
+  end
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+
+  puts "all forecasts ate shit"
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+  puts "generating forecasts"
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+  10.times do |i|
+    printf("🌊", i)
+    sleep(0.05)
+  end
+
+  Spot.all.each do |spot|
+    forecast = Forecast.new(
+      wave_height: rand(0..300),
+      wind_direction: rand(0..360),
+      wind_speed: rand(0..50),
+      swell_height: rand(0..300),
+      rating: rand(0..5),
+      swell_direction: rand(0..360),
+      period: rand(4..16),
+      source: "not assigned",
+      low_tide: DateTime.now,
+      high_tide: DateTime.now + 6.25.hours,
+      spot_id: spot.id,
+      timestamp: DateTime.now
+      )
+    forecast.save!
+  end
+
+puts "forecasts generated yeeeeeew 🌊"
+
+  #users seeds
+
+  puts "wiping out seeds"
+
+  10.times do |i|
+    printf(".", i)
+    sleep(0.05)
+  end
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+  puts "all users ate shit"
+
+  1.times do |i|
+    sleep(0.01)
+    printf("", i)
+  end
+
+  puts "generating users"
+
+  1.times do |i|
+    sleep(0.05)
+    printf("", i)
+  end
+
+  10.times do |i|
+    printf("🏄‍♂️", i)
+    sleep(0.05)
+  end
+
+  user1 = User.new(
+    email:    "kelly@gmail.com",
+    password: "password"
+    )
+  link = 'https://www.outsideonline.com/sites/default/files/styles/img_600x600/public/migrated-images_parent/migrated-images_68/kelly-slater-in-france_s.jpg?itok=jltb_x2r'
+  file = URI.open(link)
+  user1.photo.attach(io:file, filename:"Kelly-photo",content_type: 'image/jpg')
+  user1.save!
+
+  user2 = User.new(
+    email:    "occy@gmail.com",
+    password: "password"
+    )
+  link = 'https://i.nextmedia.com.au/News/02-Occy1.jpg'
+  file = URI.open(link)
+  user2.photo.attach(io:file, filename:"Occy-photo",content_type: 'image/jpg')
+  user2.save!
+
+  user3 = User.new(
+    email:    "stoker@gmail.com",
+    password: "password"
+    )
+  link = "https://stabmag.com/assets/post-hero-banners/_resampled/ScaleWidthWyIxMjAwIl0-Screen-Shot-2017-05-06-at-10.24.26-1024x581.png"
+  file = URI.open(link)
+  user3.photo.attach(io:file, filename:"Stoker-photo",content_type: 'image/jpg')
+  user3.save!
+
+  user4 = User.new(
+    email:    "dane@gmail.com",
+    password: "password"
+    )
+  link = "https://www.boardrap.com/wp-content/uploads/2016/04/dane-middle-finger-fuck-quik-MorganMaassen_DaneReynolds2_318.jpg"
+  file = URI.open(link)
+  user4.photo.attach(io:file, filename:"Dane-photo",content_type: 'image/jpg')
+  user4.save!
+
+  user5 = User.new(
+    email:    "andy@gmail.com",
+    password: "password"
+    )
+  link = "https://content.quiksilver.com/www/2018.billabong.com/html/upload/billabong_surf/riders/_ID-19-8-Andy-Irons.jpg"
+  file = URI.open(link)
+  user5.photo.attach(io:file, filename:"Andy-photo",content_type: 'image/jpg')
+  user5.save!
+
+  puts "users generated yeeeeeew 🏄‍♂️"
+
+  # #sessions seeds
+
+  #   puts "wiping out session seeds"
+
+  #   10.times do |i|
+  #     printf(".", i)
+  #     sleep(0.05)
+  #   end
+
+  #   1.times do |i|
+  #     sleep(0.05)
+  #     printf("", i)
+  #   end
+
+  # puts "all sessions ate shit"
+
+  # 1.times do |i|
+  #   sleep(0.05)
+  #   printf("", i)
+  # end
+
+  # puts "generating sessions"
+
+  # 1.times do |i|
+  #   sleep(0.05)
+  #   printf("", i)
+  # end
+
+  # 10.times do |i|
+  #   printf("🌊", i)
+  #   sleep(0.05)
+  # end
+
+  # Spot.all.each do |spot|
+  #   forecast = Forecast.new(
+  #     wave_height: rand(0..300),
+  #     wind_direction: rand(0..360),
+  #     wind_speed: rand(0..50),
+  #     swell_height: rand(0..300),
+  #     rating: rand(0..5),
+  #     swell_direction: rand(0..360),
+  #     period: rand(4..16),
+  #     source: "not assigned",
+  #     low_tide: DateTime.now,
+  #     high_tide: DateTime.now + 6.25.hours,
+  #     spot_id: spot.id,
+  #     timestamp: DateTime.now
+  #     )
+  #   forecast.save!
+  # end
+
+  #     t.bigint "spot_id", null: false
+  #   t.bigint "user_id", null: false
+  #   t.string "title"
+  #   t.text "description"
+  #   t.integer "rating"
+  #   t.datetime "timestamp"
+  #   t.datetime "created_at", precision: 6, null: false
+  #   t.datetime "updated_at", precision: 6, null: false
+  #   t.index ["spot_id"], name: "index_sessions_on_spot_id"
+  #   t.index ["user_id"], name: "index_sessions_on_user_id"
+
