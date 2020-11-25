@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $blue;
+  position: relative;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,47 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  margin: 0 0 0 10px;
+}
+
+.search-bar-navbar {
+  position: absolute;
+  left: 150px;
+  width: 350px;
+  ::-webkit-input-placeholder {
+    color: rgb(48, 48, 48);
+  }
+  .ap-input-icon.ap-icon-pin {
+    display: none;
+  }
+}
+
+.nav-link-custom {
+  padding: 0;
+  padding-right:0;
+  padding-left: 0;
+}
+
+.form-radius {
+  border-radius: 20px;
+  background-color: $cold-blue;
+  opacity: 0.5;
+}
+
+.btn-go-navbar {
+  border-radius: 50%;
+  height: 40px;
+  width: 42px;
+  object-fit: fill;
+  background-color: $orange ;
+  border: 1px solid rgb(168, 168, 168);
+  position: absolute;
+  right: -8px;
+  color: white;
+  opacity: 0.8;
 }
