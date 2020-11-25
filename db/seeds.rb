@@ -5,43 +5,44 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-# require "open-uri"
 require "open-uri"
+
+  User.destroy_all
+  Forecast.destroy_all
+  Session.destroy_all
+  Spot.destroy_all
 
 # spots seeds
 
+  puts "wiping out seeds"
 
-  puts "wiping out spots seeds"
-
-  30.times do |i|
+  10.times do |i|
     printf(".", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.02)
     printf("", i)
   end
 
-  Spot.destroy_all
   puts "all spots ate shit"
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.02)
     printf("", i)
   end
 
   puts "generating spots"
 
   1.times do |i|
-    sleep(1.0)
+    sleep(0.02)
     printf("", i)
   end
 
-  70.times do |i|
+  10.times do |i|
     printf("🤙", i)
-    sleep(0.05)
+    sleep(0.02)
   end
 
   spot1 = Spot.new(
@@ -56,13 +57,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  photos_links = ["https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-right_x9ihm6.webp","https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-Main_lpcur9.jpg","https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/baie-trepasses-left_srzl2i.jpg"]
-  counter = 1
-  photos_links.each do |link|
-    file = URI.open(link)
-    spot1.photos.attach(io:file, filename: "#{spot1.name}-#{counter}"content_type: 'image/png')
-    counter += 1
-  end
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-right_x9ihm6.webp'
+  file = URI.open(link)
+  spot1.photos.attach(io:file, filename:"La-Torche-main",content_type: 'image/webp')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-Main_lpcur9.jpg'
+  file = URI.open(link)
+  spot1.photos.attach(io:file, filename:"La-Torche-second",content_type: 'image/jpg')
 
   spot1.save!
 
@@ -78,7 +78,17 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/Blancs-Sablons-main_ybabd0.jpg'
+  file = URI.open(link)
+  spot2.photos.attach(io:file, filename:"Blancs-Sablons-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/Blancs-Sablons-rigth_pcayc5.jpg'
+  file = URI.open(link)
+  spot2.photos.attach(io:file, filename:"Blancs-Sablons-second",content_type: 'image/jpg')
+
   spot2.save!
+
+
 
   spot3 = Spot.new(
   latitude: "49.4812",
@@ -91,6 +101,15 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Sillon_main_xezznn.jpg'
+  file = URI.open(link)
+  spot3.photos.attach(io:file, filename:"Le-Sillon-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Sillon-left_o86tsm.jpg'
+  file = URI.open(link)
+  spot3.photos.attach(io:file, filename:"Le-Sillon-second",content_type: 'image/jpg')
+
+
   spot3.save!
 
   spot4 = Spot.new(
@@ -104,6 +123,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Pors_ars_ville_right_wsdhgs.jpg'
+  file = URI.open(link)
+  spot4.photos.attach(io:file, filename:"Pors-ars-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Pors_ars_ville_main_wdzz18.jpg'
+  file = URI.open(link)
+  spot4.photos.attach(io:file, filename:"Pors-ars-second",content_type: 'image/jpg')
+
   spot4.save!
 
   spot5 = Spot.new(
@@ -117,6 +144,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-main_srpvs9.jpg'
+  file = URI.open(link)
+  spot5.photos.attach(io:file, filename:"baie-trepasses-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-surf_esx8ub.jpg'
+  file = URI.open(link)
+  spot5.photos.attach(io:file, filename:"baie-trepasses-second",content_type: 'image/jpg')
+
   spot5.save!
 
   spot6 = Spot.new(
@@ -129,6 +164,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/cap-frehel-right_lkdps4.jpg'
+  file = URI.open(link)
+  spot6.photos.attach(io:file, filename:"cap-frehel-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/cap-frehel-main_qtjqwn.jpg'
+  file = URI.open(link)
+  spot6.photos.attach(io:file, filename:"cap-frehel-second",content_type: 'image/jpg')
+
   spot6.save!
 
   spot7 = Spot.new(
@@ -142,6 +185,11 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/cote-sauvage-main_muvpmz.jpg'
+  file = URI.open(link)
+  spot7.photos.attach(io:file, filename:"cote-sauvage-main",content_type: 'image/jpg')
+
   spot7.save!
 
   spot8 = Spot.new(
@@ -155,6 +203,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-Ocean_nvcpgp.jpg'
+  file = URI.open(link)
+  spot8.photos.attach(io:file, filename:"Penthievre-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-main_hdccfy.jpg'
+  file = URI.open(link)
+  spot8.photos.attach(io:file, filename:"Penthievre-second",content_type: 'image/jpg')
+
   spot8.save!
 
   spot9 = Spot.new(
@@ -168,6 +224,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Plage-du-loch-main_sgfxbh.jpg'
+  file = URI.open(link)
+  spot9.photos.attach(io:file, filename:"Plage-du-loch-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Plage-du-loch-surf_kpxmu2.jpg'
+  file = URI.open(link)
+  spot9.photos.attach(io:file, filename:"Plage-du-loch-second",content_type: 'image/jpg')
+
   spot9.save!
 
   spot10 = Spot.new(
@@ -181,6 +245,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Petit_minou-surf_lja5iz.jpg'
+  file = URI.open(link)
+  spot10.photos.attach(io:file, filename:"petit-minou-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/petit-minou-main_jzfur3.webp'
+  file = URI.open(link)
+  spot10.photos.attach(io:file, filename:"petit-minou-second",content_type: 'image/webp')
+
   spot10.save!
 
   spot11 = Spot.new(
@@ -194,6 +266,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/Testraou-right-view_cataeu.jpg'
+  file = URI.open(link)
+  spot11.photos.attach(io:file, filename:"Testraou-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/Trestraou_main_bdtrts.jpg'
+  file = URI.open(link)
+  spot11.photos.attach(io:file, filename:"Testraou-second",content_type: 'image/jpg')
+
   spot11.save!
 
   spot12 = Spot.new(
@@ -207,6 +287,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/st-lu-longchamps-surf_yyzyjh.jpg'
+  file = URI.open(link)
+  spot12.photos.attach(io:file, filename:"st-lu-longchamps-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/st-lu-longchamps-main_ii4vu5.webp'
+  file = URI.open(link)
+  spot12.photos.attach(io:file, filename:"st-lu-longchamps-second",content_type: 'image/webp')
+
   spot12.save!
 
   spot13 = Spot.new(
@@ -220,6 +308,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/plage-palue-left_ykaqmi.jpg'
+  file = URI.open(link)
+  spot13.photos.attach(io:file, filename:"plage-palue-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/plage-palue-main_i8kxw1.jpg'
+  file = URI.open(link)
+  spot13.photos.attach(io:file, filename:"plage-palue-second",content_type: 'image/jpg')
+
   spot13.save!
 
   spot14 = Spot.new(
@@ -233,6 +329,14 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Lampaul-Ploudalmezeau-surf_njzdfh.jpg'
+  file = URI.open(link)
+  spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Lampaul-Ploudalmezeau-main_nvfb2l.jpg'
+  file = URI.open(link)
+  spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-second",content_type: 'image/jpg')
+
   spot14.save!
 
   spot15 = Spot.new(
@@ -248,12 +352,203 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Les-roches-blanches-surf_nstupf.jpg'
+  file = URI.open(link)
+  spot15.photos.attach(io:file, filename:"roches-blanches-main",content_type: 'image/jpg')
+  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Les-roches-blanches-main_o4uvrb.webp'
+  file = URI.open(link)
+  spot15.photos.attach(io:file, filename:"roches-blanches-second",content_type: 'image/webp')
+
   spot15.save!
 
    1.times do |i|
-    sleep(0.5)
+    sleep(0.02)
     printf("", i)
   end
   puts "spots generated yeeeeeew 🤙"
+
+  #forecasts seeds
+
+  puts "wiping out forecast seeds"
+
+  10.times do |i|
+    printf(".", i)
+    sleep(0.02)
+  end
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+
+  puts "all forecasts ate shit"
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  puts "generating forecasts"
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  10.times do |i|
+    printf("🌊", i)
+    sleep(0.02)
+  end
+
+  Spot.all.each do |spot|
+    forecast = Forecast.new(
+      wave_height: rand(0..300),
+      wind_direction: rand(0..360),
+      wind_speed: rand(0..50),
+      swell_height: rand(0..300),
+      rating: rand(0..5),
+      swell_direction: rand(0..360),
+      period: rand(4..16),
+      source: "not assigned",
+      low_tide: DateTime.now,
+      high_tide: DateTime.now + 6.25.hours,
+      spot_id: spot.id,
+      timestamp: DateTime.now
+      )
+    forecast.save!
+  end
+
+puts "forecasts generated yeeeeeew 🌊"
+
+  #users seeds
+
+  puts "wiping out seeds"
+
+  10.times do |i|
+    printf(".", i)
+    sleep(0.02)
+  end
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  puts "all users ate shit"
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  puts "generating users"
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  10.times do |i|
+    printf("🏄‍♂️", i)
+    sleep(0.02)
+  end
+
+  user1 = User.new(
+    email:    "kelly@gmail.com",
+    password: "password"
+    )
+  link = 'https://www.outsideonline.com/sites/default/files/styles/img_600x600/public/migrated-images_parent/migrated-images_68/kelly-slater-in-france_s.jpg?itok=jltb_x2r'
+  file = URI.open(link)
+  user1.photo.attach(io:file, filename:"Kelly-photo",content_type: 'image/jpg')
+  user1.save!
+
+  user2 = User.new(
+    email:    "occy@gmail.com",
+    password: "password"
+    )
+  link = 'https://i.nextmedia.com.au/News/02-Occy1.jpg'
+  file = URI.open(link)
+  user2.photo.attach(io:file, filename:"Occy-photo",content_type: 'image/jpg')
+  user2.save!
+
+  user3 = User.new(
+    email:    "stoker@gmail.com",
+    password: "password"
+    )
+  link = "https://stabmag.com/assets/post-hero-banners/_resampled/ScaleWidthWyIxMjAwIl0-Screen-Shot-2017-05-06-at-10.24.26-1024x581.png"
+  file = URI.open(link)
+  user3.photo.attach(io:file, filename:"Stoker-photo",content_type: 'image/jpg')
+  user3.save!
+
+  user4 = User.new(
+    email:    "dane@gmail.com",
+    password: "password"
+    )
+  link = "https://www.boardrap.com/wp-content/uploads/2016/04/dane-middle-finger-fuck-quik-MorganMaassen_DaneReynolds2_318.jpg"
+  file = URI.open(link)
+  user4.photo.attach(io:file, filename:"Dane-photo",content_type: 'image/jpg')
+  user4.save!
+
+  user5 = User.new(
+    email:    "andy@gmail.com",
+    password: "password"
+    )
+  link = "https://content.quiksilver.com/www/2018.billabong.com/html/upload/billabong_surf/riders/_ID-19-8-Andy-Irons.jpg"
+  file = URI.open(link)
+  user5.photo.attach(io:file, filename:"Andy-photo",content_type: 'image/jpg')
+  user5.save!
+
+  puts "users generated yeeeeeew 🏄‍♂️"
+
+  #sessions seeds
+
+    puts "wiping out session seeds"
+
+    10.times do |i|
+      printf(".", i)
+      sleep(0.02)
+    end
+
+    1.times do |i|
+      sleep(0.02)
+      printf("", i)
+    end
+
+  puts "all sessions ate shit"
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  puts "generating sessions"
+
+  1.times do |i|
+    sleep(0.02)
+    printf("", i)
+  end
+
+  10.times do |i|
+    printf("🐋", i)
+    sleep(0.02)
+  end
+
+  5.times do |i|
+    User.all.each do |user|
+      session = Session.new(
+        spot_id: rand(Spot.first.id..Spot.last.id),
+        user_id: rand(User.first.id..User.last.id),
+        title: "my session",
+        description: "I'm frothing! sooooooo stoked",
+        rating: rand(1..5),
+        timestamp: DateTime.now,
+        )
+      session.save!
+    end
+  end
+
+puts "sessions generated yeeeeeew 🐋"
 
 
