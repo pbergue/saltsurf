@@ -3,8 +3,8 @@ class ProfilesController < ApplicationController
   before_action(:set_profile, only: [:show])
 
   def show
-    @favorite_spots = current_user.spots
-    raise
+    @favorites_spots = current_user.spots
+    @sessions = current_user.sessions
   end
 
   private

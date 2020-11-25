@@ -550,3 +550,21 @@ puts "forecasts generated yeeeeeew 🌊"
   end
 
 puts "sessions generated yeeeeeew 🐋"
+
+puts "creating favorites spots for Kelly"
+
+  kelly = User.first
+
+  fav_spot_1 = Favorite.new(
+    spot_id: Spot.first.id,
+    user_id: User.first.id
+  )
+  fav_spot_1.save!
+
+  fav_spot_2 = Favorite.new(
+    spot_id: Spot.last.id,
+    user_id: User.first.id
+  )
+  fav_spot_2.save!
+
+  puts "Fav spots created!"
