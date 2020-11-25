@@ -39,10 +39,11 @@
     <% @spots.each do |item| %>
     <div class="col mb-4">
       <%= link_to root_path(item), class: "text-decoration-none text-dark" do %>
-        <div class="card height-set rounded">
-          <%= cl_image_tag item.photos.first, class: "bg-image" %>
+        <div class="card height-set rounded text-center">
+          <%= cl_image_tag item.photos.first.key, class: "bg-image" %>
           <div class="card-body">
-            <h5 class="card-title"><%= item.name %></h5>
+            <h5 class="text-light font-weight-bold"><%= item.name %></h5>
+            <p> <%= item.forecasts.first.rating %> stars </p>
           </div>
         </div>
       <% end %>
