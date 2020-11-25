@@ -6,7 +6,9 @@
   </div>
   <%=  link_to "Go Surf", spots_path, class: "btn btn-danger" %>
 </div>
+
 <div class="container">
+
   <h4 class="my-3 text-primary text-center"> Today's Forecast</h4>
   <p class="text-dark mb-0">slide to update forecasts</p>
   <i class="fas fa-long-arrow-alt-right text-dark"></i>
@@ -15,12 +17,52 @@
       <input class="range-slider__range-2" name="time" type="range" value="8" min="0" max="24">
       <span class="range-slider__value-2">0</span>
       <p class="my-0 mx-1">km</p>
-  </div>
+    </div>
   
-  <div class="row">
-    
+  <div id="forecase-content" class="row">
+    <div id="forecast-cards"class="col-8">
+      <% @spot.forecasts.each do |forecast| %>
+        <div class="col mb-4 text-center rounded shadow">
+          <div id="top-of-card" class="bg-primary">
+            <h4><%= forecast.source %></h4>
+            <div id="star-rating" class="mt-2 d-flex justify-content-center">
+                <% forecast.rating.times do %>
+                <i class="fas text-light fa-star ml-1"></i>
+                <% end %>
+                <% (5 - forecast.rating).times do %>
+                <i class="fas text-muted fa-star ml-1"></i>
+                <% end %>
+            </div>
+          </div>
+          <div id="card-content" class="container">
+            <div id="wave-conditions">
+              <h6> Wave Conditions</h6>
+              <div class="d-flex justify-content-between">
+                <p>wave height <%= forecast.wave_height %> </p>
+                <p>wave period <%= forecast.period %> </p>
+              </div>
+              <div class="d-flex justify-space-between">
+                <p>swell height <%= forecast.swell_height %> </p>
+                <p>swell direction <%= forecast.swell_direction %> </p>
+              </div>
+                <p></p>
+            </div>
+            <hr style="width:50%;" class="text-center">
+            <div id="wind-conditions">
+              <h6> Wind Conditions</h6>
+              <div class="d-flex justify-content-between">
+                <p>wind speed <%= forecast.wind_speed %> </p>
+                <p>wind direction <%= forecast.wind_direction %> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div id="right-side" class="col-4">
+      <%= image_tag('https://c8.alamy.com/comp/PYE035/amazing-birds-eye-view-with-turquoise-water-and-coastline-creating-an-interesting-muster-shot-on-the-coast-of-caprera-island-italy-PYE035.jpg' ) %> 
+    </div>
   </div>
-
 
 
 
