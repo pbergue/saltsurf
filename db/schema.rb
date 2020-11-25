@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_101601) do
+
+ActiveRecord::Schema.define(version: 2020_11_25_104144) do
+
+#ActiveRecord::Schema.define(version: 2020_11_25_101601) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,8 +81,6 @@ ActiveRecord::Schema.define(version: 2020_11_25_101601) do
   end
 
   create_table "spots", force: :cascade do |t|
-    t.string "latitude"
-    t.string "longitude"
     t.string "name"
     t.text "description"
     t.string "webcam_link"
@@ -88,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_11_25_101601) do
     t.string "surfreport_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "users", force: :cascade do |t|
