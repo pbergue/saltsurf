@@ -1,3 +1,4 @@
+
 <%# a div for the page %>
 <div class="container border border-warning d-flex">
   <%# a div for search bar & cards %>
@@ -49,6 +50,11 @@
   </div>
   <%# a div for the map %>
   <div class="text-center">
-    <img src="https://community.windy.com/assets/uploads/files/1518430351339-screen-shot-2018-02-12-at-11.08.10-resized.jpg" class="img-fluid" alt="Windy map">
+    <#img src="https://community.windy.com/assets/uploads/files/1518430351339-screen-shot-2018-02-12-at-11.08.10-resized.jpg" class="img-fluid" alt="Windy map">
+    <div id="map"
+       style="width: 100%; height: 600px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
