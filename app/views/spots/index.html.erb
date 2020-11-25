@@ -33,13 +33,11 @@
             <i class="fas fa-star"></i>
             <% end %>
             </dd>
-            <dd class="col-sm-12">
-              <dl class="row">
-                <dd class="col-sm-4"><%= spot.forecasts.first.wind_direction %></dt>
-                <dd class="col-sm-4"><%= spot.forecasts.first.wind_direction %></dd>
-                <dd class="col-sm-4"><%= spot.forecasts.first.wind_speed %></dd>
-              </dl>
-            </dd>
+          </dl>
+          <dl class="row p-2">
+            <dd class="col-sm-4"><%= spot.forecasts.first.wind_direction %></dt>
+            <dd class="col-sm-4"><%= spot.forecasts.first.wind_direction %></dd>
+            <dd class="col-sm-4"><%= spot.forecasts.first.wind_speed %></dd>
           </dl>
         </div>
       </div>
