@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
-  Forecast.destroy_all
-  Session.destroy_all
-  User.destroy_all
-  Spot.destroy_all
+  # Forecast.destroy_all
+  # Session.destroy_all
+  # User.destroy_all
+  # Spot.destroy_all
 
 # spots seeds
 
@@ -48,7 +48,7 @@ require "open-uri"
   spot1 = Spot.new(
   latitude: 47.8408,
   longitude: -4.3512,
-  name: "La Torche",
+  name: "La Torche Finistere",
   description: "Seminal Brittany surfspot with ultra-consistent, walled-up peak breaking beside rocky headland. Shorter but hollower rights break into the rip known as the elevator which flows straight to the peak. Lefts speed down the beach, but paddle back can be gruelling, so think about walking around to the rip. Many more breaks further north along beach at Tronoën or Penhors and mellow rights at the La Torche point at the end of Audierne Bay.",
   webcam_link: "none",
   windy_id: "not assigned",
@@ -57,12 +57,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-right_x9ihm6.webp'
-  file = URI.open(link)
-  spot1.photos.attach(io:file, filename:"La-Torche-main",content_type: 'image/webp')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-Main_lpcur9.jpg'
-  file = URI.open(link)
-  spot1.photos.attach(io:file, filename:"La-Torche-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-right_x9ihm6.webp'
+  # file = URI.open(link)
+  # spot1.photos.attach(io:file, filename:"La-Torche-main",content_type: 'image/webp')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/La-Torche-Main_lpcur9.jpg'
+  # file = URI.open(link)
+  # spot1.photos.attach(io:file, filename:"La-Torche-second",content_type: 'image/jpg')
 
   spot1.save!
 
@@ -79,20 +79,20 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/Blancs-Sablons-main_ybabd0.jpg'
-  file = URI.open(link)
-  spot2.photos.attach(io:file, filename:"Blancs-Sablons-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/Blancs-Sablons-rigth_pcayc5.jpg'
-  file = URI.open(link)
-  spot2.photos.attach(io:file, filename:"Blancs-Sablons-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/Blancs-Sablons-main_ybabd0.jpg'
+  # file = URI.open(link)
+  # spot2.photos.attach(io:file, filename:"Blancs-Sablons-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/Blancs-Sablons-rigth_pcayc5.jpg'
+  # file = URI.open(link)
+  # spot2.photos.attach(io:file, filename:"Blancs-Sablons-second",content_type: 'image/jpg')
 
   spot2.save!
 
 
 
   spot3 = Spot.new(
-  latitude: 49.4812,
-  longitude: -1.8474,
+  latitude: 48.6623,
+  longitude: -2.0037,
   name: "Plage du Sillon",
   description: "St Malo’s main beach is surfed on SW storms, best peaks next to la Hoguette groin. Webcam.",
   webcam_link: "https://www.youtube.com/watch?v=OetL01QjfBs&feature=emb_title",
@@ -102,19 +102,19 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Sillon_main_xezznn.jpg'
-  file = URI.open(link)
-  spot3.photos.attach(io:file, filename:"Le-Sillon-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Sillon-left_o86tsm.jpg'
-  file = URI.open(link)
-  spot3.photos.attach(io:file, filename:"Le-Sillon-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Sillon_main_xezznn.jpg'
+  # file = URI.open(link)
+  # spot3.photos.attach(io:file, filename:"Le-Sillon-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Sillon-left_o86tsm.jpg'
+  # file = URI.open(link)
+  # spot3.photos.attach(io:file, filename:"Le-Sillon-second",content_type: 'image/jpg')
 
 
   spot3.save!
 
   spot4 = Spot.new(
-  latitude: 48.64,
-  longitude: -1.4474,
+  latitude: 48.6977,
+  longitude: -3.649,
   name: "Pors Ar Villec Locquirec",
   description: "‘Porza’ is the most consistent spot in the laid-back surf area of Locquirec. Fast and hollow over the sand-covered reef when the NW swell hits or clean little longboard peelers when small and groomed by any S wind.",
   webcam_link: "https://www.youtube.com/watch?v=baURl-dylZY",
@@ -124,12 +124,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Pors_ars_ville_right_wsdhgs.jpg'
-  file = URI.open(link)
-  spot4.photos.attach(io:file, filename:"Pors-ars-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Pors_ars_ville_main_wdzz18.jpg'
-  file = URI.open(link)
-  spot4.photos.attach(io:file, filename:"Pors-ars-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Pors_ars_ville_right_wsdhgs.jpg'
+  # file = URI.open(link)
+  # spot4.photos.attach(io:file, filename:"Pors-ars-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/Pors_ars_ville_main_wdzz18.jpg'
+  # file = URI.open(link)
+  # spot4.photos.attach(io:file, filename:"Pors-ars-second",content_type: 'image/jpg')
 
   spot4.save!
 
@@ -145,12 +145,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-main_srpvs9.jpg'
-  file = URI.open(link)
-  spot5.photos.attach(io:file, filename:"baie-trepasses-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-surf_esx8ub.jpg'
-  file = URI.open(link)
-  spot5.photos.attach(io:file, filename:"baie-trepasses-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-main_srpvs9.jpg'
+  # file = URI.open(link)
+  # spot5.photos.attach(io:file, filename:"baie-trepasses-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-surf_esx8ub.jpg'
+  # file = URI.open(link)
+  # spot5.photos.attach(io:file, filename:"baie-trepasses-second",content_type: 'image/jpg')
 
   spot5.save!
 
@@ -165,19 +165,19 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/cap-frehel-right_lkdps4.jpg'
-  file = URI.open(link)
-  spot6.photos.attach(io:file, filename:"cap-frehel-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/cap-frehel-main_qtjqwn.jpg'
-  file = URI.open(link)
-  spot6.photos.attach(io:file, filename:"cap-frehel-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/cap-frehel-right_lkdps4.jpg'
+  # file = URI.open(link)
+  # spot6.photos.attach(io:file, filename:"cap-frehel-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/cap-frehel-main_qtjqwn.jpg'
+  # file = URI.open(link)
+  # spot6.photos.attach(io:file, filename:"cap-frehel-second",content_type: 'image/jpg')
 
   spot6.save!
 
   spot7 = Spot.new(
   latitude: 47.5161,
   longitude: -3.1537,
-  name: "La Cote Sauvage",
+  name: "La Cote Sauvage Quiberon",
   description: "A concentration of some of the best spots in Brittany, with some hollow and powerful waves on a 2km stretch. Top-to-bottom, hard breathing barrels when a WSW swell meets an E wind. Port-Blanc is the first bay, gets some N wind shelter from a cliff and will probably be the busiest spot. Port Marie breaks far offshore and Port-Rhu is a well-defined, localised peak, while Port-Bara is more accessible. Some reef anchors the sandbars and large clusters of rock affect the line-up at high tides, so exit before dead high.",
   webcam_link: "none",
   windy_id: "not assigned",
@@ -186,9 +186,9 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/cote-sauvage-main_muvpmz.jpg'
-  file = URI.open(link)
-  spot7.photos.attach(io:file, filename:"cote-sauvage-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/cote-sauvage-main_muvpmz.jpg'
+  # file = URI.open(link)
+  # spot7.photos.attach(io:file, filename:"cote-sauvage-main",content_type: 'image/jpg')
 
   spot7.save!
 
@@ -204,12 +204,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-Ocean_nvcpgp.jpg'
-  file = URI.open(link)
-  spot8.photos.attach(io:file, filename:"Penthievre-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-main_hdccfy.jpg'
-  file = URI.open(link)
-  spot8.photos.attach(io:file, filename:"Penthievre-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-Ocean_nvcpgp.jpg'
+  # file = URI.open(link)
+  # spot8.photos.attach(io:file, filename:"Penthievre-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-main_hdccfy.jpg'
+  # file = URI.open(link)
+  # spot8.photos.attach(io:file, filename:"Penthievre-second",content_type: 'image/jpg')
 
   spot8.save!
 
@@ -225,12 +225,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Plage-du-loch-main_sgfxbh.jpg'
-  file = URI.open(link)
-  spot9.photos.attach(io:file, filename:"Plage-du-loch-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Plage-du-loch-surf_kpxmu2.jpg'
-  file = URI.open(link)
-  spot9.photos.attach(io:file, filename:"Plage-du-loch-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Plage-du-loch-main_sgfxbh.jpg'
+  # file = URI.open(link)
+  # spot9.photos.attach(io:file, filename:"Plage-du-loch-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Plage-du-loch-surf_kpxmu2.jpg'
+  # file = URI.open(link)
+  # spot9.photos.attach(io:file, filename:"Plage-du-loch-second",content_type: 'image/jpg')
 
   spot9.save!
 
@@ -246,12 +246,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Petit_minou-surf_lja5iz.jpg'
-  file = URI.open(link)
-  spot10.photos.attach(io:file, filename:"petit-minou-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/petit-minou-main_jzfur3.webp'
-  file = URI.open(link)
-  spot10.photos.attach(io:file, filename:"petit-minou-second",content_type: 'image/webp')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Petit_minou-surf_lja5iz.jpg'
+  # file = URI.open(link)
+  # spot10.photos.attach(io:file, filename:"petit-minou-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/petit-minou-main_jzfur3.webp'
+  # file = URI.open(link)
+  # spot10.photos.attach(io:file, filename:"petit-minou-second",content_type: 'image/webp')
 
   spot10.save!
 
@@ -267,19 +267,19 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/Testraou-right-view_cataeu.jpg'
-  file = URI.open(link)
-  spot11.photos.attach(io:file, filename:"Testraou-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/Trestraou_main_bdtrts.jpg'
-  file = URI.open(link)
-  spot11.photos.attach(io:file, filename:"Testraou-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/Testraou-right-view_cataeu.jpg'
+  # file = URI.open(link)
+  # spot11.photos.attach(io:file, filename:"Testraou-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/Trestraou_main_bdtrts.jpg'
+  # file = URI.open(link)
+  # spot11.photos.attach(io:file, filename:"Testraou-second",content_type: 'image/jpg')
 
   spot11.save!
 
   spot12 = Spot.new(
   latitude: 48.6392,
   longitude: -2.1215,
-  name: "Les Longchamps",
+  name: "Les Longchamps St Lunaire",
   description: "A friendly surfers’ hub, the beach is wide and good banks can provide hollow waves or the more common onshore mushburgers. Favours rights and a spring incoming tide will jack up the wave heights. For a change check the capricious Garde-Guerin reefs, which will have some push over the scattered rock sections on a moderate W swell and any S wind will be offshore. Out on the western headland, the awesome but treacherous Dame Jouanne ledge sucks and slams the rock shelf at low, challenging the most competent surfers and tight local crew.",
   webcam_link: "none",
   windy_id: "not assigned",
@@ -288,12 +288,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/st-lu-longchamps-surf_yyzyjh.jpg'
-  file = URI.open(link)
-  spot12.photos.attach(io:file, filename:"st-lu-longchamps-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/st-lu-longchamps-main_ii4vu5.webp'
-  file = URI.open(link)
-  spot12.photos.attach(io:file, filename:"st-lu-longchamps-second",content_type: 'image/webp')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/st-lu-longchamps-surf_yyzyjh.jpg'
+  # file = URI.open(link)
+  # spot12.photos.attach(io:file, filename:"st-lu-longchamps-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217350/Salt/st-lu-longchamps-main_ii4vu5.webp'
+  # file = URI.open(link)
+  # spot12.photos.attach(io:file, filename:"st-lu-longchamps-second",content_type: 'image/webp')
 
   spot12.save!
 
@@ -309,12 +309,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/plage-palue-left_ykaqmi.jpg'
-  file = URI.open(link)
-  spot13.photos.attach(io:file, filename:"plage-palue-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/plage-palue-main_i8kxw1.jpg'
-  file = URI.open(link)
-  spot13.photos.attach(io:file, filename:"plage-palue-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/plage-palue-left_ykaqmi.jpg'
+  # file = URI.open(link)
+  # spot13.photos.attach(io:file, filename:"plage-palue-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217349/Salt/plage-palue-main_i8kxw1.jpg'
+  # file = URI.open(link)
+  # spot13.photos.attach(io:file, filename:"plage-palue-second",content_type: 'image/jpg')
 
   spot13.save!
 
@@ -330,18 +330,18 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Lampaul-Ploudalmezeau-surf_njzdfh.jpg'
-  file = URI.open(link)
-  spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Lampaul-Ploudalmezeau-main_nvfb2l.jpg'
-  file = URI.open(link)
-  spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-second",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Lampaul-Ploudalmezeau-surf_njzdfh.jpg'
+  # file = URI.open(link)
+  # spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Lampaul-Ploudalmezeau-main_nvfb2l.jpg'
+  # file = URI.open(link)
+  # spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-second",content_type: 'image/jpg')
 
   spot14.save!
 
   spot15 = Spot.new(
   latitude: 48.1094,
-  longitude: 4.3619,
+  longitude: -4.3619,
   name: "Les Rochees Blanches",
   description: "A very good left a.k.a. Roches Blanches, with a rocky take-off, followed by a long spinning wall. It needs a big swell and can get perfect in a SW storm. Handles W winds.
   Very hot locals. With consistency as low as 2 and crowds as high as 9 when it does finally break, it's no wonder there's some tension in the water. Freecamping the carparks around Douarnenez risks a ticket in summer.
@@ -353,12 +353,12 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Les-roches-blanches-surf_nstupf.jpg'
-  file = URI.open(link)
-  spot15.photos.attach(io:file, filename:"roches-blanches-main",content_type: 'image/jpg')
-  link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Les-roches-blanches-main_o4uvrb.webp'
-  file = URI.open(link)
-  spot15.photos.attach(io:file, filename:"roches-blanches-second",content_type: 'image/webp')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Les-roches-blanches-surf_nstupf.jpg'
+  # file = URI.open(link)
+  # spot15.photos.attach(io:file, filename:"roches-blanches-main",content_type: 'image/jpg')
+  # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217347/Salt/Les-roches-blanches-main_o4uvrb.webp'
+  # file = URI.open(link)
+  # spot15.photos.attach(io:file, filename:"roches-blanches-second",content_type: 'image/webp')
 
   spot15.save!
 
@@ -459,45 +459,45 @@ puts "forecasts generated yeeeeeew 🌊"
     email:    "kelly@gmail.com",
     password: "password"
     )
-  link = 'https://www.outsideonline.com/sites/default/files/styles/img_600x600/public/migrated-images_parent/migrated-images_68/kelly-slater-in-france_s.jpg?itok=jltb_x2r'
-  file = URI.open(link)
-  user1.photo.attach(io:file, filename:"Kelly-photo",content_type: 'image/jpg')
+  # link = 'https://www.outsideonline.com/sites/default/files/styles/img_600x600/public/migrated-images_parent/migrated-images_68/kelly-slater-in-france_s.jpg?itok=jltb_x2r'
+  # file = URI.open(link)
+  # user1.photo.attach(io:file, filename:"Kelly-photo",content_type: 'image/jpg')
   user1.save!
 
   user2 = User.new(
     email:    "occy@gmail.com",
     password: "password"
     )
-  link = 'https://i.nextmedia.com.au/News/02-Occy1.jpg'
-  file = URI.open(link)
-  user2.photo.attach(io:file, filename:"Occy-photo",content_type: 'image/jpg')
+  # link = 'https://i.nextmedia.com.au/News/02-Occy1.jpg'
+  # file = URI.open(link)
+  # user2.photo.attach(io:file, filename:"Occy-photo",content_type: 'image/jpg')
   user2.save!
 
   user3 = User.new(
     email:    "stoker@gmail.com",
     password: "password"
     )
-  link = "https://stabmag.com/assets/post-hero-banners/_resampled/ScaleWidthWyIxMjAwIl0-Screen-Shot-2017-05-06-at-10.24.26-1024x581.png"
-  file = URI.open(link)
-  user3.photo.attach(io:file, filename:"Stoker-photo",content_type: 'image/jpg')
+  # link = "https://stabmag.com/assets/post-hero-banners/_resampled/ScaleWidthWyIxMjAwIl0-Screen-Shot-2017-05-06-at-10.24.26-1024x581.png"
+  # file = URI.open(link)
+  # user3.photo.attach(io:file, filename:"Stoker-photo",content_type: 'image/jpg')
   user3.save!
 
   user4 = User.new(
     email:    "dane@gmail.com",
     password: "password"
     )
-  link = "https://www.boardrap.com/wp-content/uploads/2016/04/dane-middle-finger-fuck-quik-MorganMaassen_DaneReynolds2_318.jpg"
-  file = URI.open(link)
-  user4.photo.attach(io:file, filename:"Dane-photo",content_type: 'image/jpg')
+  # link = "https://www.boardrap.com/wp-content/uploads/2016/04/dane-middle-finger-fuck-quik-MorganMaassen_DaneReynolds2_318.jpg"
+  # file = URI.open(link)
+  # user4.photo.attach(io:file, filename:"Dane-photo",content_type: 'image/jpg')
   user4.save!
 
   user5 = User.new(
     email:    "andy@gmail.com",
     password: "password"
     )
-  link = "https://content.quiksilver.com/www/2018.billabong.com/html/upload/billabong_surf/riders/_ID-19-8-Andy-Irons.jpg"
-  file = URI.open(link)
-  user5.photo.attach(io:file, filename:"Andy-photo",content_type: 'image/jpg')
+  # link = "https://content.quiksilver.com/www/2018.billabong.com/html/upload/billabong_surf/riders/_ID-19-8-Andy-Irons.jpg"
+  # file = URI.open(link)
+  # user5.photo.attach(io:file, filename:"Andy-photo",content_type: 'image/jpg')
   user5.save!
 
   puts "users generated yeeeeeew 🏄‍♂️"
