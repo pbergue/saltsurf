@@ -4,6 +4,12 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
+    # unconmment once geocoder is implemented
+    # if params[:query].present?
+    #   @spots = spots.near(params[:query],5)
+    # else
+    #   @spots = Spot.all
+    # end
   end
 
   def show
