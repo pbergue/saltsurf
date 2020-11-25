@@ -29,7 +29,11 @@
 <%# set .favorite function %>
 <div class="mt-2 mb-3 container text-center">
   <% if current_user %>
-    <h3 class="text-dark"> Your Favorite Spots </h3>
+    <% if current_user.favorites %>
+      <h3 class="text-dark"> Your Favorite Spots </h3>
+    <% else %>
+      <h3 class="text-dark"> The best spots right now </h3>
+    <% end %>
   <% else %>
     <h3 class="text-dark"> The best spots right now </h3>
   <% end %>
@@ -41,7 +45,14 @@
         <%= link_to root_path(item), class: "text-decoration-none text-light" do %>
           <div class="rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path item.photos.first.key %>);">
             <h5 class="font-weight-bold"><%= item.name %></h5>
-            <p> <%= item.forecasts.first.rating %> stars</p>
+            <div class="mt-2 d-flex justify-content-center">
+              <% item.forecasts.first.rating.times do %>
+                <i class="fas text-light fa-star ml-1"></i>
+              <% end %>
+              <% (5 - item.forecasts.first.rating).times do %>
+                <i class="fas text-muted fa-star ml-1"></i>
+              <% end %>
+            </div>
           </div>
         <% end %>
       </div>
