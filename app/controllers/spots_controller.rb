@@ -7,9 +7,9 @@ class SpotsController < ApplicationController
     @markers = @spots.geocoded.map do |spot|
     {
       lat: spot.latitude,
-      lng: spot.longitude
+      lng: spot.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
     }
-
       if params[:query].present?
         @spots = spots.near(params[:query],5)
       else
