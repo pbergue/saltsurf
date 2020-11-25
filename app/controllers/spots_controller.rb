@@ -10,8 +10,7 @@ class SpotsController < ApplicationController
       @query_coordinates = Geocoder.search(params[:query]).first&.coordinates
     end
 
-    @markers = @spots.geocoded.map do |spot|
-      {
+    @markers = @spots.geocoded.map do |spot| {
         lat: spot.latitude,
         lng: spot.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
