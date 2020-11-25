@@ -35,9 +35,12 @@
             </dd>
           </dl>
           <dl class="row p-2">
-            <dd class="col-sm-4"><%= spot.forecasts.first.wind_direction %></dt>
-            <dd class="col-sm-4"><%= spot.forecasts.first.wind_direction %></dd>
-            <dd class="col-sm-4"><%= spot.forecasts.first.wind_speed %></dd>
+            <dd class="col-sm-4"><i class="fas fa-water"></i> <%= spot.forecasts.first.wave_height/100.to_f%>m</dt>
+            <dd class="col-sm-4">
+              <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+               <%= spot.forecasts.first.wind_speed %>kn
+            </dd>
+            <dd class="col-sm-4"><i class="fas fa-route"></i>spot.distance_to(params[:query])</dd>
           </dl>
         </div>
       </div>
