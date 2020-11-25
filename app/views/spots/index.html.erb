@@ -1,0 +1,54 @@
+<%# a div for the page %>
+<div class="container border border-warning d-flex">
+  <%# a div for search bar & cards %>
+  <div class="container border border-warning">
+    <%# a div for search bar %>
+    <div class="container border border-warning">
+      <%= form_tag root_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "address-input",
+          id: "address-input",
+          placeholder: "Enter your location",
+          class: "address-input custom-form mx-2 mw-50"
+        %>
+        <div class="range-slider custom-form d-flex align-items-center justify-content-center">
+          <p class="my-0 mx-1">0</p>
+          <input class="range-slider__range" type="range" value="100" min="0" max="100">
+          <span class="range-slider__value">0</span>
+          <p class="my-0 mx-1">km</p>
+        </div>
+        <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger" %>
+      <% end %>
+    </div>
+    <%# a div for cards %>
+    <div class="container border border-warning text-dark">
+      <% @spots.each do |spot| %>
+      <div class="card-group">
+        <div class="card my-2 p-2">
+          <dl class="row p-2">
+            <dt class="col-sm-8"><%= spot.name %></dt>
+            <dd class="col-sm-4">
+            <%spot.forecasts.first.rating.times do %>
+            <i class="fas fa-star"></i>
+            <% end %>
+            </dd>
+          </dl>
+          <dl class="row p-2">
+            <dd class="col-sm-4"><i class="fas fa-water"></i> <%= spot.forecasts.first.wave_height/100.to_f%>m</dt>
+            <dd class="col-sm-4">
+              <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+               <%= spot.forecasts.first.wind_speed %>kn
+            </dd>
+            <dd class="col-sm-4"><i class="fas fa-route"></i>spot.distance_to(params[:query])</dd>
+          </dl>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%# a div for the map %>
+  <div class="text-center">
+    <img src="https://community.windy.com/assets/uploads/files/1518430351339-screen-shot-2018-02-12-at-11.08.10-resized.jpg" class="img-fluid" alt="Windy map">
+  </div>
+</div>
