@@ -1,0 +1,29 @@
+<div class="p-3" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path @spot.photos.first.key %>);">
+  <%=  link_to "Back to list", spots_path, class: " btn btn-white" %>
+  <div class="d-flex">
+    <h3 class="my-2 font-weight-bold font-white"><%= @spot.name %></h3>
+    <i class="far fa-heart pt-1 text-sm"></i>
+  </div>
+  <%=  link_to "Go Surf", spots_path, class: "btn btn-danger" %>
+</div>
+<div class="container">
+  <h4 class="my-3 text-primary text-center"> Today's Forecast</h4>
+  <p class="text-dark mb-0">slide to update forecasts</p>
+  <i class="fas fa-long-arrow-alt-right text-dark"></i>
+    <div class="range-slider-2 d-flex align-items-center justify-content-center mx-0">
+      <p class="my-0 mx-1">0</p>
+      <input class="range-slider__range-2" name="time" type="range" value="8" min="0" max="24">
+      <span class="range-slider__value-2">0</span>
+      <p class="my-0 mx-1">km</p>
+  </div>
+  
+  <div class="row">
+    
+  </div>
+
+
+
+
+
+
+</div>

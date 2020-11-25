@@ -10,10 +10,11 @@ class SpotsController < ApplicationController
       lng: spot.longitude
     }
 
-    if params[:query].present?
-      @spots = spots.near(params[:query],5)
-    else
-      @spots = Spot.all
+      if params[:query].present?
+        @spots = spots.near(params[:query],5)
+      else
+        @spots = Spot.all
+      end
     end
   end
 
