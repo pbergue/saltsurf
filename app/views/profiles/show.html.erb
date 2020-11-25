@@ -2,5 +2,31 @@
   <h1>Profile page</h1>
 
   <h2>My favorite spots</h2>
+  <div class="container mt-2">
+    <% if current_user.favorites.present? %>
+      <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+        <% @favorite_spots.each do |item| %>
+          <div class="col mb-4 ">
+            <%= link_to root_path(item), class: "text-decoration-none text-light" do %>
+              <div class="rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%=# cl_image_path item.photos.first.key %>);">
+                <h5 class="font-weight-bold"><%= item.name %></h5>
+                <div class="mt-2 d-flex justify-content-center">
+                  <% item.forecasts.first.rating.times do %>
+                    <i class="fas text-light fa-star ml-1"></i>
+                  <% end %>
+                  <% (5 - item.forecasts.first.rating).times do %>
+                    <i class="fas text-muted fa-star ml-1"></i>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <p>No favorite spots yet</p>
+    <% end %>
+  </div>
+
   <h2>My sessions</h2>
 </div>

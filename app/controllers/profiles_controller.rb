@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
   before_action(:set_profile, only: [:show])
 
   def show
+    @favorite_spots = current_user.spots
+    raise
   end
 
   private
@@ -10,6 +12,7 @@ class ProfilesController < ApplicationController
   def set_profile
     @profile = current_user
   end
+
   # The later can be replaced directly in the view with present? method
   # def owner_has_no_sessions?
   #   count = 0
