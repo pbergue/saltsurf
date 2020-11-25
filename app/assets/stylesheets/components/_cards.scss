@@ -30,3 +30,11 @@
 .card-product .card-product-infos {
   padding: 16px;
 }
+
+.card-top {
+  border-radius: $border-radius $border-radius 0 0;
+  height: 100px;
+  padding: 16px;
+  vertical-align: middle;
+  background-color: $primary;
+}
