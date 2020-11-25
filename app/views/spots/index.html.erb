@@ -41,7 +41,7 @@
               <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
                <%= spot.forecasts.first.wind_speed %>kn
             </dd>
-            <dd class="col-sm-4"><i class="fas fa-route"></i>spot.distance_to(params[:query])</dd>
+            <dd class="col-sm-4"><i class="fas fa-route"></i><%=spot.bearing_from(@query_coordinates)%></dd>
           </dl>
         </div>
       </div>
