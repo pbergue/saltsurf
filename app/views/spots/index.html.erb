@@ -41,7 +41,7 @@
               <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
                <%= spot.forecasts.first.wind_speed %>kn
             </dd>
-            <dd class="col-sm-4"><i class="fas fa-route"></i>spot.distance_to(params[:query])</dd>
+            <dd class="col-sm-4"><i class="fas fa-route"></i><%=spot.bearing_from(@query_coordinates)%></dd>
           </dl>
         </div>
       </div>
@@ -52,7 +52,7 @@
   <div class="text-center">
     <img src="https://community.windy.com/assets/uploads/files/1518430351339-screen-shot-2018-02-12-at-11.08.10-resized.jpg" class="img-fluid" alt="Windy map">
     <div id="map"
-       style="width: 100px; height: 100%;"
+       style="width: 100%; height: 100vh;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
