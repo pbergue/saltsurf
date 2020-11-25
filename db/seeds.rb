@@ -11,7 +11,7 @@ require "open-uri"
   Session.destroy_all
   User.destroy_all
   Spot.destroy_all
-  Favorite.destroy_all
+  # Favorite.destroy_all
 
 # spots seeds
 
