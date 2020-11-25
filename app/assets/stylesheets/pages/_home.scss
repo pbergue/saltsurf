@@ -37,10 +37,6 @@
   height:  calc(1.5em + 0.75rem + 2px);
 }
 
-.bg-image {
-  object-fit: cover;
-}
-
 .height-set {
-  height: 30vh;
+  height: 30vh !important;
 }
