@@ -5,21 +5,17 @@
   <div class="container border border-warning">
     <%# a div for search bar %>
     <div class="container border border-warning">
-      <%= form_tag root_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "address-input",
-          id: "address-input",
-          placeholder: "Enter your location",
-          class: "address-input custom-form mx-2 mw-50"
+      <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
+        <%= hidden_field_tag :query,
+          params[:query]
         %>
         <div class="range-slider custom-form d-flex align-items-center justify-content-center">
           <p class="my-0 mx-1">0</p>
-          <input class="range-slider__range" type="range" value="100" min="0" max="100">
+          <input class="range-slider__range" name="distance" type="range" value="<%= params[:distance].presence || "100" %>" min="0" max="100">
           <span class="range-slider__value">0</span>
           <p class="my-0 mx-1">km</p>
         </div>
-        <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger" %>
+        <%= submit_tag "Update radius", class: "my-3 ml-2 btn btn-danger" %>
       <% end %>
     </div>
     <%# a div for cards %>
@@ -41,7 +37,7 @@
               <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
                <%= spot.forecasts.first.wind_speed %>kn
             </dd>
-            <dd class="col-sm-4"><i class="fas fa-route"></i><%=spot.bearing_from(@query_coordinates)%></dd>
+            <dd class="col-sm-4"><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i%>km</dd>
           </dl>
         </div>
       </div>

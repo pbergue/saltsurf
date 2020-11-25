@@ -8,7 +8,7 @@
   </button>
 
   <div class="search-bar-navbar">
-    <%= form_tag root_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
+    <%= form_tag spots_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
       <%= text_field_tag :query,
         params[:query],
         class: "address-input",
