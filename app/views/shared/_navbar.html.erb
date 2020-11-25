@@ -8,8 +8,16 @@
   </button>
 
   <div class="search-bar-navbar">
-    <input class="form-control form-radius" type="text" placeholder="Search" aria-label="Search">
-    <%= simple_form_for %>
+    <%= form_tag root_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "address-input",
+        id: "address-input",
+        placeholder: "Enter your location",
+        class: "address-input ml-2 form-radius"
+      %>
+      <%= submit_tag "Go", class: "btn-go-navbar" %>
+    <% end %>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -30,8 +38,8 @@
           </div>
         </li>
       <% else %>
-        <li class="btn btn-white btn-opacity">
-          <%= link_to "Login", new_user_session_path, class: "nav-link text-white py-1 px-3 login-button" %>
+        <li class="btn-white">
+          <%= link_to "Login", new_user_session_path, class: "nav-link nav-link-custom text-white" %>
         </li>
       <% end %>
     </ul>
