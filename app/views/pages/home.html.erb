@@ -8,17 +8,16 @@
     <h1 class="text-center">FIND WHERE THE SURF IS PUMPING NEAR YOU</h1>
     <p class="text-center"> Choose your location and range</p>
       <div class="container">
-        <%= form_tag root_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "address-input",
-          id: "address-input",
-          placeholder: "Enter your location",
-          class: "address-input custom-form mx-2 mw-50"
-        %>
+        <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
+        <div class="w-50 mx-3">
+          <%= text_field_tag :query, params[:query],
+            placeholder: "Enter your location",
+            class: "address-input custom-form mx-2 mw-50"
+          %>
+        </div>
         <div class="range-slider custom-form d-flex align-items-center justify-content-center">
           <p class="my-0 mx-1">0</p>
-          <input class="range-slider__range" type="range" value="100" min="0" max="100">
+          <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
           <span class="range-slider__value">0</span>
           <p class="my-0 mx-1">km</p>
         </div>
