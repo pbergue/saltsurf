@@ -33,9 +33,9 @@
           </div>
         </li>
       <% else %>
-        <li class="btn-white">
-          <%= link_to "Login", new_user_session_path, class: "nav-link nav-link-custom text-white" %>
-        </li>
+        <%= link_to new_user_session_path, class: "nav-link nav-link-custom text-white" do %>
+          <li class="btn-white">Login</li>
+        <% end %>
       <% end %>
     </ul>
   </div>
