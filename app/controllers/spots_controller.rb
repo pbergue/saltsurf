@@ -4,16 +4,17 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
-    @markers = @spots.geocoded.map do |spot|
-    {
-      lat: spot.latitude,
-      lng: spot.longitude
-    }
-      if params[:query].present?
-        @spots = Spot.near(params[:query],params[:distance])
-      else
-        @spots = Spot.all
-      end
+    
+    if params[:query].present?
+      @spots = @spots.near(params[:query], params[:distance].presence || 100)
+      @query_coordinates = Geocoder.search(params[:query]).first&.coordinates
+    end
+
+    @markers = @spots.geocoded.map do |spot| {
+        lat: spot.latitude,
+        lng: spot.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
+      }
     end
   end
 

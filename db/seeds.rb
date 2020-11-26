@@ -48,7 +48,7 @@ require "open-uri"
   spot1 = Spot.new(
   latitude: 47.8408,
   longitude: -4.3512,
-  name: "La Torche",
+  name: "La Torche Finistere",
   description: "Seminal Brittany surfspot with ultra-consistent, walled-up peak breaking beside rocky headland. Shorter but hollower rights break into the rip known as the elevator which flows straight to the peak. Lefts speed down the beach, but paddle back can be gruelling, so think about walking around to the rip. Many more breaks further north along beach at Tronoën or Penhors and mellow rights at the La Torche point at the end of Audierne Bay.",
   webcam_link: "none",
   windy_id: "not assigned",
@@ -91,8 +91,8 @@ require "open-uri"
 
 
   spot3 = Spot.new(
-  latitude: 49.4812,
-  longitude: -1.8474,
+  latitude: 48.6623,
+  longitude: -2.0037,
   name: "Plage du Sillon",
   description: "St Malo’s main beach is surfed on SW storms, best peaks next to la Hoguette groin. Webcam.",
   webcam_link: "https://www.youtube.com/watch?v=OetL01QjfBs&feature=emb_title",
@@ -113,8 +113,8 @@ require "open-uri"
   spot3.save!
 
   spot4 = Spot.new(
-  latitude: 48.64,
-  longitude: -1.4474,
+  latitude: 48.6977,
+  longitude: -3.649,
   name: "Pors Ar Villec Locquirec",
   description: "‘Porza’ is the most consistent spot in the laid-back surf area of Locquirec. Fast and hollow over the sand-covered reef when the NW swell hits or clean little longboard peelers when small and groomed by any S wind.",
   webcam_link: "https://www.youtube.com/watch?v=baURl-dylZY",
@@ -177,7 +177,7 @@ require "open-uri"
   spot7 = Spot.new(
   latitude: 47.5161,
   longitude: -3.1537,
-  name: "La Cote Sauvage",
+  name: "La Cote Sauvage Quiberon",
   description: "A concentration of some of the best spots in Brittany, with some hollow and powerful waves on a 2km stretch. Top-to-bottom, hard breathing barrels when a WSW swell meets an E wind. Port-Blanc is the first bay, gets some N wind shelter from a cliff and will probably be the busiest spot. Port Marie breaks far offshore and Port-Rhu is a well-defined, localised peak, while Port-Bara is more accessible. Some reef anchors the sandbars and large clusters of rock affect the line-up at high tides, so exit before dead high.",
   webcam_link: "none",
   windy_id: "not assigned",
@@ -279,7 +279,7 @@ require "open-uri"
   spot12 = Spot.new(
   latitude: 48.6392,
   longitude: -2.1215,
-  name: "Les Longchamps",
+  name: "Les Longchamps St Lunaire",
   description: "A friendly surfers’ hub, the beach is wide and good banks can provide hollow waves or the more common onshore mushburgers. Favours rights and a spring incoming tide will jack up the wave heights. For a change check the capricious Garde-Guerin reefs, which will have some push over the scattered rock sections on a moderate W swell and any S wind will be offshore. Out on the western headland, the awesome but treacherous Dame Jouanne ledge sucks and slams the rock shelf at low, challenging the most competent surfers and tight local crew.",
   webcam_link: "none",
   windy_id: "not assigned",
@@ -341,7 +341,7 @@ require "open-uri"
 
   spot15 = Spot.new(
   latitude: 48.1094,
-  longitude: 4.3619,
+  longitude: -4.3619,
   name: "Les Rochees Blanches",
   description: "A very good left a.k.a. Roches Blanches, with a rocky take-off, followed by a long spinning wall. It needs a big swell and can get perfect in a SW storm. Handles W winds.
   Very hot locals. With consistency as low as 2 and crowds as high as 9 when it does finally break, it's no wonder there's some tension in the water. Freecamping the carparks around Douarnenez risks a ticket in summer.
@@ -551,4 +551,15 @@ puts "forecasts generated yeeeeeew 🌊"
 
 puts "sessions generated yeeeeeew 🐋"
 
-
+puts "creating favorites spots for Kelly"
+  fav_spot_1 = Favorite.new(
+    spot_id: Spot.first.id,
+    user_id: User.first.id
+  )
+  fav_spot_1.save!
+  fav_spot_2 = Favorite.new(
+    spot_id: Spot.last.id,
+    user_id: User.first.id
+  )
+  fav_spot_2.save!
+puts "Fav spots created!"
