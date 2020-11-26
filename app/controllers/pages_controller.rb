@@ -3,7 +3,6 @@ class PagesController < ApplicationController
 
   def home
     if user_signed_in? && current_user.favorites.present?
-      # @spots = current_user.favorites if current_user.favorites
       @spots = current_user.spots if current_user.spots
     else
       @spots = Spot.all
