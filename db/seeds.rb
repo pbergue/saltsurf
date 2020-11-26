@@ -411,11 +411,65 @@ require "open-uri"
       rating: rand(0..5),
       swell_direction: rand(0..360),
       period: rand(4..16),
-      source: "not assigned",
+      source: "Windy",
       low_tide: DateTime.now,
       high_tide: DateTime.now + 6.25.hours,
       spot_id: spot.id,
       timestamp: DateTime.now
+      )
+    forecast.save!
+  end
+
+  Spot.all.each do |spot|
+    forecast = Forecast.new(
+      wave_height: rand(0..300),
+      wind_direction: rand(0..360),
+      wind_speed: rand(0..50),
+      swell_height: rand(0..300),
+      rating: rand(0..5),
+      swell_direction: rand(0..360),
+      period: rand(4..16),
+      source: "Windy",
+      low_tide: DateTime.now,
+      high_tide: DateTime.now + 6.25.hours,
+      spot_id: spot.id,
+      timestamp: DateTime.now + 6.hours
+      )
+    forecast.save!
+  end
+
+    Spot.all.each do |spot|
+    forecast = Forecast.new(
+      wave_height: rand(0..300),
+      wind_direction: rand(0..360),
+      wind_speed: rand(0..50),
+      swell_height: rand(0..300),
+      rating: rand(0..5),
+      swell_direction: rand(0..360),
+      period: rand(4..16),
+      source: "MSW",
+      low_tide: DateTime.now,
+      high_tide: DateTime.now + 6.25.hours,
+      spot_id: spot.id,
+      timestamp: DateTime.now
+      )
+    forecast.save!
+  end
+
+    Spot.all.each do |spot|
+    forecast = Forecast.new(
+      wave_height: rand(0..300),
+      wind_direction: rand(0..360),
+      wind_speed: rand(0..50),
+      swell_height: rand(0..300),
+      rating: rand(0..5),
+      swell_direction: rand(0..360),
+      period: rand(4..16),
+      source: "MSW",
+      low_tide: DateTime.now,
+      high_tide: DateTime.now + 6.25.hours,
+      spot_id: spot.id,
+      timestamp: DateTime.now + 6.hours
       )
     forecast.save!
   end
@@ -457,7 +511,8 @@ puts "forecasts generated yeeeeeew 🌊"
 
   user1 = User.new(
     email:    "kelly@gmail.com",
-    password: "password"
+    password: "password",
+    name: "Kelly"
     )
   link = 'https://www.outsideonline.com/sites/default/files/styles/img_600x600/public/migrated-images_parent/migrated-images_68/kelly-slater-in-france_s.jpg?itok=jltb_x2r'
   file = URI.open(link)
@@ -466,7 +521,8 @@ puts "forecasts generated yeeeeeew 🌊"
 
   user2 = User.new(
     email:    "occy@gmail.com",
-    password: "password"
+    password: "password",
+    name: "Occy"
     )
   link = 'https://i.nextmedia.com.au/News/02-Occy1.jpg'
   file = URI.open(link)
@@ -475,7 +531,8 @@ puts "forecasts generated yeeeeeew 🌊"
 
   user3 = User.new(
     email:    "stoker@gmail.com",
-    password: "password"
+    password: "password",
+    name: "Stoker"
     )
   link = "https://stabmag.com/assets/post-hero-banners/_resampled/ScaleWidthWyIxMjAwIl0-Screen-Shot-2017-05-06-at-10.24.26-1024x581.png"
   file = URI.open(link)
@@ -484,7 +541,8 @@ puts "forecasts generated yeeeeeew 🌊"
 
   user4 = User.new(
     email:    "dane@gmail.com",
-    password: "password"
+    password: "password",
+    name: "Dane"
     )
   link = "https://www.boardrap.com/wp-content/uploads/2016/04/dane-middle-finger-fuck-quik-MorganMaassen_DaneReynolds2_318.jpg"
   file = URI.open(link)
@@ -493,7 +551,8 @@ puts "forecasts generated yeeeeeew 🌊"
 
   user5 = User.new(
     email:    "andy@gmail.com",
-    password: "password"
+    password: "password",
+    name: "Andy"
     )
   link = "https://content.quiksilver.com/www/2018.billabong.com/html/upload/billabong_surf/riders/_ID-19-8-Andy-Irons.jpg"
   file = URI.open(link)
