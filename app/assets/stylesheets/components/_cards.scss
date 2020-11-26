@@ -38,3 +38,18 @@
   vertical-align: middle;
   background-color: $primary;
 }
+
+.card-content {
+ & p {
+    margin: 0px;
+    font-size: 20px;
+  }
+
+  & i {
+    vertical-align: bottom;
+    font-size: 24px;
+  }
+  & div {
+    margin: 4px 0px;
+  }
+}

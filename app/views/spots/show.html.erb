@@ -1,24 +1,33 @@
-<div class="p-3" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url('https://www.sportbusinessmag.com/wp-content/uploads/2020/10/800px-Waves_Games_La_Torche_2018-10-21_12.jpg');">
-  <%=  link_to "Back to list", spots_path, class: " btn btn-white" %>
+<div class="p-3" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path @spot.photos.first.key %>);">
+  <%=  link_to "<< Back to list", spots_path, class: " btn btn-back" %>
   <div class="d-flex">
-    <h3 class="my-2 font-weight-bold font-white"><%= @spot.name %></h3>
-    <i class="far fa-heart pt-1 text-sm"></i>
+    <h3 class="mt-3 mb-5 font-weight-bold text-white"><%= @spot.name %></h3>
+    <% if current_user %>
+      <% if current_user.favorites.include? @spot %>
+        <i class="fas fa-heart pt-3 text-danger text-sm"></i>
+      <% else %>
+        <i class="far fa-heart pt-3 text-secondary text-sm"></i>
+      <% end %>
+    <% else %>
+      <i class="far fa-heart pt-3 text-secondary text-sm"></i>
+    <% end %>
   </div>
-  <%=  link_to "Go Surf", spots_path, class: "btn btn-danger" %>
+  <%=  link_to "Go Surf", spots_path, class: "mb-3 btn btn-danger" %>
 </div>
 
 <div class="container">
 
   <h4 class="my-3 text-primary text-center"> Today's Forecast</h4>
-  <p class="text-dark mb-0">slide to update forecasts</p>
-  <i class="fas fa-long-arrow-alt-right text-dark"></i>
-    <div class="range-slider-2 d-flex align-items-center justify-content-center mb-3 mx-0">
-      <p class="my-0 mx-1">0</p>
-      <input class="range-slider__range-2" name="time" type="range" value="8" min="0" max="24">
-      <span class="range-slider__value-2">0</span>
-      <p class="my-0 mx-1">km</p>
+    <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
+      <label class="btn btn-toggle active">
+        <input type="radio" name="options" id="option1" checked> Morning
+      </label>
+      <label class="btn btn-toggle">
+        <input type="radio" name="options" id="option2"> Afternoon
+      </label>
     </div>
-  
+
+
   <div id="page-content" class="row">
     <%# forecast-cards %>
     <div class="col-8">
@@ -35,17 +44,18 @@
                 <% end %>
             </div>
           </div>
-          <div id="card-content" class="container pt-3">
+          <%# id="card-content" %>
+          <div class="container card-content pt-3 px-4">
             <%# wave-conditions %>
             <div>
-              <h6> Wave Conditions</h6>
-              <div class="d-flex justify-content-between px-3">
-                <div class="d-flex">
+              <h5> Wave Conditions</h5>
+              <div class="d-flex justify-content-between align-items-center px-3">
+                <div class="d-flex align-items-center">
                   <i class="fas fa-arrows-alt-v pr-2"></i>
                   <p><%= forecast.wave_height %> cm </p>
                 </div>
                 <div class="d-flex">
-                  <i class="fas fa-wave-square pr-2"></i>
+                  <i class="fas fa-wave-square pr-2" ></i>
                   <p><%= forecast.period %> s </p>
                 </div>
               </div>
@@ -62,9 +72,9 @@
             </div>
             <hr style="width:50%;" class="text-center">
             <div id="wind-conditions">
-              <h6> Wind Conditions</h6>
+              <h5> Wind Conditions</h5>
               <div class="d-flex justify-content-between">
-                <div class="d-flex">
+                <div class="d-flex mb-4">
                   <i class="fas fa-wind pr-2"></i>
                   <p> <%= forecast.wind_speed %> kts </p>
                 </div>
