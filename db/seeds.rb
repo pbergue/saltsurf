@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
-  # Forecast.destroy_all
-  # Session.destroy_all
-  # User.destroy_all
-  # Spot.destroy_all
+  Forecast.destroy_all
+  Session.destroy_all
+  User.destroy_all
+  Spot.destroy_all
 
 # spots seeds
 
@@ -65,6 +65,8 @@ require "open-uri"
   # spot1.photos.attach(io:file, filename:"La-Torche-second",content_type: 'image/jpg')
 
   spot1.save!
+
+  GetStormglassApiService.new(spot1).call
 
 
   spot2 = Spot.new(
@@ -550,5 +552,3 @@ puts "forecasts generated yeeeeeew 🌊"
   end
 
 puts "sessions generated yeeeeeew 🐋"
-
-
