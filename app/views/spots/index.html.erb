@@ -37,7 +37,7 @@
               <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
                <%= spot.forecasts.first.wind_speed %>kn
             </dd>
-            <dd class="col-sm-4"><i class="fas fa-route"></i> <%= spot.distance_to(@query_coordinates).to_i if @query_coordinates.present %>km</dd>
+            <dd class="col-sm-4"><i class="fas fa-route"></i> <%= spot.distance_to(@query_coordinates).to_i if @query_coordinates.present? %>km</dd>
           </dl>
         </div>
       </div>
