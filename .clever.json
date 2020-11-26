@@ -1,1 +1,11 @@
-{"apps":[{"app_id":"app_8553b3c3-60e9-4593-b646-08b7ee64faab","org_id":"user_44b83621-05ee-4e52-ab70-2670dd4ccec1","deploy_url":"https://push-par-clevercloud-customers.services.clever-cloud.com/app_8553b3c3-60e9-4593-b646-08b7ee64faab.git","name":"saltsurf","alias":"saltsurf"}]}
+{
+  "apps": [
+    {
+      "app_id": "app_8553b3c3-60e9-4593-b646-08b7ee64faab",
+      "org_id": "user_44b83621-05ee-4e52-ab70-2670dd4ccec1",
+      "deploy_url": "https://push-par-clevercloud-customers.services.clever-cloud.com/app_8553b3c3-60e9-4593-b646-08b7ee64faab.git",
+      "name": "saltsurf",
+      "alias": "saltsurf"
+    }
+  ]
+}
