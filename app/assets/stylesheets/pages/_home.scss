@@ -23,8 +23,7 @@
 }
 
 .icon {
-  height: 40px;
-  width: auto;
+
 }
 
 .custom-form {
@@ -33,11 +32,23 @@
   padding: 4px 18px;
   border: none;
   height:  calc(1.5em + 0.75rem + 2px);
-  ::-webkit-input-placeholder {
-    color:rgb(255, 0, 0);
-  }
 }
 
 .height-set {
   height: 30vh !important;
+}
+
+#pages_body {
+  ::-webkit-input-placeholder {
+    color:rgba(255, 255, 255, 0.6);
+  }
+  ::-moz-placeholder {
+    color:rgba(255, 255, 255, 0.6);
+  }
+  ::-ms-placeholder {
+    color:rgba(255, 255, 255, 0.6);
+  }
+  ::placeholder {
+    color:rgba(255, 255, 255, 0.6);
+  }
 }
