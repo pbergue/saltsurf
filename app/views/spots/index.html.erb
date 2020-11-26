@@ -1,10 +1,9 @@
-
 <%# a div for the page %>
-<div class="container border border-warning d-flex">
+<div class="container d-flex parent">
   <%# a div for search bar & cards %>
-  <div class="container border border-warning">
+  <div class="container">
     <%# a div for search bar %>
-    <div class="container border border-warning">
+    <div class="container">
       <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
         <%= hidden_field_tag :query,
           params[:query]
@@ -19,38 +18,43 @@
       <% end %>
     </div>
     <%# a div for cards %>
-    <div class="container border border-warning text-dark">
-      <% @spots.each do |spot| %>
-      <div class="card-group">
-        <div class="card my-2 p-2">
-          <dl class="row p-2">
-            <dt class="col-sm-8"><%= spot.name %></dt>
-            <dd class="col-sm-4">
-            <%spot.forecasts.first.rating.times do %>
-            <i class="fas fa-star"></i>
-            <% end %>
-            </dd>
-          </dl>
-          <dl class="row p-2">
-            <dd class="col-sm-4"><i class="fas fa-water"></i> <%= spot.forecasts.first.wave_height/100.to_f%>m</dt>
-            <dd class="col-sm-4">
-              <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
-               <%= spot.forecasts.first.wind_speed %>kn
-            </dd>
-            <dd class="col-sm-4"><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i%>km</dd>
-          </dl>
+    <div class="container text-dark">
+        <% @spots.each do |spot| %>
+        <div class="card-spot">
+          <%# <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
+          <div class="card-spot-top">
+              <h2><%= spot.name %></h2>
+            <div class="card-spot-top-rating">
+              <%spot.forecasts.first.rating.times do %>
+              <i class="fas fa-star"></i>
+              <% end %>
+            </div>
+          </div>
+            <div class="card-spot-info">
+              <div>
+                <p><i class="fas fa-water"></i> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+              </div>
+              <div>
+                <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                <%= spot.forecasts.first.wind_speed %>kn
+                </p>
+              </div>
+              <div>
+                <p><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i%>km</p>
+              </div>
+            </div>
         </div>
-      </div>
-      <% end %>
+        <% end %>
     </div>
   </div>
   <%# a div for the map %>
-  <div class="text-center">
-    <img src="https://community.windy.com/assets/uploads/files/1518430351339-screen-shot-2018-02-12-at-11.08.10-resized.jpg" class="img-fluid" alt="Windy map">
-    <div id="map"
-       style="width: 100%; height: 600px;"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="container text-dark">
+    <div class="text-center">
+      <div id="map"
+        style="width: 100%; height: 100vh; position:sticky; top:0px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>
 </div>
