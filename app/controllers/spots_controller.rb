@@ -15,7 +15,6 @@ class SpotsController < ApplicationController
         lng: spot.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
       }
-    
     end
   end
 
@@ -26,5 +25,9 @@ class SpotsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:id])
+  end
+
+  def spot_params
+    params.require(:spot).permit(:name, :description, :latitude, :longitude)
   end
 end
