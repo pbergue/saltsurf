@@ -21,7 +21,7 @@
     <div class="container text-dark">
         <% @spots.each do |spot| %>
         <div class="card-spot">
-          <%# <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
+          <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
           <div class="card-spot-top">
               <h2><%= spot.name %></h2>
             <div class="card-spot-top-rating">
@@ -43,6 +43,7 @@
                 <p><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i if @query_coordinates.present?%>km</p>
               </div>
             </div>
+          <% end %>
         </div>
         <% end %>
     </div>
