@@ -4,7 +4,7 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
-
+    
     if params[:query].present?
       @spots = @spots.near(params[:query], params[:distance].presence || 100)
       @query_coordinates = Geocoder.search(params[:query]).first&.coordinates
@@ -15,7 +15,6 @@ class SpotsController < ApplicationController
         lng: spot.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
       }
-    raise
     end
   end
 
