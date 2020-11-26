@@ -2,8 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    if current_user
-      @spots = current_user.favorites.map{|favorite| favorite.spot} if current_user.favorites
+    if user_signed_in? && current_user.favorites.present?
+      # @spots = current_user.favorites if current_user.favorites
+      @spots = current_user.spots if current_user.spots
     else
       @spots = Spot.all
       @spots = @spots.first(4) #must be replaced with Top 5 function
