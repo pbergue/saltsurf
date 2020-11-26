@@ -21,6 +21,15 @@
   }
 }
 
+.custom-my-profile {
+  opacity: 0.8;
+}
+
+.custom-my-profile:hover {
+  text-decoration: none;
+  opacity: 0.6;
+}
+
 .vertical-align {
   vertical-align: middle;
   height: 300px;
