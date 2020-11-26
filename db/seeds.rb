@@ -433,7 +433,7 @@ require "open-uri"
       low_tide: DateTime.now,
       high_tide: DateTime.now + 6.25.hours,
       spot_id: spot.id,
-      timestamp: DateTime.now + 6hours
+      timestamp: DateTime.now + 6.hours
       )
     forecast.save!
   end

@@ -4,7 +4,7 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
-    
+
     if params[:query].present?
       @spots = @spots.near(params[:query], params[:distance].presence || 100)
       @query_coordinates = Geocoder.search(params[:query]).first&.coordinates
@@ -25,5 +25,9 @@ class SpotsController < ApplicationController
 
   def set_spot
     @spot = Spot.find(params[:id])
+  end
+
+  def spot_params
+    params.require(:spot).permit(:name, :description, :latitude, :longitude)
   end
 end
