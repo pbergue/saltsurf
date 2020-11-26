@@ -29,21 +29,27 @@
   </div>
 
   <div class=" grey-rounded-background p-4 ">
-    <h2>My sessions</h2>
-    <% if @sessions.present? %>
-      <% @sessions.each do |session| %>
-        <div class="inside-container my-3 d-flex align-items-center justify-content-between">
-          <div>
-            <h4><%= session.spot.name %></h4>
-            <h5><%= session.timestamp %></h5>
-            <p><%= session.description %></p>
-          </div>
-          <div>
-            <h5><%= session.title%></h5>
-            <h5><%= session.rating %> /5</h5>
-          </div>
-        </div>
+    <div class="d-flex justify-content-between">
+      <h2>My sessions</h2>
+      <%= form_tag profile_path, method: :get, class:"" do %>
+        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
+        <%= submit_tag "Update" %>
       <% end %>
+    </div>
+    <% if @sessions.present? %>
+        <% @sessions.each do |session| %>
+          <div class="inside-container my-3 d-flex align-items-center justify-content-between">
+            <div>
+              <h4><%= session.spot.name %></h4>
+              <h5><%= session.timestamp %></h5>
+              <p><%= session.description %></p>
+            </div>
+            <div>
+              <h5><%= session.title%></h5>
+              <h5><%= session.rating %> /5</h5>
+            </div>
+          </div>
+        <% end %>
     <% else %>
       <p>No sessions recorded yet</p>
     <% end %>
