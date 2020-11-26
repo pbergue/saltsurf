@@ -19,6 +19,9 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @forecasts = @spot.forecasts
+    @forecasts_am = @forecasts.where ("timestamp.hour < ? ", 12)
+    @forecasts_pm = @forecasts.where ("timestamp.hour >  ? ", 12)
   end
 
   private

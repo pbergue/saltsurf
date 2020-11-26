@@ -1,24 +1,32 @@
-<div class="p-3" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path @spot.photos.first.key %>);">
+<div class="p-3" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path @spot.photos.first.key %>);">
   <%=  link_to "<< Back to list", spots_path, class: " btn btn-back" %>
   <div class="d-flex">
     <h3 class="mt-3 mb-5 font-weight-bold text-white"><%= @spot.name %></h3>
-    <% if current_user %>
-      <% if current_user.favorites.include? @spot %>
-        <i class="fas fa-heart pt-3 text-danger text-sm"></i>
+    <div id="like-button">
+      <% if user_signed_in? %>
+        <% if current_user.spots.include? @spot %>
+          <%= link_to spot_favorite_path(@spot), method: :delete, class: "text-decoration-none text-light" do%>
+            <i class="fas fa-heart pt-2 ml-2 mt-2 text-danger text-sm"></i>
+          <% end %>
+        <% else %>
+          <%= link_to spot_favorites_path(@spot), method: :post, class: "text-decoration-none text-light" do %>
+            <i class="far fa-heart pt-2 ml-2 mt-2 text-secondary text-sm"></i>
+          <% end %>
+        <% end %>
       <% else %>
-        <i class="far fa-heart pt-3 text-secondary text-sm"></i>
+        <%= link_to new_user_session_path, method: :get, class: "text-decoration-none text-light" do %>
+          <i class="far fa-heart pt-2 ml-2 mt-2 text-secondary text-sm"></i>
+        <% end %>
       <% end %>
-    <% else %>
-      <i class="far fa-heart pt-3 text-secondary text-sm"></i>
-    <% end %>
+    </div>
   </div>
-  <%=  link_to "Go Surf", spots_path, class: "mb-3 btn btn-danger" %>
-</div>
+    <%=  link_to "Go Surf", spots_path, class: "mb-3 btn btn-danger" %>
+    </div>
 
 <div class="container">
 
   <h4 class="my-3 text-primary text-center"> Today's Forecast</h4>
-    <div class="btn-group btn-group-toggle mb-3" data-toggle="buttons">
+    <div class="btn-group btn-group-toggle mb-3 px-2" data-toggle="buttons">
       <label class="btn btn-toggle active">
         <input type="radio" name="options" id="option1" checked> Morning
       </label>
@@ -30,66 +38,73 @@
 
   <div id="page-content" class="row">
     <%# forecast-cards %>
-    <div class="col-8">
-      <% @spot.forecasts.each do |forecast| %>
-        <div class="col mb-4 px-0 text-center rounded shadow">
-          <div id="top-of-card" class="d-flex flex-column justify-content-center card-top ">
-            <h4 class="text-white"><%= forecast.source %></h4>
-            <div id="star-rating" class="mt-2 d-flex justify-content-center">
-                <% forecast.rating.times do %>
-                <i class="fas text-light fa-star ml-1"></i>
-                <% end %>
-                <% (5 - forecast.rating).times do %>
-                <i class="fas text-muted fa-star ml-1"></i>
-                <% end %>
-            </div>
-          </div>
-          <%# id="card-content" %>
-          <div class="container card-content pt-3 px-4">
-            <%# wave-conditions %>
-            <div>
-              <h5> Wave Conditions</h5>
-              <div class="d-flex justify-content-between align-items-center px-3">
-                <div class="d-flex align-items-center">
-                  <i class="fas fa-arrows-alt-v pr-2"></i>
-                  <p><%= forecast.wave_height %> cm </p>
+    <div class="col-8 px-0">
+      <div class="container">
+        <div class="row px-2 row-cols-2">
+          <% @forecasts_am.each do |forecast| %>
+            <%# card div %>
+            <div class="col mb-4 px-3 text-center">
+              <div class="shadow rounded">
+                <div id="top-of-card" class="d-flex flex-column justify-content-center card-top ">
+                  <h4 class="text-white"><%= forecast.source %></h4>
+                  <div id="star-rating" class="mt-2 d-flex justify-content-center">
+                      <% forecast.rating.times do %>
+                      <i class="fas text-light fa-star ml-1"></i>
+                      <% end %>
+                      <% (5 - forecast.rating).times do %>
+                      <i class="fas text-muted fa-star ml-1"></i>
+                      <% end %>
+                  </div>
                 </div>
-                <div class="d-flex">
-                  <i class="fas fa-wave-square pr-2" ></i>
-                  <p><%= forecast.period %> s </p>
+                <%# id="card-content" %>
+                <div class="container card-content pt-3 px-4">
+                  <%# wave-conditions %>
+                  <div>
+                    <h5> Wave Conditions</h5>
+                    <div class="d-flex justify-content-between align-items-center px-3">
+                      <div class="d-flex align-items-center">
+                        <i class="fas fa-arrows-alt-v pr-2"></i>
+                        <p><%= forecast.wave_height %> cm </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fas fa-wave-square pr-2" ></i>
+                        <p><%= forecast.period %> s </p>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex align-center">
+                        <i class="fas fa-water pr-2"></i>
+                        <p> <%=forecast.swell_height  %> cm </p>
+                      </div>
+                      <div class="d-flex">
+                        <i class="fas fa-location-arrow pr-2"></i>
+                        <p> <%= forecast.swell_direction %> deg </p>
+                      </div>
+                    </div>
+                  </div>
+                  <hr style="width:50%;" class="text-center">
+                  <div id="wind-conditions">
+                    <h5> Wind Conditions</h5>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex mb-4">
+                        <i class="fas fa-wind pr-2"></i>
+                        <p> <%= forecast.wind_speed %> kts </p>
+                      </div>
+                      
+                      <div class="d-flex">
+                        <i class="fas fa-location-arrow pr-2"></i>
+                        <p> <%= forecast.wind_direction %> deg </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex align-center">
-                  <i class="fas fa-water pr-2"></i>
-                  <p> <%=forecast.swell_height  %> cm </p>
-                </div>
-                <div class="d-flex">
-                  <i class="fas fa-location-arrow pr-2"></i>
-                  <p> <%= forecast.swell_direction %> deg </p>
-                </div>
-              </div>
             </div>
-            <hr style="width:50%;" class="text-center">
-            <div id="wind-conditions">
-              <h5> Wind Conditions</h5>
-              <div class="d-flex justify-content-between">
-                <div class="d-flex mb-4">
-                  <i class="fas fa-wind pr-2"></i>
-                  <p> <%= forecast.wind_speed %> kts </p>
-                </div>
-                
-                <div class="d-flex">
-                  <i class="fas fa-location-arrow pr-2"></i>
-                  <p> <%= forecast.wind_direction %> deg </p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
     </div>
-    <div id="right-side" class="col-4">
+    <div id="right-side" class="col">
       <%= image_tag('https://c8.alamy.com/comp/PYE035/amazing-birds-eye-view-with-turquoise-water-and-coastline-creating-an-interesting-muster-shot-on-the-coast-of-caprera-island-italy-PYE035.jpg', class: "img-thumbnail" ) %> 
     </div>
   </div>
