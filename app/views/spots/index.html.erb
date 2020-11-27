@@ -3,20 +3,6 @@
   <%# a div for search bar & cards %>
   <div class="container">
     <%# a div for search bar %>
-    <div class="container">
-      <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
-        <%= hidden_field_tag :query,
-          params[:query]
-        %>
-        <div class="range-slider custom-form d-flex align-items-center justify-content-center">
-          <p class="my-0 mx-1">0</p>
-          <input class="range-slider__range" name="distance" type="range" value="<%= params[:distance].presence || "100" %>" min="0" max="100">
-          <span class="range-slider__value">0</span>
-          <p class="my-0 mx-1">km</p>
-        </div>
-        <%= submit_tag "Update radius", class: "my-3 ml-2 btn btn-danger" %>
-      <% end %>
-    </div>
     <%# a div for cards %>
     <div class="container text-dark">
         <% @spots.each do |spot| %>
