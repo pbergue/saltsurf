@@ -1,5 +1,8 @@
+<% content_for :meta_title, "#{@spot.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @spot.description %>
+<% content_for :meta_image, cl_image_path(@spot.photo.first.key) %>
+
 <div class="container mb-3">
-  <h1 class="my-3" >Profile page</h1>
 
   <h2>My favorite spots</h2>
   <div class="container mt-3 mb-5">
@@ -7,7 +10,7 @@
       <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
         <% @favorites_spots.each do |item| %>
           <div class="col my-2 ">
-            <%= link_to root_path(item), class: "text-decoration-none text-light" do %>
+            <%= link_to spot_path(item), class: "text-decoration-none text-light" do %>
               <div class="rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path item.photos.first.key %>);">
                 <h5 class="font-weight-bold"><%= item.name %></h5>
                 <div class="mt-2 d-flex justify-content-center">
@@ -29,21 +32,27 @@
   </div>
 
   <div class=" grey-rounded-background p-4 ">
-    <h2>My sessions</h2>
-    <% if @sessions.present? %>
-      <% @sessions.each do |session| %>
-        <div class="inside-container my-3 d-flex align-items-center justify-content-between">
-          <div>
-            <h4><%= session.spot.name %></h4>
-            <h5><%= session.timestamp %></h5>
-            <p><%= session.description %></p>
-          </div>
-          <div>
-            <h5><%= session.title%></h5>
-            <h5><%= session.rating %> /5</h5>
-          </div>
-        </div>
+    <div class="d-flex justify-content-between">
+      <h2>My sessions</h2>
+      <%= form_tag profile_path, method: :get, class:"" do %>
+        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
+        <%= submit_tag "Update" %>
       <% end %>
+    </div>
+    <% if @sessions.present? %>
+        <% @sessions.each do |session| %>
+          <div class="inside-container my-3 d-flex align-items-center justify-content-between">
+            <div>
+              <h4><%= session.spot.name %></h4>
+              <h5><%= session.timestamp %></h5>
+              <p><%= session.description %></p>
+            </div>
+            <div>
+              <h5><%= session.title%></h5>
+              <h5><%= session.rating %> /5</h5>
+            </div>
+          </div>
+        <% end %>
     <% else %>
       <p>No sessions recorded yet</p>
     <% end %>

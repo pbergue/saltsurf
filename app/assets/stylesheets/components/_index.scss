@@ -8,3 +8,10 @@
 @import "map";
 @import "cards";
 @import "footer";
+
+@media (min-width: 1800px) {
+  .footer {
+    position: absolute;
+    bottom: 0;
+  }
+}

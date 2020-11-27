@@ -1,46 +1,62 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3 py-3">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <p class="logo">SALT</p>
+    <%= image_tag("SALT-logo.svg", class:"logo") %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="search-bar-navbar">
+      <!--   <div class="search-bar-navbar">
+          <%#= form_tag spots_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
+            <#%= text_field_tag :query,
+              params[:query],
+              class: "address-input",
+              id: "address-input",
+              placeholder: "Enter your location",
+              class: "address-input ml-2 form-radius"
+            %>
+            <#%= submit_tag "Go", class: "btn-go-navbar" %>
+          <#% end %>
+        </div> -->
+  <div class="navbar-container">
     <%= form_tag spots_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "address-input",
-        id: "address-input",
+    <div class="w-50 mx-3">
+      <%= text_field_tag :query, params[:query],
         placeholder: "Enter your location",
-        class: "address-input ml-2 form-radius"
+        class: "address-input custom-form mx-2 mw-50", id: "address-input"
       %>
-      <%= submit_tag "Go", class: "btn-go-navbar" %>
-    <% end %>
+    </div>
+    <div class="range-slider custom-form d-flex align-items-center justify-content-center text-white">
+      <p class="my-0 mx-1">0</p>
+      <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
+      <span class="range-slider__value">100</span>
+      <p class="my-0 mx-1">km</p>
+    </div>
+    <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger" %>
+  <% end %>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
+        <li class="nav-item active mr-1">
+          <%= link_to "#{current_user.name.capitalize}'s profile", profile_path, class: "nav-link text-white" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag "default_avatar.png", gravity: :face, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
-        <li class="btn-white">
-          <%= link_to "Login", new_user_session_path, class: "nav-link nav-link-custom text-white" %>
-        </li>
+        <%= link_to new_user_session_path, class: "nav-link nav-link-custom text-white" do %>
+          <li class="btn-white">Login</li>
+        <% end %>
       <% end %>
     </ul>
   </div>
