@@ -7,8 +7,13 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-  resource :profile, only: [:show ] do
-    resources :sessions, only: [:update]
+  resource :profile, only: [:show ]
+
+  resources :sessions, only: [] do
+    member do
+      patch :update
+      patch :rating_change
+    end
   end
 
 

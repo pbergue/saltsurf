@@ -42,11 +42,20 @@
               <h4><%= session.spot.name %></h4>
               <h5><%= session.timestamp %></h5>
               <p><%= session.description %></p>
-              <%= link_to "Update description", profile_session_path(session), method: :patch, class: "btn" %>
+                <%= simple_form_for session do |f|%>
+                  <%= f.input :description %>
+
+                  <%= f.submit "Update description!", class: "btn btn-primary" %>
+                <% end %>
             </div>
             <div>
               <h5><%= session.title%></h5>
               <h5><%= session.rating %> /5</h5>
+               <%= simple_form_for session do |f|%>
+                  <%= f.input :rating %>
+
+                  <%= f.submit "Update rating!", class: "btn btn-primary" %>
+                <% end %>
             </div>
           </div>
         <% end %>
