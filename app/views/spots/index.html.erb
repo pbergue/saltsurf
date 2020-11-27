@@ -17,7 +17,13 @@
           </div>
             <div class="card-spot-info">
               <div>
-                <p><i class="fas fa-water"></i> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                <% if spot.forecasts.first.wave_height < 50 %>
+                <p><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                <% elsif spot.forecasts.first.wave_height < 150 %>
+                <p><%= image_tag("2-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                <% else %>
+                <p><%= image_tag("3-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                <% end %>
               </div>
               <div>
                 <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
