@@ -27,8 +27,14 @@ class SpotsController < ApplicationController
       elsif forecast.timestamp.hour > 12
         @forecasts_pm << forecast
       end
-      # @var = curent_page.getElementById("am").value;
-      # raise
+    end
+    @array = []
+    @array << @spot
+    @markers = @array.map do |spot| {
+      lat: spot.latitude,
+      lng: spot.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
+    }
     end
 
   end

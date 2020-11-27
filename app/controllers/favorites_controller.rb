@@ -25,7 +25,7 @@ class FavoritesController < ApplicationController
         @favorite.destroy
         redirect_to spot_path(@spot)
     else 
-      redirect_to spot_path(@spot), notice: "You must be logged in for this feature"
+      redirect_to spot_path(@spot), alert: "You must be logged in for this feature"
     end
   end
 
