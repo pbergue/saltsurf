@@ -1,6 +1,7 @@
 .grey-rounded-background {
   background-color: rgba($color: $lighter-gray, $alpha: 0.1);
-  border-radius: 3px;
+  border-radius: 10px;
+  padding: 14px;
 }
 
 .inside-container {
@@ -27,6 +28,10 @@
   height  : 1px;
   width   : 80%;
 }*/
+
+.margin-left {
+  margin-left: 14px;
+}
 
 .search-bar-profile {
   border: none;
