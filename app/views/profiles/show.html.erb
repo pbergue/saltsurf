@@ -42,6 +42,7 @@
               <h4><%= session.spot.name %></h4>
               <h5><%= session.timestamp %></h5>
               <p><%= session.description %></p>
+              <%= link_to "Update description", profile_session_path(session), method: :patch, class: "btn" %>
             </div>
             <div>
               <h5><%= session.title%></h5>

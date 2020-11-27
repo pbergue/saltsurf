@@ -7,7 +7,10 @@ Rails.application.routes.draw do
     resources :favorites, only: [:create, :destroy]
   end
 
-  resource :profile, only: [:show ]
+  resource :profile, only: [:show ] do
+    resources :sessions, only: [:update]
+  end
+
 
   # if we want to update sessions uncomment the following :
   # resources :sessions, only: [:edit, :update]
