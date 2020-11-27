@@ -4,6 +4,8 @@ class SpotsController < ApplicationController
 
   def index
     @spots = Spot.all
+    # @spots = @spots.sort_by{ |spot| spot.forecasts.first.rating }
+    console
 
     if params[:query].present?
       @spots = @spots.near(params[:query], params[:distance].presence || 100)
