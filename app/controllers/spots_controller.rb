@@ -27,6 +27,24 @@ class SpotsController < ApplicationController
   end
 
   def show
+    @forecasts_am = []
+    @forecasts_pm = []
+    Forecast.where(spot_id: @spot.id).each do |forecast|
+      if forecast.timestamp.hour < 12
+        @forecasts_am << forecast
+      elsif forecast.timestamp.hour > 12
+        @forecasts_pm << forecast
+      end
+    end
+    @array = []
+    @array << @spot
+    @markers = @array.map do |spot| {
+      lat: spot.latitude,
+      lng: spot.longitude,
+      infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
+    }
+    end
+
   end
 
   private

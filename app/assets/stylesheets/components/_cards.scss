@@ -89,3 +89,19 @@
   vertical-align: middle;
   background-color: $primary;
 }
+
+.card-content {
+ & p {
+    margin: 0px;
+    font-size: 16px;
+  }
+
+  & i {
+    vertical-align: bottom;
+    font-size: 20px;
+  }
+  & div {
+    margin: 4px 0px;
+  }
+}
+
