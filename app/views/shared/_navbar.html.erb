@@ -7,17 +7,34 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="search-bar-navbar">
+      <!--   <div class="search-bar-navbar">
+          <%#= form_tag spots_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
+            <#%= text_field_tag :query,
+              params[:query],
+              class: "address-input",
+              id: "address-input",
+              placeholder: "Enter your location",
+              class: "address-input ml-2 form-radius"
+            %>
+            <#%= submit_tag "Go", class: "btn-go-navbar" %>
+          <#% end %>
+        </div> -->
+  <div class="navbar-container">
     <%= form_tag spots_path, method: :get, class: "d-flex align-items-center justify-content-center" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "address-input",
-        id: "address-input",
+    <div class="w-50 mx-3">
+      <%= text_field_tag :query, params[:query],
         placeholder: "Enter your location",
-        class: "address-input ml-2 form-radius"
+        class: "address-input custom-form mx-2 mw-50", id: "address-input"
       %>
-      <%= submit_tag "Go", class: "btn-go-navbar" %>
-    <% end %>
+    </div>
+    <div class="range-slider custom-form d-flex align-items-center justify-content-center text-white">
+      <p class="my-0 mx-1">0</p>
+      <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
+      <span class="range-slider__value">100</span>
+      <p class="my-0 mx-1">km</p>
+    </div>
+    <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger" %>
+  <% end %>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
