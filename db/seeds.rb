@@ -430,8 +430,8 @@ require "open-uri"
       swell_direction: rand(0..360),
       period: rand(4..16),
       source: "Windy",
-      low_tide: DateTime.now,
-      high_tide: DateTime.now + 6.25.hours,
+      low_tide: DateTime.new(2020,Date.today.month,Date.today.day,9,5,6),
+      high_tide: DateTime.new(2020,Date.today.month,Date.today.day,16,2,2),
       spot_id: spot.id,
       timestamp: DateTime.now + 6.hours
       )

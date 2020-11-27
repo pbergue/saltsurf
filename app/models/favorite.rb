@@ -4,4 +4,5 @@ class Favorite < ApplicationRecord
   has_many :photos, :through => :spot, :source => :photos_attachments
 
   validates :spot_id, :user_id, presence: true
+
 end

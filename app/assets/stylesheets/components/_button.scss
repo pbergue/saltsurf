@@ -28,7 +28,7 @@
   border-radius: 6px !important;
 }
 
-.btn-toggle {
+.nav-link {
   background-color: $light-gray !important;
   border: 1px solid $light-blue !important;
   color: $light-blue !important;
@@ -42,15 +42,14 @@
     color:white !important;
   
   }
-  &:checked {
-    background-color: red !important;
-  }
+
 }
 
+#morning-tab {
+  border-radius: $border-radius 0px 0px $border-radius;
+}
 
-
-
-// icons lower down
-// color of active toggle
-// 
+#afternoon-tab {
+  border-radius: 0px $border-radius $border-radius 0px;
+}
 

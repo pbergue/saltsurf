@@ -19,9 +19,18 @@ class SpotsController < ApplicationController
   end
 
   def show
-    @forecasts = @spot.forecasts
-    @forecasts_am = @forecasts.where ("timestamp.hour < ? ", 12)
-    @forecasts_pm = @forecasts.where ("timestamp.hour >  ? ", 12)
+    @forecasts_am = []
+    @forecasts_pm = []
+    Forecast.where(spot_id: @spot.id).each do |forecast|
+      if forecast.timestamp.hour < 12
+        @forecasts_am << forecast
+      elsif forecast.timestamp.hour > 12
+        @forecasts_pm << forecast
+      end
+      # @var = curent_page.getElementById("am").value;
+      # raise
+    end
+
   end
 
   private
