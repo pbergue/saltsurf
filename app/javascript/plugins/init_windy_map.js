@@ -12,6 +12,8 @@ const initWindy = () => {
     zoom: 7,
   };
 
+  const mapArea = document.getElementById("windy-tab");
+  mapArea.addEventListener('click', (event) => {
     // Initialize Windy API
     windyInit(options, windyAPI => {
       // windyAPI is ready, and contain 'map', 'store',
@@ -27,10 +29,8 @@ const initWindy = () => {
           .setContent(marker.name);
         L.marker([marker.lat, marker.lng]).addTo(map).bindPopup(popup);
       });
+    });
   });
 };
-
-
-
 
 export { initWindy };

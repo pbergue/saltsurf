@@ -39,10 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initAutocomplete();
   initMapbox();
-});
-
-const mapArea = document.getElementById("map-area");
-mapArea.addEventListener(click, () => {
-  // Initialize Windy API
   initWindy();
-};
+});
