@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "open-uri"
 
+  Favorite.destroy_all
   Forecast.destroy_all
   Session.destroy_all
   User.destroy_all
@@ -90,7 +91,7 @@ require "open-uri"
 
   spot2.save!
 
-
+  GetStormglassApiService.new(spot2).call
 
   spot3 = Spot.new(
   latitude: 48.6623,
@@ -114,6 +115,8 @@ require "open-uri"
 
   spot3.save!
 
+  GetStormglassApiService.new(spot3).call
+
   spot4 = Spot.new(
   latitude: 48.6977,
   longitude: -3.649,
@@ -135,6 +138,8 @@ require "open-uri"
 
   spot4.save!
 
+  GetStormglassApiService.new(spot4).call
+
   spot5 = Spot.new(
   latitude: 48.0465,
   longitude: -4.71,
@@ -147,6 +152,7 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
+
   # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217346/Salt/baie-trepasses-main_srpvs9.jpg'
   # file = URI.open(link)
   # spot5.photos.attach(io:file, filename:"baie-trepasses-main",content_type: 'image/jpg')
@@ -155,6 +161,7 @@ require "open-uri"
   # spot5.photos.attach(io:file, filename:"baie-trepasses-second",content_type: 'image/jpg')
 
   spot5.save!
+  GetStormglassApiService.new(spot5).call
 
   spot6 = Spot.new(
   latitude: 48.6575,
@@ -175,6 +182,8 @@ require "open-uri"
   # spot6.photos.attach(io:file, filename:"cap-frehel-second",content_type: 'image/jpg')
 
   spot6.save!
+  GetStormglassApiService.new(spot6).call
+
 
   spot7 = Spot.new(
   latitude: 47.5161,
@@ -193,6 +202,8 @@ require "open-uri"
   # spot7.photos.attach(io:file, filename:"cote-sauvage-main",content_type: 'image/jpg')
 
   spot7.save!
+  GetStormglassApiService.new(spot7).call
+
 
   spot8 = Spot.new(
   latitude: 47.584,
@@ -205,6 +216,9 @@ require "open-uri"
   windguru_id: "not assigned",
   surfreport_id: "not assigned",
   )
+
+  GetStormglassApiService.new(spot8).call
+
 
   # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-Ocean_nvcpgp.jpg'
   # file = URI.open(link)
@@ -234,6 +248,7 @@ require "open-uri"
   # file = URI.open(link)
   # spot9.photos.attach(io:file, filename:"Plage-du-loch-second",content_type: 'image/jpg')
 
+  GetStormglassApiService.new(spot9).call
   spot9.save!
 
   spot10 = Spot.new(
@@ -257,6 +272,8 @@ require "open-uri"
 
   spot10.save!
 
+  GetStormglassApiService.new(spot10).call
+
   spot11 = Spot.new(
   latitude: 48.8242,
   longitude: -3.3542,
@@ -277,6 +294,9 @@ require "open-uri"
   # spot11.photos.attach(io:file, filename:"Testraou-second",content_type: 'image/jpg')
 
   spot11.save!
+
+  GetStormglassApiService.new(spot11).call
+
 
   spot12 = Spot.new(
   latitude: 48.6392,
@@ -299,6 +319,9 @@ require "open-uri"
 
   spot12.save!
 
+  GetStormglassApiService.new(spot12).call
+
+
   spot13 = Spot.new(
   latitude: 48.204,
   longitude: -4.5578,
@@ -320,6 +343,9 @@ require "open-uri"
 
   spot13.save!
 
+  GetStormglassApiService.new(spot13).call
+
+
   spot14 = Spot.new(
   latitude: 48.57,
   longitude: -4.65,
@@ -340,6 +366,9 @@ require "open-uri"
   # spot14.photos.attach(io:file, filename:"Lampaul-Ploudalmezeau-second",content_type: 'image/jpg')
 
   spot14.save!
+
+  GetStormglassApiService.new(spot14).call
+
 
   spot15 = Spot.new(
   latitude: 48.1094,
@@ -363,6 +392,8 @@ require "open-uri"
   # spot15.photos.attach(io:file, filename:"roches-blanches-second",content_type: 'image/webp')
 
   spot15.save!
+  GetStormglassApiService.new(spot15).call
+
 
    1.times do |i|
     sleep(0.02)
