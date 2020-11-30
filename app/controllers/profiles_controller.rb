@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
 
   def show
     @favorites_spots = current_user.spots
-    @session_spots = current_user.session_spots.order(created_at: :desc)
+    @session_spots = current_user.session_spots.uniq
     if params[:session_spot_name].present?
       @sessions = Session.where(spot_id: params[:session_spot_name]).order(created_at: :desc)
     else

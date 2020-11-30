@@ -34,17 +34,17 @@
         <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
         <%= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
-    </div>
+  </div>
 
     <% if @sessions.present? %>
       <% @sessions.each do |sesh| %>
         <div class="inside-container session-card">
-          <div class="  my-3 px-1 d-flex align-items-center justify-content-between">
+          <div class="my-0 px-1 d-flex align-items-center justify-content-between">
             <div class="">
               <h4><%= sesh.spot.name %></h4>
-              <p class="mb-0"><%= sesh.timestamp.strftime("%a %d %b %Y") %></p>
+              <p class="mb-0"><%= sesh.timestamp.strftime("%a, %d %b %Y") %></p>
               <div class="d-flex">
-                <p>Description: <%= sesh.description %></p>
+                <p class="mb-0">Description: <%= sesh.description %></p>
                 <p class="pl-2 py-0 btn edit-button-description">Edit</p>
               </div>
             </div>
@@ -53,7 +53,7 @@
                 <% if sesh.rating %>
                   <div>
                     <% sesh.rating.times do %>
-                      <i class="fas text-dark fa-star ml-1 text-align-center"></i>
+                      <%= image_tag("shaka_svg.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%>
                     <% end %>
                   </div>
                 <% else %>
@@ -61,6 +61,10 @@
                 <% end %>
                 <p class="pl-2 py-0 btn edit-button-rating">Edit</p>
               </div>
+              <%= simple_form_for [:profile, sesh] , method: :patch, html: { class: "hidden update-rating"} do |f| %>
+                <%= f.input_field :rating, class: "mb-2 text-align-right"%>
+                <%= f.submit "Update rating!", class: "btn btn-primary" %>
+              <% end %>
               <div class="card-spot-info d-flex forecast-info">
                 <%# define spot and set symbols%>
                 <% spot = Spot.find(sesh.spot_id) %>
@@ -84,15 +88,12 @@
               </div>
             </div>
           </div>
-          <div class=" border d-flex justify-content-between " >
-            <%= simple_form_for [:profile, sesh], method: :patch, html: { class: "hidden update-description"} do |f|%>
+          <div class=" " >
+            <%= simple_form_for [:profile, sesh], method: :patch, html: { class: "hidden update-description d-flex align-items-center"} do |f|%>
               <%= f.input_field :description %>
-              <%= f.submit "Update description!", class: "btn btn-primary" %>
+              <%= f.submit "Update description!", class: "ml-2 btn btn-primary" %>
             <% end %>
-            <%= simple_form_for [:profile, sesh] , method: :patch, html: { class: "hidden update-rating"} do |f| %>
-              <%= f.input_field :rating, class: "mb-2 text-align-right"%>
-              <%= f.submit "Update rating!", class: "btn btn-primary" %>
-            <% end %>
+
           </div>
         </div>
       <% end %>
