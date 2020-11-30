@@ -1,6 +1,5 @@
 <%# a div for the page %>
 <div class="container parent">
-  <div id="windy"></div>
   <div class="row">
     <div class="col-12 col-md-6">
       <%# a div for cards %>
@@ -38,8 +37,8 @@
           </div>
           <% end %>
     </div>
-    <%# a div for the map %>
-    <div id="map" class="col-md-6"
+    <%# a div for the windy map %>
+    <div id="windy" class="col-md-6"
       style="width: 100%; height: 100vh; position:sticky; top:0px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">

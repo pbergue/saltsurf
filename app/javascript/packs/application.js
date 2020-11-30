@@ -31,20 +31,7 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import {initAutocomplete} from '../plugins/init_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
-// import { windyInit(options, windyAPI) } from '../plugins/init_windy_map';
-
-const options = {
-  // Required: API key
-  key: 'NslljtGsyZjgQG9bX9WYACzMjQkam73J', // REPLACE WITH YOUR KEY !!!
-
-  // Put additional console output
-  verbose: true,
-
-  // Optional: Initial state of the map
-  lat: 50.4,
-  lon: 14.3,
-  zoom: 5,
-};
+import { initWindy } from '../plugins/init_windy_map';
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -52,20 +39,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initAutocomplete();
   initMapbox();
+});
+
+const mapArea = document.getElementById("map-area");
+mapArea.addEventListener(click, () => {
   // Initialize Windy API
-  windyInit(options, windyAPI => {
-  // windyAPI is ready, and contain 'map', 'store',
-  // 'picker' and other usefull stuff
-
-  const { map } = windyAPI;
-  // .map is instance of Leaflet map
-
-  L.popup()
-      .setLatLng([50.4, 14.3])
-      .setContent('Hello World')
-      .openOn(map);
-});
-
-});
-
-// mapbox
+  initWindy();
+};
