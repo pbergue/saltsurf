@@ -25,7 +25,7 @@
                   <% end %>
                 </div>
                 <div>
-                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg); -ms-transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg); -webkit-transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg);"></i>
                   <%= spot.forecasts.first.wind_speed %>kn
                   </p>
                 </div>
