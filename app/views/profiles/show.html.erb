@@ -32,33 +32,73 @@
       <h2>My sessions</h2>
       <%= form_tag profile_path, method: :get do %>
         <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
-        <%= submit_tag "Update", class:"rounded mx-2 btn btn-secondary" %>
+        <%= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
     </div>
+
     <% if @sessions.present? %>
-        <% @sessions.each do |session| %>
-          <div class="inside-container my-3 px-1 d-flex align-items-center justify-content-between">
-            <div>
-              <h4><%= session.spot.name %></h4>
-              <h5><%= session.timestamp %></h5>
-              <p><%= session.description %></p>
-                <%# <%= simple_form_for session do |f|%>
-                  <%# <%= f.input :description %> %>
-                  <%# <%= f.submit "Update description!", class: "btn btn-primary" %> %>
-                <%# <% end %> %> %>
+      <% @sessions.each do |sesh| %>
+        <div class="inside-container session-card">
+          <div class="  my-3 px-1 d-flex align-items-center justify-content-between">
+            <div class="">
+              <h4><%= sesh.spot.name %></h4>
+              <p class="mb-0"><%= sesh.timestamp.strftime("%a %d %b %Y") %></p>
+              <div class="d-flex">
+                <p>Description: <%= sesh.description %></p>
+                <p class="pl-2 py-0 btn edit-button-description">Edit</p>
+              </div>
             </div>
-            <div>
-              
-              <h5><%= session.rating %> /5</h5>
-               <%# <%= simple_form_for session do |f|%> %>
-                  <%# <%= f.input :rating %> %>
-                  <%# <%= f.submit "Update rating!", class: "btn btn-primary" %> %>
-                <%# <% end %> %>
+            <div class="">
+                <div class="d-flex justify-content-between">
+                <% if sesh.rating %>
+                  <div>
+                    <% sesh.rating.times do %>
+                      <i class="fas text-dark fa-star ml-1 text-align-center"></i>
+                    <% end %>
+                  </div>
+                <% else %>
+                  <p class="font-italic">add your rating</p> 
+                <% end %>
+                <p class="pl-2 py-0 btn edit-button-rating">Edit</p>
+              </div>
+              <div class="card-spot-info d-flex forecast-info">
+                <%# define spot and set symbols%>
+                <% spot = Spot.find(sesh.spot_id) %>
+                <div class="">
+                  <% if spot.forecasts.first.wave_height < 50 %>
+                  <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% elsif spot.forecasts.first.wave_height < 150 %>
+                  <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% else %>
+                  <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% end %>
+                </div>
+                <div>
+                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                    <%= spot.forecasts.first.wind_speed %>kn
+                  </p>
+                </div>
+                <div>
+                  <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
+                </div>
+              </div>
             </div>
           </div>
-        <% end %>
+          <div class=" border d-flex justify-content-between " >
+            <%= simple_form_for [:profile, sesh], method: :patch, html: { class: "hidden update-description"} do |f|%>
+              <%= f.input_field :description %>
+              <%= f.submit "Update description!", class: "btn btn-primary" %>
+            <% end %>
+            <%= simple_form_for [:profile, sesh] , method: :patch, html: { class: "hidden update-rating"} do |f| %>
+              <%= f.input_field :rating, class: "mb-2 text-align-right"%>
+              <%= f.submit "Update rating!", class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
     <% else %>
       <p>No sessions recorded yet</p>
     <% end %>
   </div>
 </div>
+

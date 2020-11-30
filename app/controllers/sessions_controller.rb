@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @session.timestamp = DateTime.now
     if @session.save
       @session.save
-      redirect_to "https://maps.google.com/?q=#{@spot.latitude},#{@spot.longitude}"
+      # redirect_to "https://maps.google.com/?q=#{@spot.latitude},#{@spot.longitude}"
     else
       redirect_to spot_path(@spot), alert: "You must be logged in for this feature"
     end
@@ -15,20 +15,15 @@ class SessionsController < ApplicationController
 
   def update
     @session = Session.find params[:id]
-    if params[:session][:description].present?
-     @session.description = params[:session][:description]
-     @session.save
-    elsif params[:session][:rating].present?
-      @session.rating = params[:session][:rating]
+    if @session.update(session_params)
       @session.save
     end
-
-
     redirect_to profile_path
   end
+
   private
 
   def session_params
-    params.require(:session).permit(:title, :description, :rating, :timestamp, :spot)
+    params.require(:session).permit(:description, :rating, :timestamp, :spot)
   end
 end

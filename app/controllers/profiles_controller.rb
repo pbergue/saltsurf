@@ -5,16 +5,24 @@ class ProfilesController < ApplicationController
 
   def show
     @favorites_spots = current_user.spots
-    @session_spots = current_user.session_spots
+    @session_spots = current_user.session_spots.order(created_at: :desc)
     if params[:session_spot_name].present?
-      @sessions = Session.where(spot_id: params[:session_spot_name])
+      @sessions = Session.where(spot_id: params[:session_spot_name]).order(created_at: :desc)
     else
-      @sessions = current_user.sessions
+      @sessions = current_user.sessions.order(created_at: :desc)
     end
   end
 
-  private
+  
 
+  private
+  # def location_list
+  #   locations = []
+  #   Board.all.each do |board|
+  #     brands << board.brand
+  #   end
+  #   brands.uniq
+  # end
   def set_profile
     @profile = current_user
   end
