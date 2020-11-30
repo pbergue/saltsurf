@@ -217,9 +217,6 @@ require "open-uri"
   surfreport_id: "not assigned",
   )
 
-  GetStormglassApiService.new(spot8).call
-
-
   # link = 'https://res.cloudinary.com/jlc35/image/upload/v1606217348/Salt/Penthievre-Ocean_nvcpgp.jpg'
   # file = URI.open(link)
   # spot8.photos.attach(io:file, filename:"Penthievre-main",content_type: 'image/jpg')
@@ -228,6 +225,7 @@ require "open-uri"
   # spot8.photos.attach(io:file, filename:"Penthievre-second",content_type: 'image/jpg')
 
   spot8.save!
+  GetStormglassApiService.new(spot8).call
 
   spot9 = Spot.new(
   latitude: 47.7531,
@@ -248,8 +246,8 @@ require "open-uri"
   # file = URI.open(link)
   # spot9.photos.attach(io:file, filename:"Plage-du-loch-second",content_type: 'image/jpg')
 
-  GetStormglassApiService.new(spot9).call
   spot9.save!
+  GetStormglassApiService.new(spot9).call
 
   spot10 = Spot.new(
   latitude: 48.3378,
