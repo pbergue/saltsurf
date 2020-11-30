@@ -1,6 +1,6 @@
-<div class="container mb-3">
+<div class="container my-3">
 
-  <h2>My favorite spots</h2>
+  <h2 class="margin-left">My favorite spots</h2>
   <div class="container mt-3 mb-5">
     <% if @favorites_spots.present? %>
       <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
@@ -27,17 +27,17 @@
     <% end %>
   </div>
 
-  <div class=" grey-rounded-background p-4 ">
+  <div class=" grey-rounded-background ">
     <div class="d-flex justify-content-between">
       <h2>My sessions</h2>
-      <%= form_tag profile_path, method: :get, class:"" do %>
+      <%= form_tag profile_path, method: :get do %>
         <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
-        <%= submit_tag "Update" %>
+        <%= submit_tag "Update", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
     </div>
     <% if @sessions.present? %>
         <% @sessions.each do |session| %>
-          <div class="inside-container my-3 d-flex align-items-center justify-content-between">
+          <div class="inside-container my-3 px-1 d-flex align-items-center justify-content-between">
             <div>
               <h4><%= session.spot.name %></h4>
               <h5><%= session.timestamp %></h5>
