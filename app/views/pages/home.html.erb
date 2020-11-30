@@ -1,6 +1,6 @@
 
 <div class="home-banner2">
-  <div class="p-3 mb-3 d-flex justify-content-between align-items-center">
+  <div class="border border-dark p-3 mb-3 d-flex justify-content-between align-items-center">
     <%= image_tag("SALT-logo.svg", class: "icon") %>
     <% if user_signed_in? %>
       <%= link_to "My profile", profile_path , class:"text-white custom-my-profile" %>
@@ -8,7 +8,7 @@
       <%=  link_to "Login", new_user_session_path, class: "btn-white" %>
     <% end %>
   </div>
-  <div class="vertical-align d-flex flex-column justify-content-center">
+  <div class="vertical-align d-flex flex-column justify-content-center border border-dark">
     <h1 class="text-center">FIND PUMPING SURF NEAR YOU</h1>
     <br>
     <br>
@@ -17,7 +17,7 @@
     <br>
     <br>
     <!-- <h4 class="text-center"> Choose your location and range</h4> -->
-      <div class="container">
+      <div class="container border border-dark">
         <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
         <div class="w-50 mx-3">
           <%= text_field_tag :query, params[:query],
@@ -25,7 +25,7 @@
             class: "address-input custom-form mx-2 mw-50", id: "address-input"
           %>
         </div>
-        <div class="range-slider custom-form d-flex align-items-center justify-content-center text-white">
+        <div class="range-slider custom-form d-flex align-items-center justify-content-center text-white border border-dark">
           <p class="my-0 mx-1">0</p>
           <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
           <span class="range-slider__value">100</span>
@@ -37,35 +37,37 @@
   </div>
 </div>
 <%# set .favorite function %>
-<div class="mt-4 mb-4 container text-center">
-  <% if current_user %>
-    <% if current_user.favorites %>
-      <h3 class="text-dark"> Your Favorite Spots </h3>
+<div class="mt-4 mb-4 container text-center border border-dark">
+  <div class="mt-4 mb-4 container text-center border border-dark">
+    <% if current_user %>
+      <% if current_user.favorites %>
+        <h3 class="text-dark"> Your Favorite Spots </h3>
+      <% else %>
+        <h3 class="text-dark"> The best spots right now </h3>
+      <% end %>
     <% else %>
       <h3 class="text-dark"> The best spots right now </h3>
     <% end %>
-  <% else %>
-    <h3 class="text-dark"> The best spots right now </h3>
-  <% end %>
-</div>
-<div class="container mt-2">
-  <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
-    <% @spots.each do |spot| %>
-      <div class="col mb-4 ">
-        <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
-          <div class="rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
-            <h5 class="font-weight-bold"><%= spot.name %></h5>
-            <div class="mt-2 d-flex justify-content-center">
-              <% spot.forecasts.first.rating.times do %>
-                <i class="fas text-light fa-star ml-1"></i>
-              <% end %>
-              <% (5 - spot.forecasts.first.rating).times do %>
-                <i class="fas text-muted fa-star ml-1"></i>
-              <% end %>
+  </div>
+  <div class="container mt-2 border border-dark">
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2 border border-dark">
+      <% @spots.each do |spot| %>
+        <div class="col mb-4 border border-dark">
+          <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
+            <div class="border border-dark rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
+              <h5 class="font-weight-bold"><%= spot.name %></h5>
+              <div class="border border-dark mt-2 d-flex justify-content-center">
+                <% spot.forecasts.first.rating.times do %>
+                  <i class="fas text-light fa-star ml-1"></i>
+                <% end %>
+                <% (5 - spot.forecasts.first.rating).times do %>
+                  <i class="fas text-muted fa-star ml-1"></i>
+                <% end %>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
