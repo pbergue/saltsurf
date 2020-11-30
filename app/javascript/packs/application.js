@@ -42,11 +42,11 @@ document.addEventListener('turbolinks:load', () => {
   initWindy();
 });
 
-const cards = document.querySelectorAll('.card-spot[data-spot-id]');
+const cards = document.querySelectorAll('.custom[data-spot-id]');
 cards.forEach((card) => {
   const idSpot = card.dataset.spotId;
   card.addEventListener('mouseover', () => {
     const marker = document.getElementById(`${idSpot}`);
-    marker.classList.toggle("red-marker");
+    marker.classList.add("orange-marker");
   });
 });
