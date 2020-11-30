@@ -9,6 +9,14 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:show ]
 
+  resources :sessions, only: [] do
+    member do
+      patch :update
+      patch :rating_change
+    end
+  end
+
+
   # if we want to update sessions uncomment the following :
   # resources :sessions, only: [:edit, :update]
 

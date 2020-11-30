@@ -39,20 +39,23 @@
         <% @sessions.each do |session| %>
           <div class="inside-container my-3 px-1 d-flex align-items-center justify-content-between">
             <div>
-              <div class="d-flex justify-content-between align-items-center specific-width">
-                <h4><%= session.spot.name %></h4>
-                <h5><small><%= session.timestamp.strftime("%m/%d/%Y") %></small></h5>
-              </div>
-              <p class="ml-3"><%= session.description %></p>
+              <h4><%= session.spot.name %></h4>
+              <h5><%= session.timestamp %></h5>
+              <p><%= session.description %></p>
+                <%= simple_form_for session do |f|%>
+                  <%= f.input :description %>
+
+                  <%= f.submit "Update description!", class: "btn btn-primary" %>
+                <% end %>
             </div>
             <div>
-              <h5><%= session.title.capitalize%></h5>
-              <% session.rating.times do %>
-                <i class="fas text-muted fa-star ml-1"></i>
-              <% end %>
-              <% (5 - session.rating).times do %>
-                <i class="fas text-light fa-star ml-1"></i>
-              <% end %>
+              <h5><%= session.title%></h5>
+              <h5><%= session.rating %> /5</h5>
+               <%= simple_form_for session do |f|%>
+                  <%= f.input :rating %>
+
+                  <%= f.submit "Update rating!", class: "btn btn-primary" %>
+                <% end %>
             </div>
           </div>
         <% end %>
