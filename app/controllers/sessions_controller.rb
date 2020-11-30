@@ -6,9 +6,10 @@ class SessionsController < ApplicationController
     @session.user = current_user
     @session.timestamp = DateTime.now
     if @session.save
-      redirect_to profile_path
+      @session.save
+      redirect_to "https://maps.google.com/?q=#{@spot.latitude},#{@spot.longitude}"
     else
-      render 'spots/show'
+      redirect_to spot_path(@spot), alert: "You must be logged in for this feature"
     end
   end
 
