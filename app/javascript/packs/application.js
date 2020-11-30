@@ -41,3 +41,12 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initWindy();
 });
+
+const cards = document.querySelectorAll('.card-spot[data-spot-id]');
+cards.forEach((card) => {
+  const idSpot = card.dataset.spotId;
+  card.addEventListener('mouseover', () => {
+    const marker = document.getElementById(`${idSpot}`);
+    marker.classList.toggle("red-marker");
+  });
+});

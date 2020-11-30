@@ -10,7 +10,14 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.infoWindow); // add this
 
-    new mapboxgl.Marker()
+    // create a HTML element for each feature
+    let el = document.createElement('div');
+    el.className = 'marker';
+    el.id = `${marker.spotId}`;
+
+    // make a marker for each feature and add to the map
+
+    new mapboxgl.Marker(el)
       .setLngLat([ marker.lng, marker.lat ])
       .setPopup(popup) // add this
       .addTo(map);

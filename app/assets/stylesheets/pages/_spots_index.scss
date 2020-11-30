@@ -1,3 +1,16 @@
 .marginY-12 {
   margin: 12px 0;
 }
+
+.marker {
+  background-image: url('marker-editor.svg');
+  background-size: cover;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.red-marker {
+  background-color: red;
+}

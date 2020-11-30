@@ -4,7 +4,7 @@
     <div class="col-12 col-md-6">
       <%# a div for cards %>
           <% @spots.each do |spot| %>
-          <div class="card-spot">
+          <div class="card-spot" data-spot-id="<%= spot.id%>">
             <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
             <div class="card-spot-top">
                 <h2><%= spot.name %></h2>
