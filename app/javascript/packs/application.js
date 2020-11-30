@@ -10,7 +10,6 @@ require("channels")
 require("custom/_slider")
 require('places.js')
 require("custom/_radio_show")
-require("custom/show_update_form")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
