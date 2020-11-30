@@ -22,10 +22,12 @@
     <%= favicon_link_tag 'shaka2.png' %>
   </head>
 
-  <body id="<%= controller_name %>_body" >
-    <%= render 'shared/navbar' unless controller_name == "pages" && action_name == "home" %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+  <body id="<%= controller_name %>_body">
+<!--     <div class="background"> -->
+      <%= render 'shared/navbar' unless controller_name == "pages" && action_name == "home" %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+<!--     </div> -->
   </body>
 </html>
