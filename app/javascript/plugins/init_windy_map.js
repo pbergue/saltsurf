@@ -1,8 +1,8 @@
 const initWindy = () => {
+ const windyBox = document.getElementById("windy");
   const options = {
     // Required: API key
-    key: 'NslljtGsyZjgQG9bX9WYACzMjQkam73J', // REPLACE WITH YOUR KEY !!!
-
+      key: windyBox.dataset.windyMapApiKey, // REPLACE WITH YOUR KEY !!!
     // Put additional console output
     verbose: true,
 
