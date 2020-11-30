@@ -47,6 +47,6 @@ cards.forEach((card) => {
   const idSpot = card.dataset.spotId;
   card.addEventListener('mouseover', () => {
     const marker = document.getElementById(`${idSpot}`);
-    marker.classList.add("orange-marker");
+    marker.classList.toggle("orange-marker");
   });
 });
