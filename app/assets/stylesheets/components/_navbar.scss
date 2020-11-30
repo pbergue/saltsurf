@@ -9,13 +9,14 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 89px;
 }
 
 .logo {
   color: white;
   font-weight: bold;
   margin: 0 0 0 10px;
+  padding-bottom: 4px;
 }
 
 .search-bar-navbar {
@@ -53,4 +54,9 @@
   right: -8px;
   color: white;
   opacity: 0.8;
+}
+
+.navbar-container {
+  position: absolute;
+  left: 120px;
 }

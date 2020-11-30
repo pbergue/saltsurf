@@ -1,0 +1,43 @@
+.grey-rounded-background {
+  background-color: rgba($color: $lighter-gray, $alpha: 0.1);
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.specific-width {
+  width: 400px;
+}
+
+.inside-container {
+  width: 100%;
+  padding: 25px 1px;
+  position: relative;
+}
+
+.inside-container:before {
+  content : "";
+  position: absolute;
+  bottom  : 0;
+  left: 10%;
+  height  : 1px;
+  width   : 80%;
+  border-bottom:1px solid rgba($color: $lighter-gray, $alpha: 0.5);
+}
+
+/*.inside-container:not(:last-child):before {
+  content : "";
+  position: absolute;
+  bottom  : 0;
+  left: 10%;
+  height  : 1px;
+  width   : 80%;
+}*/
+
+.margin-left {
+  margin-left: 14px;
+}
+
+.search-bar-profile {
+  border: none;
+  height: 40px;
+}

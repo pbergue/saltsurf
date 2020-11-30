@@ -4,6 +4,15 @@
 @import "navbar";
 @import "button";
 @import "slider";
+@import "slider_time";
 @import "map";
 @import "cards";
 @import "footer";
+@import "picto-wave";
+
+@media (min-width: 1800px) {
+  .footer {
+    position: absolute;
+    bottom: 0;
+  }
+}

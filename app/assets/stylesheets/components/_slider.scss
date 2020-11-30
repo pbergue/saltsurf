@@ -32,9 +32,10 @@ $range-track-height: 10px !default;
 $range-label-color: $shade-10 !default;
 $range-label-width: 60px !default;
 
+
+
 .range-slider {
   width: 200px !important;
-  
 }
 
 .range-slider__range {
@@ -46,6 +47,7 @@ $range-label-width: 60px !default;
   outline: none;
   padding: 0;
   margin: 0;
+
 
   // Range Handle
   &::-webkit-slider-thumb {
@@ -83,10 +85,10 @@ $range-label-width: 60px !default;
   &:active::-moz-range-thumb {
     background: $range-handle-color-hover;
   }
-  
+
   // Focus state
   &:focus {
-    
+
     &::-webkit-slider-thumb {
       box-shadow: 0 0 0 3px $shade-0,
                   0 0 0 6px $teal;
@@ -105,7 +107,8 @@ $range-label-width: 60px !default;
   border-radius: 3px;
   // background: $range-label-color;
   padding: 0px;
-  margin-left: 8px;
+  color: white;
+  opacity: 0.9;
 
   &:after {
     position: absolute;
@@ -128,6 +131,6 @@ $range-label-width: 60px !default;
 }
 
 input::-moz-focus-inner,
-input::-moz-focus-outer { 
-  border: 0; 
+input::-moz-focus-outer {
+  border: 0;
 }
