@@ -42,8 +42,8 @@
   }
 }
 
-.home-banner-compare {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/5302816/pexels-photo-5302816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+.home-features {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
   width: 100%;
   height: 400px;
   background-size: cover;
@@ -60,10 +60,71 @@
     color: white;
     opacity: 0.5;
   }
+  &:hover {
+    img {
+      -webkit-filter: blur(4px);
+      filter: blur(4px);
+    }
+  }
 }
 
+.bg,
+.overlay {
+  text-align: center;
+}
+
+img,
+.overlay {
+  transition: .15s all;
+  border-radius: 3px;
+  object-fit: fill;
+}
+
+.bg {
+  float: left;
+  max-width: 100%;
+  height: 400px;
+  position: relative;
+  margin: .5%;
+  img {
+    width: 100%;
+    margin-bottom: -4px;
+    height: 400px;
+    size: cover;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    color: #fff;
+    opacity: 0;
+    h2 {
+      padding-top: 20%;
+      // font-family: 'Droid Serif', serif;
+    }
+    p {
+      // font-family: 'Julius Sans One', sans-serif;
+    }
+  }
+  &:hover {
+    .overlay {
+      opacity: 1;
+    }
+    img {
+      -webkit-filter: blur(2px);
+      filter: blur(2px);
+    }
+  }
+}
+
+
+
+
 .home-banner-record {
-  background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://cdn.shopify.com/s/files/1/1074/5128/files/Mike-Lay_Niewland-4-Wetsuit.jpg?v=1580905712');
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://cdn.shopify.com/s/files/1/1074/5128/files/Mike-Lay_Niewland-4-Wetsuit.jpg?v=1580905712');
   width: 100%;
   height: 400px;
   background-size: cover;
@@ -83,7 +144,7 @@
 }
 
 .home-banner-improve {
-  background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('perfect conditions 3.jpeg');
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('perfect conditions 3.jpeg');
   width: 100%;
   height: 400px;
   background-size: cover;
