@@ -16,18 +16,19 @@
     <meta property="og:site_name" content="<%= meta_title %>" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
+    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <%= favicon_link_tag 'shaka2.png' %>
   </head>
 
-  <body id="<%= controller_name %>_body">
-<!--     <div class="background"> -->
-      <%= render 'shared/navbar' unless controller_name == "pages" && action_name == "home" %>
-      <%= render 'shared/flashes' %>
-      <%= yield %>
-      <%= render 'shared/footer' %>
-<!--     </div> -->
+  <body id="<%= controller_name %>_body" >
+    <%= render 'shared/navbar' unless controller_name == "pages" && action_name == "home" %>
+    <%= render 'shared/flashes' %>
+    <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>

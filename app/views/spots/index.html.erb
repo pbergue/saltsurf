@@ -4,28 +4,18 @@
     <div class="col-12 col-md-6">
       <%# a div for cards %>
           <% @spots.each do |spot| %>
-          <div class="card-spot">
-            <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
-            <div class="card-spot-top">
-                <h2><%= spot.name %></h2>
-              <div class="card-spot-top-rating">
-                <%spot.forecasts.first.rating.times do %>
-                <i class="fas fa-star"></i>
-                <% end %>
-              </div>
-            </div>
-              <div class="card-spot-info">
-                <div>
-                  <% if spot.forecasts.first.wave_height < 50 %>
-                  <p><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
-                  <% elsif spot.forecasts.first.wave_height < 150 %>
-                  <p><%= image_tag("2-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
-                  <% else %>
-                  <p><%= image_tag("3-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+          <div class="custom" data-spot-id="<%= spot.id %>">
+            <div class="card-spot">
+              <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
+              <div class="card-spot-top">
+                  <h2><%= spot.name %></h2>
+                <div class="card-spot-top-rating">
+                  <%spot.forecasts.first.rating.times do %>
+                  <i class="fas fa-star"></i>
                   <% end %>
                 </div>
                 <div>
-                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg); -ms-transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg); -webkit-transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg);"></i>
                   <%= spot.forecasts.first.wind_speed %>kn
                   </p>
                 </div>
@@ -33,15 +23,58 @@
                   <p><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i if @query_coordinates.present?%>km</p>
                 </div>
               </div>
-            <% end %>
+                <div class="card-spot-info">
+                  <div>
+                    <% if spot.forecasts.first.wave_height < 50 %>
+                    <p><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                    <% elsif spot.forecasts.first.wave_height < 150 %>
+                    <p><%= image_tag("2-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                    <% else %>
+                    <p><%= image_tag("3-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                    <% end %>
+                  </div>
+                  <div>
+                    <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                    <%= spot.forecasts.first.wind_speed %>kn
+                    </p>
+                  </div>
+                  <div>
+                    <p><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i if @query_coordinates.present?%>km</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
           <% end %>
     </div>
-    <%# a div for the map %>
-    <div id="map" class="col-md-6"
-      style="width: 100%; height: 100vh; position:sticky; top:0px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <%# a div for the windy map %>
+    <div class="col-md-6 marginY-12">
+
+      <div class="tab-content" style="position: sticky; top: 0;">
+        <ul class="nav nav-pills mb-2" id="custom-tabs-name-tab" role="tablist">
+          <li class="nav-item mr-2">
+            <a class="nav-link custom-tab default active" id="map-tab" data-toggle="pill" href="#map-pane" role="tab" aria-controls="map-pane" aria-selected="true">Map</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link custom-tab" id="windy-tab" data-toggle="pill" href="#windy-pane" role="tab" aria-controls="windy-pane" aria-selected="false">Windy Map</a>
+          </li>
+        </ul>
+
+        <div class="tab-pane fade show active" id="map-pane" role="tabpanel" aria-labelledby="map-tab">
+          <div id="map" style="width: 100%; height: 100vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="windy-pane" role="tabpanel" aria-labelledby="windy-tab">
+          <div id="windy" style="width: 100%; height: 100vh;"
+          data-markers="<%= @markers.to_json %>"
+          data-windy-map-api-key="<%= ENV['WINDY_MAP_API_KEY'] %>">
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

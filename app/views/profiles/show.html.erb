@@ -10,12 +10,9 @@
               <div class="rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path item.photos.first.key %>);">
                 <h5 class="font-weight-bold"><%= item.name %></h5>
                 <div class="mt-2 d-flex justify-content-center">
-                  <% item.forecasts.first.rating.times do %>
-                    <i class="fas text-light fa-star ml-1"></i>
-                  <% end %>
-                  <% (5 - item.forecasts.first.rating).times do %>
-                    <i class="fas text-muted fa-star ml-1"></i>
-                  <% end %>
+                    <% item.forecasts.first.rating.times do %>
+                      <%= inline_svg("shaka_svg", options={class: "shaka-dark"})%>
+                    <% end %>
                 </div>
               </div>
             <% end %>
@@ -32,32 +29,75 @@
       <h2>My sessions</h2>
       <%= form_tag profile_path, method: :get do %>
         <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
-        <%= submit_tag "Update", class:"rounded mx-2 btn btn-secondary" %>
+        <%= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
-    </div>
+  </div>
+
     <% if @sessions.present? %>
-        <% @sessions.each do |session| %>
-          <div class="inside-container my-3 px-1 d-flex align-items-center justify-content-between">
-            <div>
-              <div class="d-flex justify-content-between align-items-center specific-width">
-                <h4><%= session.spot.name %></h4>
-                <h5><small><%= session.timestamp.strftime("%m/%d/%Y") %></small></h5>
+      <% @sessions.each do |sesh| %>
+        <div class="inside-container session-card">
+          <div class="my-0 px-1 d-flex align-items-center justify-content-between">
+            <div class="">
+              <h4><%= sesh.spot.name %></h4>
+              <p class="mb-0"><%= sesh.timestamp.strftime("%a, %d %b %Y") %></p>
+              <div class="d-flex">
+                <p class="mb-0">Notes: <%= sesh.description %></p>
+                <p class="pl-2 py-0 btn edit-button-description">Edit</p>
               </div>
-              <p class="ml-3"><%= session.description %></p>
             </div>
-            <div>
-              <h5><%= session.title.capitalize%></h5>
-              <% session.rating.times do %>
-                <i class="fas text-muted fa-star ml-1"></i>
+            <div class="">
+                <div class="d-flex justify-content-between">
+                <% if sesh.rating %>
+                  <div>
+                  <% sesh.rating.times do %>
+                    <i class="fas text-primary fa-star "></i>
+                  <% end %>
+
+                  </div>
+                <% else %>
+                  <p class="font-italic">add your rating</p> 
+                <% end %>
+                <p class="pl-2 py-0 btn edit-button-rating">Edit</p>
+              </div>
+              <%= simple_form_for [:profile, sesh] , method: :patch, html: { class: "hidden update-rating"} do |f| %>
+                <%= f.input_field :rating, class: "mb-2 text-align-right"%>
+                <%= f.submit "Update rating!", class: "btn btn-primary" %>
               <% end %>
-              <% (5 - session.rating).times do %>
-                <i class="fas text-light fa-star ml-1"></i>
-              <% end %>
+              <div class="card-spot-info d-flex forecast-info">
+                <%# define spot and set symbols%>
+                <% spot = Spot.find(sesh.spot_id) %>
+                <div class="">
+                  <% if spot.forecasts.first.wave_height < 50 %>
+                  <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% elsif spot.forecasts.first.wave_height < 150 %>
+                  <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% else %>
+                  <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% end %>
+                </div>
+                <div>
+                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                    <%= spot.forecasts.first.wind_speed %>kn
+                  </p>
+                </div>
+                <div>
+                  <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
+                </div>
+              </div>
             </div>
           </div>
-        <% end %>
+          <div class=" " >
+            <%= simple_form_for [:profile, sesh], method: :patch, html: { class: "hidden update-description d-flex align-items-center"} do |f|%>
+              <%= f.input_field :description %>
+              <%= f.submit "Update description!", class: "ml-2 btn btn-primary" %>
+            <% end %>
+
+          </div>
+        </div>
+      <% end %>
     <% else %>
       <p>No sessions recorded yet</p>
     <% end %>
   </div>
 </div>
+
