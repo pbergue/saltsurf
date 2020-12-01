@@ -11,10 +11,7 @@
                 <h5 class="font-weight-bold"><%= item.name %></h5>
                 <div class="mt-2 d-flex justify-content-center">
                   <% item.forecasts.first.rating.times do %>
-                    <i class="fas text-light fa-star ml-1"></i>
-                  <% end %>
-                  <% (5 - item.forecasts.first.rating).times do %>
-                    <i class="fas text-muted fa-star ml-1"></i>
+                    <%= inline_svg("shaka_svg", options={class: "shaka-dark"})%>
                   <% end %>
                 </div>
               </div>
@@ -44,7 +41,7 @@
               <h4><%= sesh.spot.name %></h4>
               <p class="mb-0"><%= sesh.timestamp.strftime("%a, %d %b %Y") %></p>
               <div class="d-flex">
-                <p class="mb-0">Description: <%= sesh.description %></p>
+                <p class="mb-0">Notes: <%= sesh.description %></p>
                 <p class="pl-2 py-0 btn edit-button-description">Edit</p>
               </div>
             </div>
@@ -52,9 +49,10 @@
                 <div class="d-flex justify-content-between">
                 <% if sesh.rating %>
                   <div>
-                    <% sesh.rating.times do %>
-                      <%= image_tag("shaka_svg.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%>
-                    <% end %>
+                  <% sesh.rating.times do %>
+                    <i class="fas text-primary fa-star "></i>
+                  <% end %>
+
                   </div>
                 <% else %>
                   <p class="font-italic">add your rating</p> 
