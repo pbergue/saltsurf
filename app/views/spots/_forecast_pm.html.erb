@@ -15,7 +15,7 @@
                       </div>
                     </div>
                     <%# id="card-content" %>
-                    <div class="container card-content pt-3 px-4">
+                    <div class="container card-content pt-3 px-4" id="forecast-card-content">
                       <%# wave-conditions %>
                       <div>
                         <h5> Wave Conditions</h5>
@@ -53,7 +53,7 @@
                         <h5> Wind Conditions</h5>
                         <div class="d-flex justify-content-around">
                           <div class="d-flex mb-4" style="position: relative;">
-                            <i class="fas fa-wind pr-2"></i>
+                            <p><i class="fas fa-wind pr-2"></i></p>
                             <p> <%= forecast.wind_speed %> kts </p>
                           </div>
 
