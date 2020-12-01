@@ -8,15 +8,14 @@ class SpotsController < ApplicationController
     # console
 
     if params[:query].present?
-      # @spots = @spots.near(params[:query], params[:distance].presence || 100)
       @spots = Spot.near(params[:query], params[:distance].presence || 100)
       @query_coordinates = Geocoder.search(params[:query]).first&.coordinates
     else
       @spots = Spot.geocoded
     end
-    # @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }.reverse
+    @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }.reverse
+    # @forecasts = Forecast.all.select{ |forecast| forecast.timestamp == Time.now.utc.midnight+28800 && forecast.source == 'Météo-France'}
 
-    # @markers = @spots.geocoded.map do |spot| {
     @markers = @spots.map do |spot|
       {
         lat: spot.latitude,
@@ -32,9 +31,11 @@ class SpotsController < ApplicationController
     @forecasts_am = []
     @forecasts_pm = []
     Forecast.where(spot_id: @spot.id).each do |forecast|
-      if forecast.timestamp.hour < 12
+      if forecast.timestamp == Time.now.utc.midnight+28800
+      # if [Time.now.utc.midnight + 28800,Time.now.utc.midnight + 39600].include?(forecast.timestamp)
         @forecasts_am << forecast
-      elsif forecast.timestamp.hour > 12
+      # elsif [Time.now.utc.midnight + 50400,Time.now.utc.midnight + 61200].include?(forecast.timestamp)
+      elsif forecast.timestamp == Time.now.utc.midnight+50400
         @forecasts_pm << forecast
       end
     end
