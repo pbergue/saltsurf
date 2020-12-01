@@ -5,7 +5,7 @@
 
 <div class="p-3 px-4" style="background-size: cover; background-position: center; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path @spot.photos.first.key %>);">
   <div class="container">
-  <%=  link_to "Back to list", spots_path, class: "p-3 link login-link" %>
+  <%=  link_to "Back to list", spots_path, class: "p-3 text-white" %>
     <div class="d-flex">
       <h2 class="px-3 mt-3 mb-5 font-weight-bold text-white spot-name"><%= @spot.name %></h2>
       <%# like button %>
@@ -28,9 +28,9 @@
       </div>
     </div>
     <%=  link_to "Go Surf", spot_sessions_path(@spot), method: :post, class: "mx-3 mb-3 btn btn-danger" %>
+    <%=  link_to "Get itinerary", spot_sessions_path(@spot), method: :post, target:"_blank", class: "mb-3 btn btn-danger mr-2" %>
   </div>
-  
-  <%=  link_to "Get itinerary", spot_sessions_path(@spot), method: :post, target:"_blank", class: "mb-3 btn btn-danger mr-2" %>
+
   <%# <%=  link_to "Record session", spot_sessions_path(@spot), method: :post, target:"_blank", class: "mb-3 btn btn-danger ml-2"  %>
 </div>
 
