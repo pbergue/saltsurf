@@ -10,9 +10,11 @@
               <div class="card-spot-top">
                   <h2><%= spot.name %></h2>
                 <div class="card-spot-top-rating">
-                  <%spot.forecasts.first.rating.times do %>
-                  <i class="fas fa-star"></i>
-                  <% end %>
+                  <div class="d-flex">
+                    <%spot.forecasts.first.rating.times do %>
+                      <%= inline_svg("shaka_svg", options={class: "shaka-small pl-1"})%>
+                    <% end %>
+                  </div>
                 </div>
                 <div>
                   <p><i class="fas fa-location-arrow" style="transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg); -ms-transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg); -webkit-transform: rotate(<%= (spot.forecasts.first.wind_direction-210) %>deg);"></i>
