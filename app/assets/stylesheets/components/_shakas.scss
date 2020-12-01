@@ -8,16 +8,6 @@
     }
 }
 
-
-
-
-
-
-
-
-
-
-
 .shaka-container {
   border-radius: $border-radius-sm;
   background-color: rgba(255, 255, 255, 0.4);
@@ -26,6 +16,10 @@
 
 .shaka-white {
   height: 25px;
+}
+
+.shaka-small {
+  height: 20px;
   width: auto;
   display: block;
   
