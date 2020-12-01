@@ -6,7 +6,10 @@ class PagesController < ApplicationController
       @spots = current_user.spots if current_user.spots
     else
       @spots = Spot.all
-      @spots = @spots.first(4) #must be replaced with Top 5 function
+      @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }
+      .reverse
+      .take(4)
+
     end
   end
 end
