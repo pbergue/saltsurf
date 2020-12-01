@@ -9,7 +9,7 @@
   width:100%;
   padding: 32px;
   transition: 0.5s;
-  
+
 
   &:hover{
     transition: 0.5s;
@@ -108,4 +108,9 @@
 
 .custom-shadow {
   text-shadow: 2px 2px 8px rgba(100, 100, 100, 0.7);
+}
+
+.custom-alignement {
+  position: relative;
+  right: -14px;
 }
