@@ -37,6 +37,21 @@ const initMapbox = () => {
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
   }
+
+  const cards = document.querySelectorAll('.custom[data-spot-id]');
+  cards.forEach((card) => {
+    const idSpot = card.dataset.spotId;
+
+    card.addEventListener('mouseover', () => {
+      const marker = document.getElementById(`${idSpot}`);
+      marker.classList.add("orange-marker");
+    });
+
+    card.addEventListener('mouseout', () => {
+      const marker = document.getElementById(`${idSpot}`);
+      marker.classList.remove("orange-marker");
+    });
+  });
 };
 
 export { initMapbox };
