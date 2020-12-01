@@ -14,13 +14,15 @@ class SpotsController < ApplicationController
     else
       @spots = Spot.geocoded
     end
-    @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }.reverse
+    # @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }.reverse
 
     # @markers = @spots.geocoded.map do |spot| {
     @markers = @spots.map do |spot|
       {
         lat: spot.latitude,
         lng: spot.longitude,
+        name: spot.name,
+        spotId: spot.id,
         infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
       }
     end
