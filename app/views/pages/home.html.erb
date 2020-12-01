@@ -16,21 +16,25 @@
     <br>
     <br>
     <!-- <h4 class="text-center"> Choose your location and range</h4> -->
-      <div class="container ">
+      <div class="container">
         <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
-        <div class="w-50 mx-3">
-          <%= text_field_tag :query, params[:query],
-            placeholder: "Search around...",
-            class: "address-input custom-form mx-2 mw-50", id: "address-input"
-          %>
+        <div class="container d-flex justify-content-center align-items-center">
+          <div class="custom-width">
+            <%= text_field_tag :query, params[:query],
+              placeholder: "Search around...",
+              class: "address-input custom-form mx-2 mw-50", id: "address-input"
+            %>
+          </div>
+          <div class="range-slider w-50 custom-form-slider d-flex align-items-center justify-content-center text-white">
+            <p class="my-0 mx-2">0</p>
+            <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
+            <span class="range-slider__value">100</span>
+            <p class="my-0 mx-1">km</p>
+          </div>
+          <div>
+            <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger" %>
+          </div>
         </div>
-        <div class="range-slider custom-form d-flex align-items-center justify-content-center text-white">
-          <p class="my-0 mx-1">0</p>
-          <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
-          <span class="range-slider__value">100</span>
-          <p class="my-0 mx-1">km</p>
-        </div>
-        <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger" %>
       <% end %>
       </div>
   </div>
