@@ -33,6 +33,10 @@
                       <%= spot.forecast_today.wind_speed %>kn
                     </p>
                   </div>
+                  <div class="d-flex">
+                    <i class="fas fa-wave-square" ></i>
+                    <p class="pl-2"><%= forecast.period %> s </p>
+                  </div>
                   <div>
                     <p><i class="fas fa-route"></i> <%=spot.distance_to(@query_coordinates).to_i if @query_coordinates.present?%>km</p>
                   </div>
