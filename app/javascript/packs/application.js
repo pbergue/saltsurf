@@ -33,9 +33,6 @@ import {initAutocomplete} from '../plugins/init_autocomplete';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initWindy } from '../plugins/init_windy_map';
 
-const cardsLoading = () => {
-  const cards = document.querySelectorAll('')
-}
 
 
 document.addEventListener('turbolinks:load', () => {
