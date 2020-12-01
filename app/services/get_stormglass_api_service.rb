@@ -1,9 +1,6 @@
 require 'open-uri'
-require 'json'
-require 'httparty'
 
 class GetStormglassApiService
-  include HTTParty
 
   def initialize(spot)
     @spot = spot
@@ -21,7 +18,7 @@ class GetStormglassApiService
       }
     )
     rawresponse = JSON.parse(response.body)
-    p rawresponse['meta']['requestCount'] # uncomment to display request count (max 50 /day)
+   #p rawresponse['meta']['requestCount'] # uncomment to display request count (max 50 /day)
     hours = rawresponse['hours']
     hours.each do |hour|
       rating_us = [hour["waveHeight"]["noaa"].to_f+hour["wavePeriod"]["noaa"].to_f/10,3].min
