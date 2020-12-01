@@ -1,7 +1,7 @@
 <%# a div for the page %>
 <div class="container parent">
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 cards-area">
       <%# a div for cards %>
           <% @spots.each do |spot| %>
           <div class="custom" data-spot-id="<%= spot.id %>">
@@ -19,17 +19,18 @@
               </div>
                 <div class="card-spot-info">
                   <div>
-                    <% if spot.forecast_today.wave_height < 50 %>
-                    <p><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
-                    <% elsif spot.forecast_today.wave_height < 150 %>
-                    <p><%= image_tag("2-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
+                    <% if spot.forecasts.first.wave_height < 50 %>
+                    <p class="text-warning"><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
+                    <% elsif spot.forecasts.first.wave_height < 150 %>
+                    <p class="text-danger"><%= image_tag("2-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
                     <% else %>
-                    <p><%= image_tag("3-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
+                    <p class="text-success"><%= image_tag("3-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
                     <% end %>
                   </div>
                   <div>
-                    <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
-                    <%= spot.forecast_today.wind_speed %>kn
+                    <p class="<%= if spot.forecast_today.wind_speed >= 15 then 'text-danger' elsif spot.forecast_today.wind_speed >= 10 then 'text-warning' else 'text-success' end %>">
+                      <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecast_today.wind_direction %>deg);"></i>
+                      <%= spot.forecast_today.wind_speed %>kn
                     </p>
                   </div>
                   <div>
@@ -44,7 +45,7 @@
     <%# a div for the windy map %>
     <div class="col-md-6 marginY-12">
 
-      <div class="tab-content" style="position: sticky; top: 0;">
+      <div class="tab-content" id="map-area" style="position: sticky; top: 0;">
         <ul class="nav nav-pills mb-2" id="custom-tabs-name-tab" role="tablist">
           <li class="nav-item mr-2">
             <a class="nav-link custom-tab default active" id="map-tab" data-toggle="pill" href="#map-pane" role="tab" aria-controls="map-pane" aria-selected="true">Map</a>
