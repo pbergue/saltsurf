@@ -629,7 +629,6 @@ puts "forecasts generated yeeeeeew 🌊"
       session = Session.new(
         spot_id: rand(Spot.first.id..Spot.last.id),
         user_id: rand(User.first.id..User.last.id),
-        title: "my session",
         description: "I'm frothing! sooooooo stoked",
         rating: rand(1..5),
         timestamp: DateTime.now,
