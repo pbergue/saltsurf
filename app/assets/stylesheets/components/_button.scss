@@ -20,12 +20,16 @@
       text-decoration: none;
       }
 }
+
+.btn-outline-light {
+  border-radius: 2px !important;
+}
 .btn-primary {
-  border-radius: 6px !important;
+  border-radius: 2px !important;
 }
 
 .btn-danger {
-  border-radius: 6px !important;
+  border-radius: 2px !important;
 }
 
 .custom-tab {
@@ -40,7 +44,7 @@
   &.active {
     background-color: $primary !important;
     color:white !important;
-  
+
   }
 
 }
@@ -52,4 +56,3 @@
 #afternoon-tab {
   border-radius: 0px $border-radius $border-radius 0px;
 }
-
