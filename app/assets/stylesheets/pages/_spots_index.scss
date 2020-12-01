@@ -18,3 +18,12 @@
   width: 60px;
   filter: hue-rotate(180deg);
 }
+
+.custom {
+  transition: 0.2s;
+}
+
+.custom:hover {
+  transition: 0.2s;
+  transform: scale(1.03);
+}
