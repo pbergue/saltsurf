@@ -7,13 +7,10 @@
                   <div class="shadow rounded">
                     <div id="top-of-card" class="d-flex flex-column justify-content-center card-top ">
                       <h4 class="text-white"><%= forecast.source %></h4>
-                      <div id="star-rating" class="mt-2 d-flex justify-content-center">
-                          <% forecast.rating.times do %>
-                          <i class="fas text-light fa-star ml-1"></i>
-                          <% end %>
-                          <% (5 - forecast.rating).times do %>
-                          <i class="fas text-muted fa-star ml-1"></i>
-                          <% end %>
+                      <div class="d-flex justify-content-center">
+                        <%forecast.rating.times do %>
+                          <%= inline_svg("shaka_svg", options={class: "shaka-white shaka-small pl-2"})%>
+                        <% end %>
                       </div>
                     </div>
                     <%# "card-content" %>

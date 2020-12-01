@@ -33,7 +33,7 @@
       <span class="range-slider__value">100</span>
       <p class="my-0 mx-1">km</p>
     </div>
-    <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger", id:"search"%>
+    <%= submit_tag "Search", class: "my-3 ml-2 btn btn-outline-light", id:"search"%>
   <% end %>
   </div>
 
@@ -55,7 +55,7 @@
         </li>
       <% else %>
         <%= link_to new_user_session_path, class: "nav-link nav-link-custom text-white" do %>
-          <li class="btn-white">Login</li>
+          <li class="text-white">Login</li>
         <% end %>
       <% end %>
     </ul>
