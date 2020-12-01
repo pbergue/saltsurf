@@ -11,7 +11,7 @@
                   <h2><%= spot.name %></h2>
                 <div class="card-spot-top-rating">
                   <%spot.forecasts.first.rating.times do %>
-                  <i class="fas fa-star"></i>
+                    <%= inline_svg("shaka_svg", options={class: "shaka-small"})%>
                   <% end %>
                 </div>
                 <div>

@@ -6,6 +6,14 @@
     path {
       fill: $dark !important;
     }
+}
 
-
+.shaka-small {
+  height: 15px;
+  width: auto;
+  display: block;
+  
+  path {
+    fill: $dark !important;
+  }
 }
