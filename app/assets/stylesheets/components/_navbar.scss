@@ -2,6 +2,18 @@
   justify-content: space-between;
   background: $light-blue;
   position: relative;
+  ::-webkit-input-placeholder {
+    color:white;
+  }
+  ::-moz-placeholder {
+    color:white;
+  }
+  ::-ms-placeholder {
+    color:white;
+  }
+  ::placeholder {
+    color:white;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
