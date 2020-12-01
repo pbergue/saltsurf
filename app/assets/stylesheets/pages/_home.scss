@@ -21,6 +21,164 @@
   }
 }
 
+.home-banner2 {
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+    url(https://ec2-im-1.msw.ms/md/image.php?id=355189&type=PHOTOLAB&resize_type=PHOTOLAB_FULL&fromS3);
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: left;
+  h1 {
+    color: white;
+    font-size: 36px;
+  }
+  p {
+    color: white;
+    font-size: 16px;
+  }
+  h4 {
+    color: white;
+    opacity: 0.5;
+  }
+}
+
+// hover effect cards....
+
+// .home-features {
+//   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
+//   width: 100%;
+//   height: 400px;
+//   background-size: cover;
+//   background-position: left;
+//   h1 {
+//     color: white;
+//     font-size: 36px;
+//   }
+//   p {
+//     color: white;
+//     font-size: 16px;
+//   }
+//   h4 {
+//     color: white;
+//     opacity: 0.5;
+//   }
+//   &:hover {
+//     img {
+//       -webkit-filter: blur(1px);
+//       filter: blur(1px);
+//     }
+//   }
+// }
+
+// .bg,
+// .overlay {
+//   text-align: center;
+// }
+
+// img,
+// .overlay {
+//   transition: .2s all;
+//   object-fit: fill;
+// }
+
+// .bg {
+//   max-width: 100%;
+//   height: 400px;
+//   position: relative;
+//   img {
+//     width: 100%;
+//     height: 400px;
+//     background-size: cover;
+//     background-position: left;
+//   }
+//   .overlay {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+
+//     color: #fff;
+//     opacity: 0;
+//     h2 {
+//       // font-family: 'Droid Serif', serif;
+//     }
+//     p {
+//       // font-family: 'Julius Sans One', sans-serif;
+//     }
+//   }
+//   &:hover {
+//     .overlay {
+//       opacity: 1;
+//     }
+//     img {
+//       -webkit-filter: blur(2px);
+//       filter: blur(2px);
+//     }
+//   }
+// }
+
+
+.home-banner-compare {
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/5302816/pexels-photo-5302816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: white;
+    font-size: 36px;
+  }
+  p {
+    color: white;
+    font-size: 16px;
+  }
+  h4 {
+    color: white;
+    opacity: 0.5;
+  }
+}
+
+.home-banner-record {
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://cdn.shopify.com/s/files/1/1074/5128/files/Mike-Lay_Niewland-4-Wetsuit.jpg?v=1580905712');
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  h1 {
+    color: white;
+    font-size: 36px;
+  }
+  p {
+    color: white;
+    font-size: 16px;
+  }
+  h4 {
+    color: white;
+    opacity: 0.5;
+  }
+}
+
+.home-banner-improve {
+  background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('perfect conditions 3.jpeg');
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: top;
+  h1 {
+    color: white;
+    font-size: 36px;
+  }
+  p {
+    color: white;
+    font-size: 16px;
+  }
+  h4 {
+    color: white;
+    opacity: 0.5;
+  }
+}
+
 .custom-my-profile {
   opacity: 0.8;
 }
@@ -63,5 +221,59 @@
   }
   ::placeholder {
     color:rgba(255, 255, 255, 0.6);
+  }
+}
+
+// .background {
+//   background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
+//     url(https://images.pexels.com/photos/5674936/pexels-photo-5674936.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+//   width: 100%;
+//   height: 400px;
+//   background-size: cover;
+//   background-position: left;
+//   position: sticky;
+// }
+
+// etra cards
+
+.extra-cards {
+  display: grid;
+  height: 250px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .extra-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .extra-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .extra-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .extra-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .extra-cards {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
