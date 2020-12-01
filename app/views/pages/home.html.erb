@@ -1,5 +1,5 @@
 
-<div class="home-banner">
+<div class="home-banner2">
   <div class="p-3 mb-3 d-flex justify-content-between align-items-center">
     <%= image_tag("SALT-logo.svg", class: "icon") %>
     <% if user_signed_in? %>
@@ -10,12 +10,17 @@
   </div>
   <div class="vertical-align d-flex flex-column justify-content-center">
     <h1 class="text-center">FIND PUMPING SURF NEAR YOU</h1>
-    <h4 class="text-center"> Choose your location and range</h4>
-      <div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- <h4 class="text-center"> Choose your location and range</h4> -->
+      <div class="container ">
         <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
         <div class="w-50 mx-3">
           <%= text_field_tag :query, params[:query],
-            placeholder: "Enter your location",
+            placeholder: "Search around...",
             class: "address-input custom-form mx-2 mw-50", id: "address-input"
           %>
         </div>
@@ -31,16 +36,18 @@
   </div>
 </div>
 <%# set .favorite function %>
-<div class="mt-4 mb-4 container text-center">
-  <% if current_user %>
-    <% if current_user.favorites %>
-      <h3 class="text-dark"> Your Favorite Spots </h3>
+<div class="mt-4 mb-4 container text-center ">
+  <div class="mt-4 mb-4 container text-center ">
+    <% if current_user %>
+      <% if current_user.favorites %>
+        <h3 class="text-dark"> Your Favorite Spots </h3>
+      <% else %>
+        <h3 class="text-dark"> The best spots right now </h3>
+      <% end %>
     <% else %>
       <h3 class="text-dark"> The best spots right now </h3>
     <% end %>
-  <% else %>
-    <h3 class="text-dark"> The best spots right now </h3>
-  <% end %>
+
 </div>
 <div class="container mt-2">
   <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
@@ -56,7 +63,57 @@
                 </div>
           </div>
         <% end %>
-      </div>
+    </div>
     <% end %>
+  </div>
+        <!--    <div class="home-features"> -->
+          <!--      <div class="bg"> -->
+        <!-- <img src="https://unsplash.it/400/200" alt=""> -->
+        <!-- <img src="https://images.pexels.com/photos/5302816/pexels-photo-5302816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="nautical charts">
+        <div class="overlay">
+          <h2>compare forecasts</h2>
+          <p>Lorem, ipsum dolor sit amet, consectetur adipisicing elit. Ex illo reiciendis dicta quasi excepturi quis sunt deserunt consequuntur praesentium animi esse minus rem consectetur quaerat, explicabo placeat. Facere, praesentium, repellat!</p>
+        </div>
+      </div> -->
+    <div class="home-banner-compare">
+      <div class="vertical-align d-flex flex-column justify-content-center ">
+        <h1>compare forecasts</h1>
+        <br>
+        <br>
+        <p class="px-5">Lorem ipsum, dolor sit, amet consectetur adipisicing elit. Praesentium, ut? Eveniet culpa assumenda, libero pariatur ratione ex qui eius illo incidunt error rem, nam atque impedit excepturi dicta voluptates, debitis!</p>
+      </div>
+    </div>
+    <br>
+    <div class="home-banner-record">
+      <div class="vertical-align d-flex flex-column justify-content-center ">
+        <h1>log your sessions</h1>
+        <br>
+        <br>
+        <p class="px-5">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque eius cum non saepe nobis, odit omnis necessitatibus voluptatum, id dolor! Numquam deserunt dolor fugiat, ab necessitatibus, tempora magni consequatur ullam.</p>
+      </div>
+    </div>
+    <br>
+    <div class="home-banner-improve">
+      <div class="vertical-align d-flex flex-column justify-content-center ">
+        <h1>perfect your predictions</h1>
+        <br>
+        <br>
+        <p class="px-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum modi, sit ad praesentium, dolor ducimus. Dolore obcaecati nostrum rem assumenda nam sint recusandae quia corrupti, alias veritatis itaque doloribus quisquam.</p>
+      </div>
+    </div>
+    <br>
+    <div class="extra-cards">
+      <div class="col mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1468931467769-06a09c69aad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)">
+        blog
+      </div>
+
+      <div class="col mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1468931467769-06a09c69aad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)">
+        ettiquete
+      </div>
+
+      <div class="col mb-4" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1468931467769-06a09c69aad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)">
+        review
+      </div>
+    </div>
   </div>
 </div>
