@@ -1,5 +1,5 @@
 .shaka-dark {
-    height: 25px;
+    height: 20px;
     width: auto;
     display: block;
 
@@ -8,15 +8,8 @@
     }
 }
 
-.shaka-container {
-  border-radius: $border-radius-sm;
-  background-color: rgba(255, 255, 255, 0.4);
-  padding: 4px 4px;
-}
-
-
 .shaka-white {
-  height: 25px;
+  height: 30px;
   width: auto;
   display: block;
 
@@ -26,11 +19,5 @@
 }
 
 .shaka-small {
-  height: 20px;
-  width: auto;
-  display: block;
-
-  path {
-    fill: $light !important;
-  }
+  height: 24px !important;
 }

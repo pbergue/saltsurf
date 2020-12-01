@@ -11,8 +11,8 @@
                   <h2><%= spot.name %></h2>
                 <div class="card-spot-top-rating">
                   <div class="d-flex">
-                  <%spot.forecast_today.rating.times do %>
-                      <%= inline_svg("shaka_svg", options={class: "shaka-small pl-1"})%>
+                    <%spot.forecast_today.rating.times do %>
+                      <%= inline_svg("shaka_svg", options={class: "shaka-dark pl-1"})%>
                     <% end %>
                   </div>
                 </div>
