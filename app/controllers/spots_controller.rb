@@ -3,20 +3,15 @@ class SpotsController < ApplicationController
   skip_before_action(:authenticate_user!, only: [ :index, :show ])
 
   def index
-    # @spots = Spot.all
-    # @spots = Spot.geocoded
-    # console
 
     if params[:query].present?
-      # @spots = @spots.near(params[:query], params[:distance].presence || 100)
       @spots = Spot.near(params[:query], params[:distance].presence || 100)
       @query_coordinates = Geocoder.search(params[:query]).first&.coordinates
     else
       @spots = Spot.geocoded
     end
-    # @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }.reverse
+    @spots = @spots.sort_by{ |spot| spot.forecast_today.rating }.reverse
 
-    # @markers = @spots.geocoded.map do |spot| {
     @markers = @spots.map do |spot|
       {
         lat: spot.latitude,
@@ -32,9 +27,9 @@ class SpotsController < ApplicationController
     @forecasts_am = []
     @forecasts_pm = []
     Forecast.where(spot_id: @spot.id).each do |forecast|
-      if forecast.timestamp.hour < 12
+      if forecast.timestamp == Time.now.utc.beginning_of_day + 8.hours
         @forecasts_am << forecast
-      elsif forecast.timestamp.hour > 12
+      elsif forecast.timestamp == Time.now.utc.beginning_of_day + 14.hours
         @forecasts_pm << forecast
       end
     end

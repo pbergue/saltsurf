@@ -34,19 +34,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initWindy } from '../plugins/init_windy_map';
 
 
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initAutocomplete();
   initMapbox();
   initWindy();
-});
-
-const cards = document.querySelectorAll('.custom[data-spot-id]');
-cards.forEach((card) => {
-  const idSpot = card.dataset.spotId;
-  card.addEventListener('mouseover', () => {
-    const marker = document.getElementById(`${idSpot}`);
-    marker.classList.toggle("orange-marker");
-  });
 });

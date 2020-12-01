@@ -14,7 +14,40 @@
 
 .orange-marker {
   transition: 0.1s;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   filter: hue-rotate(180deg);
+}
+
+.custom {
+  transition: 0.2s;
+  animation: .3s ease-in-out both fade-in;
+}
+
+.custom:hover {
+  transition: 0.2s;
+  transform: scale(1.03);
+}
+
+// Loop from 1-12.
+@for $i from 1 through 12 {
+  .custom {
+    &:nth-child(#{$i}) {
+
+      // Delay the animation. Delay increases as items loop.
+      animation-delay: $i * (.05s);
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
