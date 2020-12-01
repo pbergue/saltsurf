@@ -5,7 +5,7 @@
     <% if user_signed_in? %>
       <%= link_to "My profile", profile_path , class:"text-white custom-my-profile" %>
     <% else %>
-      <%=  link_to "Login", new_user_session_path, class: "btn-white" %>
+      <%=  link_to "Login", new_user_session_path, class: "login-link link" %>
     <% end %>
   </div>
   <div class="vertical-align d-flex flex-column justify-content-center">
