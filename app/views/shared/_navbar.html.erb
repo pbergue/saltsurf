@@ -28,14 +28,14 @@
           class: "address-input custom-form mx-2 mw-50", id: "address-input"
         %>
       </div>
-      <div class="range-slider custom-form-slider d-flex align-items-center justify-content-center text-white">
+      <div class="range-slider custom-form-slider-navbar d-flex align-items-center justify-content-center text-white">
         <p class="my-0 mx-2">0</p>
         <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
         <span class="range-slider__value">100</span>
         <p class="my-0 mx-1">km</p>
       </div>
       <div>
-        <%= submit_tag "Search", class: "my-3 ml-2 btn btn-danger", id:"search"%>
+        <%= submit_tag "Go", class: "my-3 ml-2 btn-go-navbar", id:"search"%>
       </div>
     </div>
     <% end %>

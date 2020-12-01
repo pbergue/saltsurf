@@ -24,6 +24,15 @@
   width: 89px;
 }
 
+.custom-form-slider-navbar {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0 25px 25px 0;
+  padding: 4px 42px 4px 0;
+  border: none;
+  height:  calc(1.5em + 0.75rem + 2px);
+  width: 50px;
+}
+
 .logo {
   color: white;
   font-weight: bold;
@@ -57,13 +66,14 @@
 
 .btn-go-navbar {
   border-radius: 50%;
-  height: 40px;
-  width: 42px;
+  height: 38px;
+  width: 38px;
   object-fit: fill;
-  background-color: $orange ;
+  background-color: $gray ;
   border: 1px solid rgb(168, 168, 168);
   position: absolute;
-  right: -8px;
+  right: 22px;
+  top: 8px;
   color: white;
   opacity: 0.8;
 }
