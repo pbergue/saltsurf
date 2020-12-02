@@ -3,7 +3,7 @@
             <% else %>
               <% @forecasts_am.each do |forecast| %>
                 <%# card div %>
-                <div class="col mb-4 px-3 text-center">
+                <div class="col px-3 text-center">
                   <div class="shadow rounded">
                     <div id="top-of-card" class="d-flex flex-column justify-content-center card-top ">
                       <h4 class="text-white"><%= forecast.source %></h4>
@@ -54,7 +54,7 @@
                       <div id="wind-conditions">
                         <h5> Wind Conditions</h5>
                         <div class="d-flex justify-content-around">
-                          <div class="d-flex mb-4" style="position: relative;">
+                          <div class="d-flex" style="position: relative;">
                             <p style="position: relative; bottom: 5px;"><i class="fas fa-wind pr-2"></i></p>
                             <p> <%= forecast.wind_speed %> kts </p>
                           </div>
