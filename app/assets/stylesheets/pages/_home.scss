@@ -38,11 +38,13 @@
   object-fit: fill;
   background-color: $orange ;
   border: 1px solid rgb(168, 168, 168);
-  position: relative;
-  right: 46px;
-  bottom: 0;
   color: white;
   opacity: 0.8;
+}
+
+.button-go-right {
+  position: absolute;
+  right: 0;
 }
 
 .link {
@@ -93,6 +95,12 @@
 
 .color-gray {
   color: $light-gray
+}
+
+.container-favorites {
+  display: flex;
+  justify-content: center;
+
 }
 
 // hover effect cards....
@@ -325,13 +333,11 @@
   padding: 4px 42px 4px 0;
   border: none;
   height:  calc(1.5em + 0.75rem + 2px);
+  position: relative;
 }
 
 .custom-pos-h3 {
   opacity: 0.6;
-  position: relative;
-  right: 308px;
-  bottom: 2px;
   h3 {
     margin-bottom: 0;
   }
