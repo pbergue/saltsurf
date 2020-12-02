@@ -31,7 +31,7 @@
     <div class="d-flex justify-content-between">
       <h2>My sessions</h2>
       <%= form_tag profile_path, method: :get do %>
-        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
+        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile", :include_blank => "All sessions" %>
         <%= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
   </div>
