@@ -41,7 +41,18 @@ class SpotsController < ApplicationController
       infoWindow: render_to_string(partial: "info_window", locals: { spot: spot })
     }
     end
-
+    @tides = @spot.tides
+    @today_low_tides = []
+    @today_high_tides = []
+    # extract todays data
+    @tides.each do |tide|
+      if tide.timestamp.day == Time.now.day && tide.status == "low"
+        @today_low_tides << tide
+      elsif tide.timestamp.day == Time.now.day && tide.status == "high"
+        @today_high_tides << tide
+      end
+        
+    end
   end
 
   private
