@@ -20,10 +20,6 @@ $teal: $light-gray !default;
   }
 }
 
-.range-slider {
-  margin: 0 8px;
-}
-
 
 // Range Slider
 
@@ -37,10 +33,14 @@ $range-track-height: 10px !default;
 $range-label-color: $shade-10 !default;
 $range-label-width: 28px !default;
 
-
+.range-slider-home {
+  width: 250px;
+  margin: 0 8px;
+}
 
 .range-slider {
-  width: 250px !important;
+  width: 250px;
+  margin: 0 8px;
 }
 
 .range-slider__range {
