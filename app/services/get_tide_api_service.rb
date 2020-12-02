@@ -22,14 +22,14 @@ class GetTideApiService
     if rawresponse['data']
       rawresponse['data'].each do |data| 
         tide = Tide.new
-        tide.timestamp = Time.new(data['time'])
+        tide.timestamp = DateTime.parse(data['time'])
         tide.height = data['height']
         tide.status = data['type']
         tide.spot_id = @spot.id
         tide.save
       end
     end
-   
+    return
   end
 end
 
