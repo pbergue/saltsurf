@@ -300,6 +300,8 @@
 }
 
 #pages_body {
+  position: relative;
+
   ::-webkit-input-placeholder {
     color:white;
   }
