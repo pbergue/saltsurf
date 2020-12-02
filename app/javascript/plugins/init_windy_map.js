@@ -1,5 +1,7 @@
 const initWindy = () => {
- const windyBox = document.getElementById("windy");
+  const windyBox = document.getElementById("windy");
+  if (!windyBox) return;
+
   const options = {
     // Required: API key
       key: windyBox.dataset.windyMapApiKey, // REPLACE WITH YOUR KEY !!!
