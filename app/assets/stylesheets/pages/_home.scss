@@ -1,28 +1,6 @@
 // Specific CSS for your home-page
 .custom-shadow-home {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px, rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 4px 8px, rgba(0, 0, 0, 0.15) 0px 8px 16px, rgba(0, 0, 0, 0.3) 0px 16px 32px, rgba(0, 0, 0, 0.3) 0px 32px 64px;
-}
-
-
-.home-banner {
-  background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
-    url(https://images.unsplash.com/photo-1468931467769-06a09c69aad3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80);
-  width: 100%;
-  height: 400px;
-  background-size: cover;
-  background-position: left;
-  h1 {
-    color: white;
-    font-size: 36px;
-  }
-  p {
-    color: white;
-    font-size: 16px;
-  }
-  h4 {
-    color: white;
-    opacity: 0.5;
-  }
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px, rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 4px 8px, rgba(0, 0, 0, 0.15) 0px 8px 16px, rgba(0, 0, 0, 0.15) 0px 16px 32px, rgba(0, 0, 0, 0.15) 0px 32px 64px;
 }
 
 .custom-banner-container {
@@ -34,7 +12,8 @@
   background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)),
     url(https://ec2-im-1.msw.ms/md/image.php?id=355189&type=PHOTOLAB&resize_type=PHOTOLAB_FULL&fromS3);
   width: 100%;
-  height: 750px;
+  height: auto;
+  padding-bottom: 8vh;
   background-size: cover;
   background-position: left;
   h1 {
@@ -109,6 +88,10 @@
       left: 0;
     }
   }
+}
+
+.color-gray {
+  color: $light-gray
 }
 
 // hover effect cards....
@@ -295,7 +278,7 @@
 }
 
 .height-set {
-  height: 25vh !important;
+  height: 200px !important;
 }
 
 #pages_body {
