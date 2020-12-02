@@ -21,6 +21,13 @@ class SessionsController < ApplicationController
     redirect_to profile_path
   end
 
+  def update_rating
+    @session = Session.find params[:id]
+    @session.rating = params[:rating]
+    @session.save
+    render json: { response: "c'est gagné" }
+  end
+
   private
 
   def session_params

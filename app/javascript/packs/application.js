@@ -34,7 +34,6 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initWindy } from '../plugins/init_windy_map';
 
 
-
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -42,3 +41,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initWindy();
 });
+
+import "controllers"
