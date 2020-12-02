@@ -27,8 +27,8 @@
         <% end %>
       </div>
     </div>
-    <%=  link_to "Go Surf", spot_sessions_path(@spot), method: :post, class: "mx-3 mb-3 btn btn-danger" %>
-    <%=  link_to "Get itinerary", spot_sessions_path(@spot), method: :post, target:"_blank", class: "mb-3 btn btn-danger mr-2" %>
+    <%=  link_to "Add Session", spot_sessions_path(@spot), method: :post, class: "mx-3 mb-3 btn btn-danger" %>
+    <%=  link_to "Get Directions", "https://maps.google.com/?q=#{@spot.latitude},#{@spot.longitude}", target:"_blank", class: "mb-3 btn btn-white mr-2" %>
   </div>
 
   <%# <%=  link_to "Record session", spot_sessions_path(@spot), method: :post, target:"_blank", class: "mb-3 btn btn-danger ml-2"  %>
