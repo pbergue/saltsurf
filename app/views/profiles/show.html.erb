@@ -94,7 +94,7 @@
                 </div>
                 <div>
                   <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
-                    <%= spot.forecasts.first.wind_speed %>kn
+                    <%= (spot.forecasts.first.wind_speed * 1.94384).round %>kn
                   </p>
                 </div>
                 <div>
