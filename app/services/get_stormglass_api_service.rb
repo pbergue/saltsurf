@@ -13,7 +13,7 @@ class GetStormglassApiService
     lat = @spot.latitude;
     lng =  @spot.longitude;
     source = 'sg,meteo,noaa';
-    end_time = Time.now.getutc + 86400;
+    end_time = Time.now.utc.beginning_of_day + 3.days;
     params = 'waveHeight,swellDirection,swellHeight,swellPeriod,waveDirection,waveHeight,wavePeriod,windDirection,windSpeed,airTemperature,seaLevel,waterTemperature';
     response = HTTParty.get("https://api.stormglass.io/v2/weather/point?lat=#{lat}&lng=#{lng}&params=#{params}&source=#{source}&end=#{end_time}",
       headers: {
