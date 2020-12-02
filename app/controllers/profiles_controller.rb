@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     end
   end
 
-  
+
 
   private
   # def location_list

@@ -39,17 +39,19 @@
     <% if @sessions.present? %>
       <% @sessions.each do |sesh| %>
         <div class="inside-container session-card">
-          <div class="my-0 px-1 d-flex align-items-center justify-content-between">
+          <div class="px-1 d-flex align-items-center justify-content-between">
             <div class="">
-              <h4><%= sesh.spot.name %></h4>
-              <p class="mb-0"><%= sesh.timestamp.strftime("%a, %d %b %Y") %></p>
+              <div class="d-flex justify-content-between mb-2 custom-content-profile">
+                <h4><strong><%= sesh.spot.name %></strong></h4>
+                <h4 class="opacity-7"><small><%= sesh.timestamp.strftime("%a, %d %b %Y") %></small></h4>
+              </div>
               <div class="d-flex">
-                <p class="mb-0">Notes: <%= sesh.description %></p>
-                <p class="pl-2 py-0 btn edit-button-description">Edit</p>
+                <h5 class="mb-0"><%= sesh.description %></h5>
+                <p class="pl-3 py-0 btn edit-button-description"><strong>Edit</strong></p>
               </div>
             </div>
-            <div class="">
-              <div class="review"
+            <div class="text-center">
+              <div class="review mb-2"
                    data-controller="stars-rating"
                    data-stars-rating-rating="<%=sesh.rating%>"
                    data-stars-rating-sessionid="<%=sesh.id%>"
@@ -75,12 +77,12 @@
                 <%# define spot and set symbols%>
                 <% spot = Spot.find(sesh.spot_id) %>
                 <div class="">
-                  <% if spot.forecasts.first.wave_height < 50 %>
-                  <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
-                  <% elsif spot.forecasts.first.wave_height < 150 %>
-                  <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <% if spot.forecasts.first.wave_height < 0.5 %>
+                  <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                  <% elsif spot.forecasts.first.wave_height < 1 %>
+                  <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
                   <% else %>
-                  <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= spot.forecasts.first.wave_height/100.to_f%>m</p>
+                  <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
                   <% end %>
                 </div>
                 <div>
