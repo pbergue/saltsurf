@@ -14,7 +14,7 @@ class GetStormglassApiService
     lng =  @spot.longitude;
     source = 'sg,meteo,noaa';
     end_time = Time.now.getutc + 86400;
-    params = 'waveHeight,swellDirection,swellHeight,swellPeriod,waveDirection,waveHeight,wavePeriod,windDirection,windSpeed';
+    params = 'waveHeight,swellDirection,swellHeight,swellPeriod,waveDirection,waveHeight,wavePeriod,windDirection,windSpeed,airTemperature,seaLevel,waterTemperature';
     response = HTTParty.get("https://api.stormglass.io/v2/weather/point?lat=#{lat}&lng=#{lng}&params=#{params}&source=#{source}&end=#{end_time}",
       headers: {
         'Authorization': "#{ENV['STORM_GLASS']}"
@@ -28,7 +28,7 @@ class GetStormglassApiService
       Forecast.create!(
         spot: @spot,
         timestamp: hour["time"],
-        wave_height: hour["waveHeight"]["noaa"] ,
+        wave_height: hour["waveHeight"]["noaa"],
         wind_direction: hour["windDirection"]["noaa"],
         wind_speed: hour["windSpeed"]["noaa"],
         swell_height: hour["swellHeight"]["noaa"],
@@ -38,6 +38,9 @@ class GetStormglassApiService
         source: "US NOAA",
         low_tide: DateTime.now + 6.25.hours,
         high_tide: DateTime.now,
+        sea_level: hour["seaLevel"]["sg"],
+        air_temperature: hour["airTemperature"]["sg"],
+        water_temperature:hour["waterTemperature"]["sg"],
       )
       rating_mf = [hour["waveHeight"]["meteo"].to_f+hour["wavePeriod"]["meteo"].to_f/10,3].min
       Forecast.create!(
@@ -53,6 +56,9 @@ class GetStormglassApiService
         source: "Météo-France",
         low_tide: DateTime.now + 6.25.hours,
         high_tide: DateTime.now,
+        sea_level: hour["seaLevel"]["sg"],
+        air_temperature: hour["airTemperature"]["sg"],
+        water_temperature:hour["waterTemperature"]["sg"],
       )
     end
   end
