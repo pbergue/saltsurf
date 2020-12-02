@@ -420,89 +420,89 @@ require "open-uri"
     printf("", i)
   end
 
-  puts "generating forecasts"
+  # puts "generating forecasts"
 
-  1.times do |i|
-    sleep(0.02)
-    printf("", i)
-  end
+  # 1.times do |i|
+  #   sleep(0.02)
+  #   printf("", i)
+  # end
 
-  10.times do |i|
-    printf("🌊", i)
-    sleep(0.02)
-  end
+  # 10.times do |i|
+  #   printf("🌊", i)
+  #   sleep(0.02)
+  # end
 
-  Spot.all.each do |spot|
-    forecast = Forecast.new(
-      wave_height: rand(0..300),
-      wind_direction: rand(0..360),
-      wind_speed: rand(0..50),
-      swell_height: rand(0..300),
-      rating: rand(0..5),
-      swell_direction: rand(0..360),
-      period: rand(4..16),
-      source: "Windy",
-      low_tide: DateTime.now,
-      high_tide: DateTime.now + 6.25.hours,
-      spot_id: spot.id,
-      timestamp: DateTime.new(2020,Date.today.month,Date.today.day,9,5,6)
-      )
-    forecast.save!
-  end
+  # Spot.all.each do |spot|
+  #   forecast = Forecast.new(
+  #     wave_height: rand(0..300),
+  #     wind_direction: rand(0..360),
+  #     wind_speed: rand(0..50),
+  #     swell_height: rand(0..300),
+  #     rating: rand(0..5),
+  #     swell_direction: rand(0..360),
+  #     period: rand(4..16),
+  #     source: "Windy",
+  #     low_tide: DateTime.now,
+  #     high_tide: DateTime.now + 6.25.hours,
+  #     spot_id: spot.id,
+  #     timestamp: DateTime.new(2020,Date.today.month,Date.today.day,9,5,6)
+  #     )
+  #   forecast.save!
+  # end
 
-  Spot.all.each do |spot|
-    forecast = Forecast.new(
-      wave_height: rand(0..300),
-      wind_direction: rand(0..360),
-      wind_speed: rand(0..50),
-      swell_height: rand(0..300),
-      rating: rand(0..5),
-      swell_direction: rand(0..360),
-      period: rand(4..16),
-      source: "Windy",
-      low_tide: DateTime.now,
-      high_tide: DateTime.now + 6.25.hours,
-      spot_id: spot.id,
-      timestamp: DateTime.new(2020,Date.today.month,Date.today.day,16,2,2)
-      )
-    forecast.save!
-  end
+  # Spot.all.each do |spot|
+  #   forecast = Forecast.new(
+  #     wave_height: rand(0..300),
+  #     wind_direction: rand(0..360),
+  #     wind_speed: rand(0..50),
+  #     swell_height: rand(0..300),
+  #     rating: rand(0..5),
+  #     swell_direction: rand(0..360),
+  #     period: rand(4..16),
+  #     source: "Windy",
+  #     low_tide: DateTime.now,
+  #     high_tide: DateTime.now + 6.25.hours,
+  #     spot_id: spot.id,
+  #     timestamp: DateTime.new(2020,Date.today.month,Date.today.day,16,2,2)
+  #     )
+  #   forecast.save!
+  # end
 
-    Spot.all.each do |spot|
-    forecast = Forecast.new(
-      wave_height: rand(0..300),
-      wind_direction: rand(0..360),
-      wind_speed: rand(0..50),
-      swell_height: rand(0..300),
-      rating: rand(0..5),
-      swell_direction: rand(0..360),
-      period: rand(4..16),
-      source: "MSW",
-      low_tide: DateTime.now,
-      high_tide: DateTime.now + 6.25.hours,
-      spot_id: spot.id,
-      timestamp: DateTime.new(2020,Date.today.month,Date.today.day,16,2,2)
-      )
-    forecast.save!
-  end
+  #   Spot.all.each do |spot|
+  #   forecast = Forecast.new(
+  #     wave_height: rand(0..300),
+  #     wind_direction: rand(0..360),
+  #     wind_speed: rand(0..50),
+  #     swell_height: rand(0..300),
+  #     rating: rand(0..5),
+  #     swell_direction: rand(0..360),
+  #     period: rand(4..16),
+  #     source: "MSW",
+  #     low_tide: DateTime.now,
+  #     high_tide: DateTime.now + 6.25.hours,
+  #     spot_id: spot.id,
+  #     timestamp: DateTime.new(2020,Date.today.month,Date.today.day,16,2,2)
+  #     )
+  #   forecast.save!
+  # end
 
-    Spot.all.each do |spot|
-    forecast = Forecast.new(
-      wave_height: rand(0..300),
-      wind_direction: rand(0..360),
-      wind_speed: rand(0..50),
-      swell_height: rand(0..300),
-      rating: rand(0..5),
-      swell_direction: rand(0..360),
-      period: rand(4..16),
-      source: "MSW",
-      low_tide: DateTime.now,
-      high_tide: DateTime.now + 6.25.hours,
-      spot_id: spot.id,
-      timestamp: DateTime.new(2020,Date.today.month,Date.today.day,6,2,2)
-      )
-    forecast.save!
-  end
+  #   Spot.all.each do |spot|
+  #   forecast = Forecast.new(
+  #     wave_height: rand(0..300),
+  #     wind_direction: rand(0..360),
+  #     wind_speed: rand(0..50),
+  #     swell_height: rand(0..300),
+  #     rating: rand(0..5),
+  #     swell_direction: rand(0..360),
+  #     period: rand(4..16),
+  #     source: "MSW",
+  #     low_tide: DateTime.now,
+  #     high_tide: DateTime.now + 6.25.hours,
+  #     spot_id: spot.id,
+  #     timestamp: DateTime.new(2020,Date.today.month,Date.today.day,6,2,2)
+  #     )
+  #   forecast.save!
+  # end
 
 puts "forecasts generated yeeeeeew 🌊"
 
