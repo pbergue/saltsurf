@@ -25,12 +25,15 @@
 }
 
 .custom-form-slider-navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
   background: rgba(255, 255, 255, 0.6);
   border-radius: 0 25px 25px 0;
   padding: 4px 42px 4px 0;
   border: none;
   height:  calc(1.5em + 0.75rem + 2px);
-  width: 50px;
 }
 
 .logo {

@@ -1,4 +1,5 @@
 // Specific CSS for your home-page
+
 .custom-shadow-home {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 2px, rgba(0, 0, 0, 0.15) 0px 2px 4px, rgba(0, 0, 0, 0.15) 0px 4px 8px, rgba(0, 0, 0, 0.15) 0px 8px 16px, rgba(0, 0, 0, 0.15) 0px 16px 32px, rgba(0, 0, 0, 0.15) 0px 32px 64px;
 }
@@ -170,13 +171,16 @@
 //   }
 // }
 
-
-.home-banner-compare {
+#bg-compare {
   background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/5302816/pexels-photo-5302816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940');
   width: 100%;
   height: 400px;
   background-size: cover;
   background-position: center;
+  position: relative;
+}
+
+.home-banner-compare {
   h1 {
     color: white;
     font-size: 36px;
@@ -189,14 +193,49 @@
     color: white;
     opacity: 0.5;
   }
+  position: relative;
 }
 
-.home-banner-record {
+.overlay {
+  position: absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  z-index: 1000;
+  height: 100%;
+}
+
+.overlay-h1 {
+  opacity: 1;
+}
+
+.overlay-p {
+  opacity: 0;
+}
+
+.home-banner-compare:hover {
+  .overlay-p {
+    opacity: 1;
+    transition: 0.3s;
+  }
+  #bg-compare {
+    webkit-filter: blur(1px); /* Chrome, Safari, Opera */
+    filter: blur(1px);
+  }
+}
+
+#bg-record {
   background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://cdn.shopify.com/s/files/1/1074/5128/files/Mike-Lay_Niewland-4-Wetsuit.jpg?v=1580905712');
   width: 100%;
   height: 400px;
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 75% 80%;
+
+}
+
+.home-banner-record {
+  position: relative;
   h1 {
     color: white;
     font-size: 36px;
@@ -211,12 +250,27 @@
   }
 }
 
-.home-banner-improve {
+.home-banner-record:hover {
+  .overlay-p {
+    opacity: 1;
+    transition: 0.3s;
+  }
+  #bg-record {
+    webkit-filter: blur(1px); /* Chrome, Safari, Opera */
+    filter: blur(1px);
+  }
+}
+
+#bg-improve {
   background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('perfect conditions 3.jpeg');
   width: 100%;
   height: 400px;
   background-size: cover;
-  background-position: top;
+  background-position: 50% 40%;
+}
+
+.home-banner-improve {
+  position: relative;
   h1 {
     color: white;
     font-size: 36px;
@@ -228,6 +282,17 @@
   h4 {
     color: white;
     opacity: 0.5;
+  }
+}
+
+.home-banner-improve:hover {
+  .overlay-p {
+    opacity: 1;
+    transition: 0.3s;
+  }
+  #bg-improve {
+    webkit-filter: blur(1px); /* Chrome, Safari, Opera */
+    filter: blur(1px);
   }
 }
 
@@ -260,7 +325,6 @@
   padding: 4px 42px 4px 0;
   border: none;
   height:  calc(1.5em + 0.75rem + 2px);
-  width: 50px;
 }
 
 .custom-pos-h3 {

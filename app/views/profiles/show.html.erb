@@ -55,18 +55,23 @@
               </div>
             </div>
             <div class="">
-                <div class="d-flex justify-content-between">
-                <% if sesh.rating %>
-                  <div>
-                  <% sesh.rating.times do %>
-                    <i class="fas text-primary fa-star "></i>
-                  <% end %>
-
-                  </div>
-                <% else %>
-                  <p class="font-italic">add your rating</p>
+              <div class="review"
+                   data-controller="stars-rating"
+                   data-stars-rating-rating="<%=sesh.rating%>"
+                   data-stars-rating-sessionid="<%=sesh.id%>"
+                   data-action="mouseleave->stars-rating#resetRating">
+               <% sesh.rating.times do |i| %>
+                  <i class="fas text-primary fa-star "
+                     data-target="stars-rating.star"
+                     data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
+                     data-id="<%= i + 1 %>"></i>
                 <% end %>
-                <p class="pl-2 py-0 btn edit-button-rating">Edit</p>
+                <% (5 - sesh.rating).times do |i| %>
+                  <i class="far text-primary fa-star"
+                     data-target="stars-rating.star"
+                     data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
+                     data-id="<%= i + sesh.rating + 1 %>"></i>
+                <% end %>
               </div>
               <%= simple_form_for [:profile, sesh] , method: :patch, html: { class: "hidden update-rating"} do |f| %>
                 <%= f.input_field :rating, class: "mb-2 text-align-right"%>
@@ -110,4 +115,3 @@
     <% end %>
   </div>
 </div>
-

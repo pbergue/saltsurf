@@ -42,3 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   initWindy();
   initSelectForm();
 });
+
+import "controllers"

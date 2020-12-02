@@ -6,9 +6,54 @@
 
 
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
+@media (min-width: 100px) and (max-width: 768px) {
   #map-area {
     display: none
+  }
+  .custom-pos-h3 {
+    display: none;
+  }
+
+  #search-home {
+    display: inline !important;
+    justify-content: right !important;
+
+  }
+
+  .range-slider-home {
+    margin: 0 auto;
+    width: 170px;
+  }
+
+  .custom-width {
+    margin: 0 auto;
+    padding-right: 20px;
+    width: 190px;
+  }
+
+  .custom-form {
+    border-radius: 25px;
+    margin-bottom: 4px;
+  }
+
+  .custom-form-slider {
+    padding: 4px;
+    border-radius: 25px;
+  }
+
+  #slider-navbar {
+    display: none;
+  }
+
+  #search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .btn-go-homepage {
+    position: unset;
   }
 }
 
