@@ -27,13 +27,19 @@
     <% end %>
   </div>
 
-  <div class=" white-rounded-background ">
+  <div class="white-rounded-background" id="mySessions">
     <div class="d-flex justify-content-between">
       <h2>My sessions</h2>
-      <%= form_tag profile_path, method: :get do %>
-        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), include_blank: true, class: "form-radius search-bar-profile" %>
-        <%= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
+      <%= form_tag profile_path(anchor: "mySessions"), method: :get, id: "seshSelectorForm", data: {remote: true} do %>
+        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), class: "form-radius search-bar-profile px-3", :include_blank => "   All Sessions", id: "sesh_selector" %>
+        <%#= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
+      <!--          <select id="sel_id" name="sel_name"  onchange="this.form.submit();">
+<option value="-1">Select</option>
+<option value="6">kasper </option>
+<option value="13">adad </option>
+<option value="14">3204 </option>
+</select> -->
   </div>
 
     <% if @sessions.present? %>
@@ -71,6 +77,7 @@
                 <%= f.input_field :rating, class: "mb-2 text-align-right"%>
                 <%= f.submit "Update rating!", class: "btn btn-primary" %>
               <% end %>
+
               <div class="card-spot-info d-flex forecast-info">
                 <%# define spot and set symbols%>
                 <% spot = Spot.find(sesh.spot_id) %>
