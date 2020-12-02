@@ -8,6 +8,7 @@
 require "open-uri"
 
 # Favorite.destroy_all
+  Tide.destroy_all
   Forecast.destroy_all
   Session.destroy_all
   User.destroy_all
@@ -68,6 +69,7 @@ require "open-uri"
   spot1.save!
 
   GetStormglassApiService.new(spot1).call
+  GetTideApiService.new(spot1).call
 
 
   spot2 = Spot.new(
@@ -92,6 +94,7 @@ require "open-uri"
   spot2.save!
 
   GetStormglassApiService.new(spot2).call
+  GetTideApiService.new(spot2).call
 
   spot3 = Spot.new(
   latitude: 48.6623,
@@ -116,6 +119,7 @@ require "open-uri"
   spot3.save!
 
   GetStormglassApiService.new(spot3).call
+  GetTideApiService.new(spot3).call
 
   spot4 = Spot.new(
   latitude: 48.6977,
@@ -139,6 +143,7 @@ require "open-uri"
   spot4.save!
 
   GetStormglassApiService.new(spot4).call
+  GetTideApiService.new(spot4).call
 
   spot5 = Spot.new(
   latitude: 48.0465,
@@ -161,6 +166,7 @@ require "open-uri"
 
   spot5.save!
   GetStormglassApiService.new(spot5).call
+  GetTideApiService.new(spot5).call
 
   spot6 = Spot.new(
   latitude: 48.6575,
@@ -182,6 +188,7 @@ require "open-uri"
 
   spot6.save!
   GetStormglassApiService.new(spot6).call
+  GetTideApiService.new(spot6).call
 
 
   spot7 = Spot.new(
@@ -202,6 +209,7 @@ require "open-uri"
 
   spot7.save!
   GetStormglassApiService.new(spot7).call
+  GetTideApiService.new(spot7).call
 
 
   spot8 = Spot.new(
@@ -225,6 +233,7 @@ require "open-uri"
 
   spot8.save!
   GetStormglassApiService.new(spot8).call
+  GetTideApiService.new(spot8).call
 
   spot9 = Spot.new(
   latitude: 47.7531,
@@ -247,6 +256,7 @@ require "open-uri"
 
   spot9.save!
   GetStormglassApiService.new(spot9).call
+   GetTideApiService.new(spot9).call
 
   spot10 = Spot.new(
   latitude: 48.3378,
@@ -270,6 +280,7 @@ require "open-uri"
   spot10.save!
 
   GetStormglassApiService.new(spot10).call
+  GetTideApiService.new(spot10).call
 
   spot11 = Spot.new(
   latitude: 48.8242,
@@ -293,6 +304,7 @@ require "open-uri"
   spot11.save!
 
   GetStormglassApiService.new(spot11).call
+   GetTideApiService.new(spot11).call
 
 
   spot12 = Spot.new(
@@ -317,6 +329,7 @@ require "open-uri"
   spot12.save!
 
   GetStormglassApiService.new(spot12).call
+   GetTideApiService.new(spot12).call
 
 
   spot13 = Spot.new(
@@ -341,6 +354,7 @@ require "open-uri"
   spot13.save!
 
   GetStormglassApiService.new(spot13).call
+   GetTideApiService.new(spot13).call
 
 
   spot14 = Spot.new(
@@ -365,6 +379,7 @@ require "open-uri"
   spot14.save!
 
   GetStormglassApiService.new(spot14).call
+  GetTideApiService.new(spot14).call
 
 
   spot15 = Spot.new(
@@ -390,6 +405,7 @@ require "open-uri"
 
   spot15.save!
   GetStormglassApiService.new(spot15).call
+  GetTideApiService.new(spot15).call
 
 
    1.times do |i|
