@@ -9,9 +9,10 @@ class GetTideApiService
   def call
     lat = @spot.latitude;
     lng =  @spot.longitude;
-    end_time = Time.now.utc.beginning_of_day + 4.days ;
+    start_time = Time.now.utc.strftime("%Y-%m-%d")
+    end_time = (Time.now.utc.beginning_of_day + 4.days).strftime("%Y-%m-%d")
     # params = 'waveHeight,swellDirection,swellHeight,swellPeriod,waveDirection,waveHeight,wavePeriod,windDirection,windSpeed';
-    response = HTTParty.get("https://api.stormglass.io/v2/tide/extremes/point?lat=#{lat}&lng=#{lng}&end=#{end_time}",
+    response = HTTParty.get("https://api.stormglass.io/v2/tide/extremes/point?lat=#{lat}&lng=#{lng}&start=#{start_time}&end=#{end_time}",
       headers: {
         'Authorization': "#{ENV['STORM_GLASS']}"
       }
