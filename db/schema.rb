@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_30_093538) do
+ActiveRecord::Schema.define(version: 2020_12_02_090608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,10 +47,10 @@ ActiveRecord::Schema.define(version: 2020_11_30_093538) do
 
   create_table "forecasts", force: :cascade do |t|
     t.bigint "spot_id", null: false
-    t.integer "wave_height"
+    t.float "wave_height"
     t.integer "wind_direction"
     t.integer "wind_speed"
-    t.integer "swell_height"
+    t.float "swell_height"
     t.integer "rating"
     t.integer "swell_direction"
     t.integer "period"
@@ -60,12 +60,16 @@ ActiveRecord::Schema.define(version: 2020_11_30_093538) do
     t.time "high_tide"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "water_temperature"
+    t.integer "air_temperature"
+    t.float "sea_level"
     t.index ["spot_id"], name: "index_forecasts_on_spot_id"
   end
 
   create_table "sessions", force: :cascade do |t|
     t.bigint "spot_id", null: false
     t.bigint "user_id", null: false
+    t.string "title"
     t.text "description"
     t.integer "rating"
     t.datetime "timestamp"
