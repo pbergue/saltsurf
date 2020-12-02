@@ -2,6 +2,10 @@
   opacity: 0.7;
 }
 
+.grey-color {
+  color: $gray;
+}
+
 .white-rounded-background {
   background-color: white;
   border-radius: 10px;
@@ -10,7 +14,8 @@
 
 .edit-button-description {
   transition: 0.5s;
-  opacity: 0.6;
+  color: $gray;
+  opacity: 0.8;
   &:hover {
     text-decoration: underline;
     transition: 0.5s;
@@ -25,7 +30,8 @@
 
 .inside-container {
   width: 100%;
-  padding: 20px 1px 5px 1px;
+  margin: 0 auto;
+  padding: 20px 0px 5px 0px;
   position: relative;
 }
 
@@ -33,9 +39,9 @@
   content : "";
   position: absolute;
   bottom  : 0;
-  left: 10%;
+  left: 0;
   height  : 1px;
-  width   : 80%;
+  width   : 100%;
   border-bottom:1px solid rgba($color: $lighter-gray, $alpha: 0.5);
 }
 
