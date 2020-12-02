@@ -1,5 +1,5 @@
 // Base Colors
-$shade-10: $gray !default;
+$shade-10: $light-blue !default;
 $shade-1: $light-gray !default;
 $shade-0: $light-gray !default;
 $teal: $light-gray !default;
@@ -14,6 +14,11 @@ $teal: $light-gray !default;
   }
 }
 
+.ap-input-icon.ap-icon-pin {
+  path {
+    fill: white;
+  }
+}
 
 .range-slider {
   margin: 0 8px;
@@ -30,7 +35,7 @@ $range-track-color: $shade-1 !default;
 $range-track-height: 10px !default;
 
 $range-label-color: $shade-10 !default;
-$range-label-width: 60px !default;
+$range-label-width: 28px !default;
 
 
 

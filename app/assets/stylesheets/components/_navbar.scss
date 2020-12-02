@@ -2,6 +2,18 @@
   justify-content: space-between;
   background: $light-blue;
   position: relative;
+  ::-webkit-input-placeholder {
+    color:white;
+  }
+  ::-moz-placeholder {
+    color:white;
+  }
+  ::-ms-placeholder {
+    color:white;
+  }
+  ::placeholder {
+    color:white;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -10,6 +22,15 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 89px;
+}
+
+.custom-form-slider-navbar {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0 25px 25px 0;
+  padding: 4px 42px 4px 0;
+  border: none;
+  height:  calc(1.5em + 0.75rem + 2px);
+  width: 50px;
 }
 
 .logo {
@@ -45,13 +66,14 @@
 
 .btn-go-navbar {
   border-radius: 50%;
-  height: 40px;
-  width: 42px;
+  height: 38px;
+  width: 38px;
   object-fit: fill;
-  background-color: $orange ;
+  background-color: $light-blue ;
   border: 1px solid rgb(168, 168, 168);
   position: absolute;
-  right: -8px;
+  right: 22px;
+  top: 8px;
   color: white;
   opacity: 0.8;
 }
@@ -63,4 +85,11 @@
 
 .gradient-btn {
   background: linear-gradient(45deg, rgba(#e21c1c,1) 0%, rgba(#e2751c,1) 100%);
+}
+
+.custom-pos-h3-navbar {
+  position: absolute;
+  right: 279px;
+  top: 24px;
+  opacity: 0.6;
 }

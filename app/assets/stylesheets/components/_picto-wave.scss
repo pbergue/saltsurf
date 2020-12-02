@@ -1,5 +1,8 @@
 .picto-wave {
   width: 20px;
   height: 20px;
-  opacity: .7;
+  opacity: 1;
+  path {
+    fill: $blue !important;
+  }
 }
