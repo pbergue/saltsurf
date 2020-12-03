@@ -7,7 +7,7 @@
         <% @favorites_spots.each do |spot| %>
           <div class="col mb-4 ">
             <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
-              <div class="set-height rounded height-set text-center vertical-align custom-shadow d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
+              <div class="cards-hover-index-orange set-height rounded height-set text-center vertical-align custom-shadow d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
                 <h5 class="font-weight-bold"><%= spot.name %></h5>
                 <div class="mt-2 d-flex justify-content-center">
                   <% spot.forecasts.first.rating.times do %>
@@ -52,7 +52,7 @@
       <% @sessions.each do |sesh| %>
         <div class="container border-bottom session-card">
           <div class="d-flex justify-content-between pt-2 ">
-            <p class="bigger-font"><%= sesh.spot.name %><small class="grey-color text-right op-7"> | <%= sesh.timestamp.strftime("%d %b %Y") %></small></p>
+            <p class="bigger-font"><%= sesh.spot.name %> <%=  %>  <small class="grey-color text-right op-7">    <%= sesh.timestamp.strftime("%d %b %Y") %></small></p>
             <div class="d-flex">
               <% spot = Spot.find(sesh.spot_id) %>
               <div class=" px-4">
@@ -65,12 +65,17 @@
                 <% end %>
               </div>
               <div class=" px-4">
-                <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+               <!--  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
                   <%= spot.forecasts.first.wind_speed %>kn
-                </p>
+                </p> -->
+                <p class="<%= if spot.forecast_today.wind_speed >= 15 then 'text-danger' elsif spot.forecast_today.wind_speed >= 10 then 'text-warning' else 'text-success' end %>">
+                      <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecast_today.wind_direction %>deg);"></i>
+                      <%= spot.forecast_today.wind_speed %>kn
+                    </p>
               </div>
-              <div class=" pl-4">
-                <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
+              <div class="d-flex pl-4">
+                    <i class="fas fa-wave-square" ></i>
+                    <p class="pl-2"><%= spot.forecast_today.period %> s </p>
               </div>
             </div>
           </div>
@@ -78,11 +83,13 @@
             <div class="d-flex">
               <p class="mb-0 grey-color op-7"><%= sesh.description %></p>
               <p class="pl-1 py-0 btn edit-button-description edit-link op-5">
-                <% if sesh.description.present? %>
-                 <i class="fas fa-edit op-5"></i>
-                <% else %>
-                Add a description
-                <% end %>
+                <i>
+                  <% if sesh.description.present? %>
+                   <i class="fas fa-edit op-5"></i>
+                  <% else %>
+                  <i> Add a description </i>
+                  <% end %>
+                </i>
               </p>
               <%= simple_form_for sesh, url: profile_sesh_path(sesh),  method: :patch, html: { class: "hidden update-description d-flex align-items-center mb-3"} do |f|%>
                 <%= f.input_field :description %>

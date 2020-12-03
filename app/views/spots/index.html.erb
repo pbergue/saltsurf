@@ -5,7 +5,7 @@
       <%# a div for cards %>
           <% @spots.each do |spot| %>
           <div class="custom" data-spot-id="<%= spot.id %>">
-            <div class="card-spot">
+            <div class="card-spot cards-hover-index-orange">
               <%=  link_to spot_path(spot), class: "text-decoration-none text-dark" do %>
               <div class="card-spot-top pb-3">
                   <h2><%= spot.name %></h2>
