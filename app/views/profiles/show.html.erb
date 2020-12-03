@@ -9,7 +9,7 @@
             <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
               <div class="cards-hover-index-orange set-height rounded height-set text-center vertical-align custom-shadow d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
                 <h5 class="font-weight-bold"><%= spot.name %></h5>
-                <div class="mt-2 d-flex justify-content-center">
+                <div class="mt-2 d-flex justify-content-center shaka-toggle">
                   <% spot.forecasts.first.rating.times do %>
                   <!-- <p> <%#= inline_svg("shaka_shadow_less", options={class: "shaka-white pl-1"})%> </p>   -->
                   <svg  class="mx-1" width="27.4" height="25" viewBox="0 0 137 125" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,6 @@
                   </svg>
                   <% end %>
                 </div>
-                <p class="op-7 pt-3 text-dark"><%= pluralize(spot.sessions.count,"session") %></p>
               </div>
             <% end %>
           </div>
