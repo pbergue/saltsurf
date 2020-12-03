@@ -5,7 +5,7 @@
 }
 
 .custom-shadow-home {
-  box-shadow: rgba(30,30,30, 0.15) 0px 1px 2px, rgba(30,30,30, 0.15) 0px 2px 4px, rgba(30,30,30, 0.15) 0px 4px 8px, rgba(30,30,30, 0.15) 0px 8px 16px;
+  box-shadow: rgba(30,30,30, 0.3) 0px 1px 2px, rgba(30,30,30, 0.3) 0px 2px 4px, rgba(30,30,30, 0.3) 0px 4px 8px, rgba(30,30,30, 0.3) 0px 8px 16px;
   &:hover {
     box-shadow: 0;
   }
@@ -20,13 +20,14 @@
   margin-bottom: 16px;
   width: 80%;
   position: relative;
-  bottom: 130px;
+  bottom: 90px;
+    p {
+      font-weight: bold;
+    }
 }
-
-.line-break{
+.info-content {
   position: relative;
-  bottom: 80px;
-  width: 70%;
+  bottom: 50px;
 }
 .spacer {
   height: 60px;
