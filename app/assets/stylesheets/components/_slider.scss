@@ -34,7 +34,9 @@ $range-label-color: $shade-10 !default;
 $range-label-width: 28px !default;
 
 .range-slider-home {
-  // width: 250px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .range-slider {

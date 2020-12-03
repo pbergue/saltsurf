@@ -10,22 +10,13 @@
   #map-area {
     display: none
   }
-  .custom-pos-h3 {
+
+
+  .range-slider-home {
     display: none;
   }
 
-  #search-home {
-    display: inline !important;
-    justify-content: right !important;
-
-  }
-
-  .range-slider-home {
-    margin: 0 auto;
-    width: 170px;
-  }
-
-  .custom-width {
+  .search-width {
     margin: 0 auto;
     padding-right: 20px;
     width: 190px;
@@ -47,16 +38,15 @@
     align-items: center;
     margin-top: 4px;
   }
-
-  .btn-go-homepage {
-    position: unset;
-  }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (max-width: 768px) {
   #map-area {
     display: none
+  }
+  .search-width {
+    width: 430px;
   }
 }
 
