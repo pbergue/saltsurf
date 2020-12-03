@@ -1,19 +1,12 @@
 var rangeSlider = function(){
-    var slider = $('.range-slider'),
-        range = $('.range-slider__range'),
-        value = $('.range-slider__value');
-      
-    slider.each(function(){
-  
-      value.each(function(){
-        var value = $(this).prev().attr('value');
-        $(this).html(value);
-      });
-  
-      range.on('input', function(){
-        $(this).next(value).html(this.value);
-      });
-    });
+
+    // var slider = $('.range-slider'),
+        const range = document.querySelector('.range-slider__range');
+        const value = document.querySelector('.range-slider__value');
+
+        range.addEventListener("input", (event) => {
+          value.innerText = range.value;
+        }); 
   };
   
-  rangeSlider();
+  export{rangeSlider}
