@@ -75,10 +75,10 @@
                      data-id="<%= i + sesh.rating + 1 %>"></i>
                 <% end %>
               </div>
-              <%= simple_form_for [:profile, sesh] , method: :patch, html: { class: "hidden update-rating"} do |f| %>
-                <%= f.input_field :rating, class: "mb-2 text-align-right"%>
-                <%= f.submit "Update rating!", class: "btn btn-primary" %>
-              <% end %>
+              <%# <%= simple_form_for sesh, url: {controller: "seshs", action: "update"}, method: :patch, html: { class: "hidden update-rating"} do |f| %>
+                <%# <%= f.input_field :rating, class: "mb-2 text-align-right"%>
+                <%# <%= f.submit "Update rating!", class: "btn btn-primary" %>
+              <%# <% end %>
 
               <div class="card-spot-info d-flex forecast-info">
                 <%# define spot and set symbols%>
@@ -104,7 +104,7 @@
             </div>
           </div>
           <div class=" " >
-            <%= simple_form_for [:profile, sesh], method: :patch, html: { class: "hidden update-description d-flex align-items-center"} do |f|%>
+            <%= simple_form_for sesh, url: profile_sesh_path(sesh),  method: :patch, html: { class: "hidden update-description d-flex align-items-center"} do |f|%>
               <%= f.input_field :description %>
               <%= f.submit "Update description!", class: "ml-2 btn btn-primary" %>
             <% end %>
