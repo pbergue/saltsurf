@@ -37,6 +37,21 @@
 }
 
 
+.fas.fa-route {
+  color: black;
+  opacity: 1;
+}
+
+.fas.fa-wave-square {
+  color: black;
+  opacity: 1;
+}
+
+.fas.fa-location-arrow {
+  color: black;
+  opacity: 1;
+}
+
 .card-spot h2 {
   font-size: 24px;
   font-weight: bold;
@@ -47,6 +62,8 @@
 .card-spot p {
   opacity: 0.7;
   color: #4A5568;
+  margin-bottom: 0;
+  margin-left: 5px;
 }
 
 .card-spot .card-spot-info {

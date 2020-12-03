@@ -5,6 +5,15 @@
 @import "show";
 
 
+.gray-text {
+  color: $gray;
+}
+
+.black-text {
+  color: black;
+  margin: 0 2px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 576px) {
   #map-area {
