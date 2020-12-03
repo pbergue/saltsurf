@@ -36,25 +36,24 @@
         <% end %>
       </div>
   </div>
-  <div class="mt-4 mb-4 container text-center" style="opacity: 0.7;">
-    <% if current_user %>
-      <% if current_user.favorites %>
-        <h3 class="text-white"> Conditions at your Favorite Spots <strong>right now</strong></h3>
-      <% else %>
-        <h3 class="text-white"> The best spots right now </h3>
-      <% end %>
-    <% else %>
-      <h3 class="text-white"> The best spots right now </h3>
-    <% end %>
-
-  </div>
   <div class="spacer"></div>
 </div>
-<div class="custom-banner-container">
-  <div class="row container-favorites">
+<div class="custom-banner-container ">
+  <div class="mt-4 mb-2 px-0 " style="opacity: 0.8;">
+    <% if current_user %>
+      <% if current_user.favorites %>
+        <h5 class="text-white font-weight-bold"> Your Favorites</h5>
+      <% else %>
+        <h5 class="text-white font-weight-bold"> Best Spots right now</h5>
+      <% end %>
+    <% else %>
+      <h5 class="text-white font-weight-bold"> Best Spots right now</h5>
+    <% end %>
+  </div>
+  <div class="d-flex flex-row">
     <%# <div class=""> %>
       <% @spots.each do |spot| %>
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4 pl-0 pr-4">
           <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
             <div class="cards-hover-home-orange custom-shadow-home rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
               <h5 class="font-weight-bold"><%= spot.name %></h5>
@@ -73,9 +72,8 @@
     <%# </div> %>
   </div>
 </div>
-<hr class="line-break">
 <%# set .favorite function %>
-<div class="text-center">
+<div class="text-center info-content">
   <div class="">
         <!--    <div class="home-features"> -->
           <!--      <div class="bg"> -->
