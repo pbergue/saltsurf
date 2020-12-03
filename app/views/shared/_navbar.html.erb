@@ -22,23 +22,22 @@
   <div class="navbar-container">
     <%= form_tag spots_path, method: :get, class: " my-4 d-flex align-items-center justify-content-center" do %>
     <div class="container d-flex justify-content-center align-items-center">
-      <div class="custom-width">
-        <%= text_field_tag :query, params[:query],
-          placeholder: "Search around...",
-          class: "address-input custom-form mx-2 mw-50", id: "address-input"
-        %>
-      </div>
-      <div id="slider-navbar" class="range-slider custom-form-slider-navbar">
-        <p class="my-0 mx-2"></p>
-        <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
-        <span class="range-slider__value ml-2">100</span>
-        <p class="my-0 mx-1">km</p>
-      </div>
-      <div>
-        <%= submit_tag "Go", class: "my-3 ml-2 btn-go-navbar", id:"search"%>
-      </div>
-      <div class="custom-pos-h3-navbar">
-        <h3>|</h3>
+      <div class="search-width grey-background d-flex justify-content-center align-items-center">
+        <div class="custom-width">
+          <%= text_field_tag :query, params[:query],
+            placeholder: "Search around...",
+            class: "address-input custom-form mx-2 mw-50", id: "address-input"
+          %>
+        </div>
+        <div id="slider-navbar" class="range-slider custom-form-slider-navbar">
+          <p class="my-0 mx-2"></p>
+          <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
+          <span class="range-slider__value ml-2 light-blue">100</span>
+          <p class="my-0 mx-1 light-blue">km</p>
+        </div>
+        <div>
+          <%= submit_tag "Go", class: "ml-2 btn-go-navbar", id:"search"%>
+        </div>
       </div>
     </div>
     <% end %>

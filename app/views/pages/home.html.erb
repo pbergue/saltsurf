@@ -16,23 +16,22 @@
       <div class="container">
         <%= form_tag spots_path, method: :get, class: "my-4 d-flex align-items-center justify-content-center" do %>
           <div id="search-home" class="container d-flex justify-content-center align-items-center">
-            <div class="custom-width">
-              <%= text_field_tag :query, params[:query],
-                placeholder: "Search around...",
-                class: "address-input custom-form px-4 mw-50", id: "address-input"
-              %>
-            </div>
-            <%# <div class="custom-pos-h3">
-              <h3 class="color-gray">|</h3>
-            </div> %>
-            <div class="range-slider-home custom-form-slider d-flex align-items-center justify-content-center text-white">
-              <p class="my-0 mx-2"></p>
-              <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
-              <span class="range-slider__value ml-2">100</span>
-              <p class="my-0 mx-1">km</p>
-              <div id="search" class="button-go-right">
-                <%= submit_tag "Go", class: "btn-go-homepage"%>
+            <div class="search-width grey-background d-flex justify-content-center align-items-center">
+              <div class="custom-width">
+                <%= text_field_tag :query, params[:query],
+                  placeholder: "Search around...",
+                  class: "address-input custom-form px-4 mw-50", id: "address-input"
+                %>
               </div>
+              <div class="range-slider-home custom-form-slider">
+                <p class="my-0 mx-2"></p>
+                <input class="range-slider__range" name="distance" type="range" value="100" min="0" max="100">
+                <span class="range-slider__value ml-2 light-blue">100</span>
+                <p class="my-0 mx-1 light-blue">km</p>
+              </div>
+                <div id="search">
+                  <%= submit_tag "Go", class: "btn-go-homepage"%>
+                </div>
             </div>
           </div>
         <% end %>
