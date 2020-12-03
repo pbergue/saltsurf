@@ -42,7 +42,7 @@
                           <div class="d-flex align-center" style="position: relative;">
                             <% if forecast.swell_height < 0.5 %>
                               <p><%= inline_svg("1-wave.svg", options={class: "picto-wave"})%></p>
-                              <p class="pl-2 picto-icon"><%= forecast.wave_height.round(1)%>m</p>
+                              <p class="pl-2 picto-icon"><%= forecast.swell_height.round(1)%>m</p>
                             <% elsif forecast.swell_height < 1.5 %>
                               <p><%= inline_svg("2-waves.svg", options={class: "picto-wave"})%></p>
                               <p class="pl-2 picto-icon"><%= forecast.swell_height.round(1)%>m</p>
