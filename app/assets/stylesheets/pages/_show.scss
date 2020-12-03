@@ -4,6 +4,12 @@
   right: 50px;
 }
 
+.picto-icon {
+  color: $gray;
+  opacity: 0.7;
+  font-size: 16px !important;
+}
+
 .selected {
   font-size: x-large;
   color: $danger;
