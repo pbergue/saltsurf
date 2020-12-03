@@ -30,7 +30,7 @@ export default class extends Controller {
     const id = this.data.get("sessionid");
     Rails.ajax( {
       type: "patch",
-      url: `/profile/sessions/${id}/update_rating`,
+      url: `/profile/seshs/${id}/update_rating`,
       data: `rating=${rating}`,
       success: (data) => {
         console.log("Grand success", data);

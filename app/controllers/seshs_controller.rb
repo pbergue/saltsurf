@@ -1,12 +1,12 @@
-class SessionsController < ApplicationController
+class SeshsController < ApplicationController
   def create
     @spot = Spot.find(params[:spot_id])
     @session = Session.new()
     @session.spot = @spot
     @session.user = current_user
     @session.timestamp = DateTime.now
+    @session.rating = 1
     if @session.save
-      @session.save
       redirect_to profile_path
     else
       redirect_to spot_path(@spot), alert: "You must be logged in for this feature"

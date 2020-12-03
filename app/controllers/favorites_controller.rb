@@ -10,8 +10,7 @@ class FavoritesController < ApplicationController
         @favorite.user = current_user
         @favorite.save
         redirect_to spot_path(@spot)
-    else 
-      # redirect_to new_user_session_path
+    else
       redirect_to spot_path(@spot), alert: "You must be logged in for this feature"
     end
   end
@@ -24,7 +23,7 @@ class FavoritesController < ApplicationController
         @favorite = @favorites.find_by spot_id: @spot.id
         @favorite.destroy
         redirect_to spot_path(@spot)
-    else 
+    else
       redirect_to spot_path(@spot), alert: "You must be logged in for this feature"
     end
   end
