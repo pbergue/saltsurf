@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
     @favorites_spots = current_user.spots
     @session_spots = current_user.session_spots.uniq
     if params[:session_spot_name].present?
-      @sessions = Session.where(spot_id: params[:session_spot_name]).order(created_at: :desc)
+      @sessions = Session.where(spot_id: params[:session_spot_name], user_id: current_user).order(created_at: :desc)
     else
       @sessions = current_user.sessions.order(created_at: :desc)
     end
