@@ -1,13 +1,13 @@
 <div class="container my-3">
 
   <h2 class=" mt-5"><strong>My favorite spots</strong></h2>
-  <div class="container mt-3 mb-5">
+  <div class="container mt-4 mb-3">
     <% if @favorites_spots.present? %>
       <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
         <% @favorites_spots.each do |spot| %>
           <div class=" pl-0 pr-3 col-lg-3 col-md-4 col-sm-6 mb-4">
             <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
-              <div class="cards-hover-home-orange custom-shadow-home rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
+              <div class="cards-hover-home-orange custom-shadow-profile rounded p-3 height-set text-center vertical-align d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
                 <h5 class="font-weight-bold"><%= spot.name %></h5>
                 <div class="d-flex justify-content-center">
                   <% spot.forecast_today.rating.times do %>
