@@ -165,8 +165,8 @@ require "open-uri"
   spot5.photos.attach(io:file, filename:"baie-trepasses-second",content_type: 'image/jpg')
 
   spot5.save!
-  GetStormglassApiService.new(spot5).call
-  GetTideApiService.new(spot5).call
+  # GetStormglassApiService.new(spot5).call
+  # GetTideApiService.new(spot5).call
 
   spot6 = Spot.new(
   latitude: 48.6575,
@@ -187,8 +187,8 @@ require "open-uri"
   spot6.photos.attach(io:file, filename:"cap-frehel-second",content_type: 'image/jpg')
 
   spot6.save!
-  GetStormglassApiService.new(spot6).call
-  GetTideApiService.new(spot6).call
+  # GetStormglassApiService.new(spot6).call
+  # GetTideApiService.new(spot6).call
 
 
   spot7 = Spot.new(
@@ -208,8 +208,8 @@ require "open-uri"
   spot7.photos.attach(io:file, filename:"cote-sauvage-main",content_type: 'image/jpg')
 
   spot7.save!
-  GetStormglassApiService.new(spot7).call
-  GetTideApiService.new(spot7).call
+  # GetStormglassApiService.new(spot7).call
+  # GetTideApiService.new(spot7).call
 
 
   spot8 = Spot.new(
@@ -232,8 +232,8 @@ require "open-uri"
   spot8.photos.attach(io:file, filename:"Penthievre-second",content_type: 'image/jpg')
 
   spot8.save!
-  GetStormglassApiService.new(spot8).call
-  GetTideApiService.new(spot8).call
+  # GetStormglassApiService.new(spot8).call
+  # GetTideApiService.new(spot8).call
 
   spot9 = Spot.new(
   latitude: 47.7531,
@@ -255,8 +255,8 @@ require "open-uri"
   spot9.photos.attach(io:file, filename:"Plage-du-loch-second",content_type: 'image/jpg')
 
   spot9.save!
-  GetStormglassApiService.new(spot9).call
-   GetTideApiService.new(spot9).call
+  # GetStormglassApiService.new(spot9).call
+   # GetTideApiService.new(spot9).call
 
   spot10 = Spot.new(
   latitude: 48.3378,
@@ -279,8 +279,8 @@ require "open-uri"
 
   spot10.save!
 
-  GetStormglassApiService.new(spot10).call
-  GetTideApiService.new(spot10).call
+  # GetStormglassApiService.new(spot10).call
+  # GetTideApiService.new(spot10).call
 
   spot11 = Spot.new(
   latitude: 48.8242,
@@ -303,8 +303,8 @@ require "open-uri"
 
   spot11.save!
 
-  GetStormglassApiService.new(spot11).call
-   GetTideApiService.new(spot11).call
+  # GetStormglassApiService.new(spot11).call
+   # GetTideApiService.new(spot11).call
 
 
   spot12 = Spot.new(
@@ -328,8 +328,8 @@ require "open-uri"
 
   spot12.save!
 
-  GetStormglassApiService.new(spot12).call
-   GetTideApiService.new(spot12).call
+  # GetStormglassApiService.new(spot12).call
+   # GetTideApiService.new(spot12).call
 
 
   spot13 = Spot.new(
@@ -353,8 +353,8 @@ require "open-uri"
 
   spot13.save!
 
-  GetStormglassApiService.new(spot13).call
-   GetTideApiService.new(spot13).call
+  # GetStormglassApiService.new(spot13).call
+   # GetTideApiService.new(spot13).call
 
 
   spot14 = Spot.new(
@@ -378,8 +378,8 @@ require "open-uri"
 
   spot14.save!
 
-  GetStormglassApiService.new(spot14).call
-  GetTideApiService.new(spot14).call
+  # GetStormglassApiService.new(spot14).call
+  # GetTideApiService.new(spot14).call
 
 
   spot15 = Spot.new(

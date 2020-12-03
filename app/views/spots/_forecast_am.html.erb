@@ -34,10 +34,10 @@
                         </div>
                         <div class="d-flex justify-content-between align-items-center mx-2 my-0 px-3">
                           <div class="d-flex align-center" style="position: relative;">
-                            <% if forecast.swell_height < 50 %>
+                            <% if forecast.swell_height < 0.5 %>
                               <p><%= inline_svg("1-wave.svg", options={class: "picto-wave"})%></p>
-                              <p class="pl-2"><%= forecast.swell_height%>m</p>
-                            <% elsif forecast.swell_height < 150 %>
+                              <p class="pl-2"><%= forecast.wave_height%> m</p>
+                            <% elsif forecast.swell_height < 1.5 %>
                               <p><%= inline_svg("2-waves.svg", options={class: "picto-wave"})%></p>
                               <p class="pl-2"><%= forecast.swell_height%>m</p>
                             <% else %>
