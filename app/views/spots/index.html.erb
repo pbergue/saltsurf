@@ -23,7 +23,7 @@
                 <div class="card-spot-info d-flex justify-content-between">
                   <div>
                     <% if spot.forecasts.first.wave_height < 50 %>
-                    <p class="text-warning"><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
+                    <p class=""><%= image_tag("1-wave.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
                     <% elsif spot.forecasts.first.wave_height < 150 %>
                     <p class="text-danger"><%= image_tag("2-waves.svg",class: "picto-wave",style:"width: 20px; height: 20px")%> <%= spot.forecast_today.wave_height.to_f%>m</p>
                     <% else %>
