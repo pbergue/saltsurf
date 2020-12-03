@@ -5,7 +5,7 @@
 }
 
 .selected {
-  font-size: xx-large;
+  font-size: x-large;
   color: $danger;
   &:hover {
     opacity: .8;
@@ -13,7 +13,7 @@
 }
 
 .unselected {
-  font-size: xx-large;
+  font-size: x-large;
   color: white;
   opacity:0.6;
   text-shadow:0px 0px 4px rgba(80, 80, 80, 0.5) !important;
@@ -33,4 +33,15 @@
 
 .spot-name {
   font-size:3rem;
+}
+
+p, i {
+  color: $card-gray;
+}
+
+.non-sticky {
+  position: relative !important;
+  width: 100%;
+  height: 50%;
+  border-radius: $border-radius;
 }
