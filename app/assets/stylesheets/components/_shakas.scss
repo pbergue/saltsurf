@@ -1,21 +1,21 @@
 .shaka-dark {
-    height: 20px;
-    width: auto;
     display: block;
 
     path {
-      fill: $dark !important;
+      fill: $light-blue !important;
     }
 }
 
 .shaka-white {
-  height: 30px;
-  width: auto;
-  display: block;
 
+  display: block;
+  opacity: 0.8;
   path {
-    fill: $light !important;
+
+    fill: $gray !important;
   }
+
+
 }
 
 .shaka-small {
