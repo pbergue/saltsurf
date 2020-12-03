@@ -322,18 +322,26 @@
   height: 300px;
 }
 
+.grey-background {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.search-width {
+  width: 500px;
+  padding: 4px 4px 4px 0;
+  border-radius: 50px;
+}
+
 .custom-form {
   // border-radius: calc((1.5em + 0.75rem + 2px)/2) !important;
   border-radius: 25px 0 0 25px;
-  background: rgba(255, 255, 255, 0.6);
+  background: none;
   padding: 4px 18px;
   border: none;
   height:  calc(1.5em + 0.75rem + 2px);
 }
 
 .custom-form-slider {
-  background: rgba(255, 255, 255, 0.6);
-  border-radius: 0 25px 25px 0;
   padding: 4px 42px 4px 0;
   border: none;
   height:  calc(1.5em + 0.75rem + 2px);

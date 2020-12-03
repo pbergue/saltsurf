@@ -3,16 +3,16 @@
   background: $light-blue;
   position: relative;
   ::-webkit-input-placeholder {
-    color:white;
+    color:$light-blue;
   }
   ::-moz-placeholder {
-    color:white;
+    color:$light-blue;
   }
   ::-ms-placeholder {
-    color:white;
+    color:$light-blue;
   }
   ::placeholder {
-    color:white;
+    color:$light-blue;
   }
 }
 
@@ -29,7 +29,6 @@
   justify-content: center;
   align-items: center;
   color: white;
-  background: rgba(255, 255, 255, 0.6);
   border-radius: 0 25px 25px 0;
   padding: 4px 42px 4px 0;
   border: none;
@@ -74,9 +73,6 @@
   object-fit: fill;
   background-color: $orange;
   border: 1px solid rgb(168, 168, 168);
-  position: absolute;
-  right: 22px;
-  top: 8px;
   color: white;
   opacity: 0.8;
 }
