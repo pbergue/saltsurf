@@ -44,9 +44,7 @@
   &.active {
     background-color: $primary !important;
     color:white !important;
-
   }
-
 }
 
 #morning-tab {
@@ -55,4 +53,11 @@
 
 #afternoon-tab {
   border-radius: 0px $border-radius $border-radius 0px;
+}
+
+.link-hover {
+  &:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
 }

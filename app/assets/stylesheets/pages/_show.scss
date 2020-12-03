@@ -1,6 +1,19 @@
-#like-button {
-  i {
-    font-size: larger;
+.selected {
+  font-size: x-large;
+  color: $danger;
+  &:hover {
+    opacity: .8;
+  }
+}
+
+.unselected {
+  font-size: x-large;
+  color: white;
+  opacity:0.6;
+  text-shadow:0px 0px 4px rgba(80, 80, 80, 0.5) !important;
+  &:hover {
+    text-shadow:0px 0px 4px rgba(80, 80, 80, 0.8) !important;
+    opacity:0.8;
   }
 }
 
