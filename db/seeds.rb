@@ -640,12 +640,12 @@ puts "forecasts generated yeeeeeew 🌊"
     sleep(0.02)
   end
 
-  5.times do |i|
+  4.times do |i|
     User.all.each do |user|
       session = Session.new(
         spot_id: rand(Spot.first.id..Spot.last.id),
         user_id: rand(User.first.id..User.last.id),
-        description: "I'm frothing! sooooooo stoked",
+        description: ["Good wind, but swell could have been bigger", "like this spot, met some cool locals", "", "really nice left off by the staircase", "should only come during low-tide"].sample
         rating: rand(1..5),
         timestamp: DateTime.now,
         )

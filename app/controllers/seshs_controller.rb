@@ -2,6 +2,7 @@ class SeshsController < ApplicationController
   def create
     @spot = Spot.find(params[:spot_id])
     @session = Session.new()
+    @session.description = "add your notes"
     @session.spot = @spot
     @session.user = current_user
     @session.timestamp = DateTime.now
