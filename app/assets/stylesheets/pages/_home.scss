@@ -11,6 +11,10 @@
   }
 }
 
+.orange-box-shadow {
+  box-shadow: rgba($color: $orange, $alpha: 1.0) 6px 6px 1px;
+}
+
 .custom-banner-container {
   margin: 0 auto;
   width: 80%;
@@ -47,7 +51,6 @@
   background-color: $orange ;
   border: 1px solid rgb(168, 168, 168);
   color: white;
-  opacity: 0.8;
 }
 
 
