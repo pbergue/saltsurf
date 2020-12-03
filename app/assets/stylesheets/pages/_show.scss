@@ -1,3 +1,9 @@
+#favorite {
+  position: absolute;
+  top: 100px;
+  right: 50px;
+}
+
 .selected {
   font-size: x-large;
   color: $danger;
@@ -27,4 +33,15 @@
 
 .spot-name {
   font-size:3rem;
+}
+
+p, i {
+  color: $card-gray;
+}
+
+.non-sticky {
+  position: relative !important;
+  width: 100%;
+  height: 50%;
+  border-radius: $border-radius;
 }
