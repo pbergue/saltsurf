@@ -1,13 +1,13 @@
 <div class="container my-3">
 
-  <h2 class="margin-left"><strong>My favorite spots</strong></h2>
+  <h2 class=" mt-5"><strong>My favorite spots</strong></h2>
   <div class="container mt-3 mb-5">
     <% if @favorites_spots.present? %>
       <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
         <% @favorites_spots.each do |spot| %>
           <div class="col mb-4 ">
             <%= link_to spot_path(spot), class: "text-decoration-none text-light" do %>
-              <div class="set-height rounded p-3 height-set text-center vertical-align custom-shadow d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
+              <div class="set-height rounded height-set text-center vertical-align custom-shadow d-flex flex-column justify-content-center" style="background-size: cover; background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 15, 50, 0.3)), url(<%= cl_image_path spot.photos.first.key %>);">
                 <h5 class="font-weight-bold"><%= spot.name %></h5>
                 <div class="mt-2 d-flex justify-content-center">
                   <% spot.forecasts.first.rating.times do %>
@@ -28,10 +28,10 @@
   </div>
 
   <div class="white-rounded-background" id="mySessions">
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between mb-2">
       <h2><strong>My Sessions</strong></h2>
       <%= form_tag profile_path(anchor: "mySessions"), method: :get, id: "seshSelectorForm", data: {remote: true} do %>
-        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), class: "form-radius search-bar-profile px-3", :include_blank => "   All Sessions", id: "sesh_selector" %>
+        <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), class: "form-radius search-bar-profile px-3 select-session", :include_blank => "   All Sessions", id: "sesh_selector" %>
         <%#= submit_tag "Apply Filter", class:"rounded mx-2 btn btn-secondary" %>
       <% end %>
       <!--          <select id="sel_id" name="sel_name"  onchange="this.form.submit();">
@@ -41,74 +41,67 @@
 <option value="14">3204 </option>
 </select> -->
   </div>
-
     <% if @sessions.present? %>
       <% @sessions.each do |sesh| %>
-        <div class="inside-container session-card">
-          <div class="px-1 d-flex align-items-center justify-content-between">
-            <div class="">
-              <div class="d-flex justify-content-between mb-2 custom-content-profile">
-                <h4><strong><%= sesh.spot.name %></strong></h4>
-                <h4 class="grey-color"><small><%= sesh.timestamp.strftime("%a, %d %b %Y") %></small></h4>
-              </div>
-              <div class="d-flex">
-                <h5 class="mb-0"><%= sesh.description %></h5>
-                <p class="pl-3 py-0 btn edit-button-description"><strong>Edit</strong></p>
-              </div>
-            </div>
-            <div class="text-right">
-              <div class="review mb-2"
-                   data-controller="stars-rating"
-                   data-stars-rating-rating="<%=sesh.rating%>"
-                   data-stars-rating-sessionid="<%=sesh.id%>"
-                   data-action="mouseleave->stars-rating#resetRating">
-               <% sesh.rating.times do |i| %>
-                  <i class="fas text-primary fa-star "
-                     data-target="stars-rating.star"
-                     data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
-                     data-id="<%= i + 1 %>"></i>
-                <% end %>
-                <% (5 - sesh.rating).times do |i| %>
-                  <i class="far text-primary fa-star"
-                     data-target="stars-rating.star"
-                     data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
-                     data-id="<%= i + sesh.rating + 1 %>"></i>
-                <% end %>
-              </div>
-              <%# <%= simple_form_for sesh, url: {controller: "seshs", action: "update"}, method: :patch, html: { class: "hidden update-rating"} do |f| %>
-                <%# <%= f.input_field :rating, class: "mb-2 text-align-right"%>
-                <%# <%= f.submit "Update rating!", class: "btn btn-primary" %>
-              <%# <% end %>
-
-              <div class="card-spot-info d-flex forecast-info">
-                <%# define spot and set symbols%>
-                <% spot = Spot.find(sesh.spot_id) %>
-                <div class="">
-                  <% if spot.forecasts.first.wave_height < 0.5 %>
-                  <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                  <% elsif spot.forecasts.first.wave_height < 1 %>
-                  <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                  <% else %>
-                  <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                  <% end %>
-                </div>
-                <div>
-                  <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
-                    <%= spot.forecasts.first.wind_speed %>kn
-                  </p>
-                </div>
-                <div>
-                  <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
-                </div>
-              </div>
+        <div class="container border-bottom session-card">
+          <div class="d-flex justify-content-between pt-2 ">
+            <p class="bigger-font"><%= sesh.spot.name %><small class="grey-color text-right op-7"> | <%= sesh.timestamp.strftime("%a, %d %b %Y") %></small></p>
+            <div class="review mb-2"
+                  data-controller="stars-rating"
+                  data-stars-rating-rating="<%=sesh.rating%>"
+                  data-stars-rating-sessionid="<%=sesh.id%>"
+                  data-action="mouseleave->stars-rating#resetRating">
+              <% sesh.rating.times do |i| %>
+                <i class="fas text-primary fa-star "
+                    data-target="stars-rating.star"
+                    data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
+                    data-id="<%= i + 1 %>"></i>
+              <% end %>
+              <% (5 - sesh.rating).times do |i| %>
+                <i class="far text-primary fa-star"
+                    data-target="stars-rating.star"
+                    data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
+                    data-id="<%= i + sesh.rating + 1 %>"></i>
+              <% end %>
             </div>
           </div>
-          <div class=" " >
-            <%= simple_form_for sesh, url: profile_sesh_path(sesh),  method: :patch, html: { class: "hidden update-description d-flex align-items-center"} do |f|%>
-              <%= f.input_field :description %>
-              <%= f.submit "Update description!", class: "ml-2 btn btn-primary" %>
-            <% end %>
-
+          <div class="d-flex justify-content-between">
+            <div class="d-flex">
+              <p class="mb-0 grey-color op-7"><%= sesh.description %></p>
+              <p class="pl-1 py-0 btn edit-button-description edit-link op-5">
+                <% if sesh.description.present? %>
+                 <i class="fas fa-edit op-5"></i>
+                <% else %>
+                Add a description
+                <% end %>
+              </p>
+              <%= simple_form_for sesh, url: profile_sesh_path(sesh),  method: :patch, html: { class: "hidden update-description d-flex align-items-center mb-3"} do |f|%>
+                <%= f.input_field :description %>
+                <%= f.submit "Post ;)", class: "ml-2 btn btn-primary" %>
+              <% end %>
+            </div>
+            <div class=" mb-2 " >
+            </div>
+            <div class="card-spot-info d-flex forecast-info">
+              <% spot = Spot.find(sesh.spot_id) %>
+              <div class=" px-4">
+                <% if spot.forecasts.first.wave_height < 0.5 %>
+                <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% elsif spot.forecasts.first.wave_height < 1 %>
+                <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% else %>
+                <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% end %>
+              </div>
+              <div class=" px-4">
+                <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                  <%= spot.forecasts.first.wind_speed %>kn
+                </p>
+              </div>
+              <div class=" pl-4">
+                <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>

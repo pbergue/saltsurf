@@ -1,9 +1,26 @@
-.opacity-7 {
+.op-7 {
   opacity: 0.7;
+}
+.op-6 {
+  opacity: 0.6;
+}
+.op-5 {
+  opacity: 0.5;
+}
+.edit-link {
+  font-style: italic;
 }
 
 .grey-color {
   color: $gray;
+}
+
+.bigger-font{
+  font-size: 18px;
+}
+.select-session {
+  background-color :#EDF2F7 !important ;
+  font-size: 16px;
 }
 
 .white-rounded-background {
