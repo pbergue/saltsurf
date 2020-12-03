@@ -17,6 +17,7 @@
                   </svg>
                   <% end %>
                 </div>
+                <p class="op-7 pt-3"><%= pluralize(spot.sessions.count,"session") %></p>
               </div>
             <% end %>
           </div>
@@ -28,7 +29,7 @@
   </div>
 
   <div class="white-rounded-background" id="mySessions">
-    <div class="d-flex justify-content-between mb-2">
+    <div class="d-flex justify-content-between mb-3 mt-3 pb-4 border-bottom ">
       <h2><strong>My Sessions</strong></h2>
       <%= form_tag profile_path(anchor: "mySessions"), method: :get, id: "seshSelectorForm", data: {remote: true} do %>
         <%= select_tag :session_spot_name, options_from_collection_for_select(@session_spots, :id, :name), class: "form-radius search-bar-profile px-3 select-session", :include_blank => "   All Sessions", id: "sesh_selector" %>
@@ -45,24 +46,26 @@
       <% @sessions.each do |sesh| %>
         <div class="container border-bottom session-card">
           <div class="d-flex justify-content-between pt-2 ">
-            <p class="bigger-font"><%= sesh.spot.name %><small class="grey-color text-right op-7"> | <%= sesh.timestamp.strftime("%a, %d %b %Y") %></small></p>
-            <div class="review mb-2"
-                  data-controller="stars-rating"
-                  data-stars-rating-rating="<%=sesh.rating%>"
-                  data-stars-rating-sessionid="<%=sesh.id%>"
-                  data-action="mouseleave->stars-rating#resetRating">
-              <% sesh.rating.times do |i| %>
-                <i class="fas text-primary fa-star "
-                    data-target="stars-rating.star"
-                    data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
-                    data-id="<%= i + 1 %>"></i>
-              <% end %>
-              <% (5 - sesh.rating).times do |i| %>
-                <i class="far text-primary fa-star"
-                    data-target="stars-rating.star"
-                    data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
-                    data-id="<%= i + sesh.rating + 1 %>"></i>
-              <% end %>
+            <p class="bigger-font"><%= sesh.spot.name %><small class="grey-color text-right op-7"> | <%= sesh.timestamp.strftime("%d %b %Y") %></small></p>
+            <div class="d-flex">
+              <% spot = Spot.find(sesh.spot_id) %>
+              <div class=" px-4">
+                <% if spot.forecasts.first.wave_height < 0.5 %>
+                <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% elsif spot.forecasts.first.wave_height < 1 %>
+                <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px, color:#0D535B")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% else %>
+                <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px, color:#0D535B" )%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% end %>
+              </div>
+              <div class=" px-4">
+                <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
+                  <%= spot.forecasts.first.wind_speed %>kn
+                </p>
+              </div>
+              <div class=" pl-4">
+                <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
+              </div>
             </div>
           </div>
           <div class="d-flex justify-content-between">
@@ -83,23 +86,23 @@
             <div class=" mb-2 " >
             </div>
             <div class="card-spot-info d-flex forecast-info">
-              <% spot = Spot.find(sesh.spot_id) %>
-              <div class=" px-4">
-                <% if spot.forecasts.first.wave_height < 0.5 %>
-                <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                <% elsif spot.forecasts.first.wave_height < 1 %>
-                <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                <% else %>
-                <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                <% end %>
-              </div>
-              <div class=" px-4">
-                <p><i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecasts.first.wind_direction %>deg);"></i>
-                  <%= spot.forecasts.first.wind_speed %>kn
-                </p>
-              </div>
-              <div class=" pl-4">
-                <p><i class="fas fa-wave-square "></i> <%=spot.forecasts.first.period %>s</p>
+              <div class="review mb-2"
+                  data-controller="stars-rating"
+                  data-stars-rating-rating="<%=sesh.rating%>"
+                  data-stars-rating-sessionid="<%=sesh.id%>"
+                  data-action="mouseleave->stars-rating#resetRating">
+              <% sesh.rating.times do |i| %>
+                <i class="fas text-primary fa-star "
+                    data-target="stars-rating.star"
+                    data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
+                    data-id="<%= i + 1 %>"></i>
+              <% end %>
+              <% (5 - sesh.rating).times do |i| %>
+                <i class="far text-primary fa-star"
+                    data-target="stars-rating.star"
+                    data-action="mouseover->stars-rating#colorStar click->stars-rating#setRating"
+                    data-id="<%= i + sesh.rating + 1 %>"></i>
+              <% end %>
               </div>
             </div>
           </div>
