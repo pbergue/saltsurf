@@ -645,7 +645,7 @@ puts "forecasts generated yeeeeeew 🌊"
       session = Session.new(
         spot_id: rand(Spot.first.id..Spot.last.id),
         user_id: rand(User.first.id..User.last.id),
-        description: ["Consistently good as ever, nice head high waves at low to mid tide.", "Awesome I'm nailing my predictions every time now!", "Good wind, but swell could have been bigger", "like this spot, met some cool locals", "", "really nice left off by the staircase", "should only come during low-tide"].sample
+        description: ["Good wind, but swell could have been bigger", "like this spot, met some cool locals", "", "really nice left off by the staircase", "should only come during low-tide"].sample,
         rating: rand(1..5),
         timestamp: DateTime.now,
         )
