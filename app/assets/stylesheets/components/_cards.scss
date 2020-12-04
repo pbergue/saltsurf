@@ -47,7 +47,7 @@
   opacity: 1;
 }
 
-.fas.fa-location-arrow {
+.fas.fa-location-arrow.fa-arrows-alt-v {
   color: black;
   opacity: 1;
 }
@@ -60,6 +60,13 @@
   margin-bottom: 12px;
 }
 .card-spot p {
+  opacity: 0.8;
+  color: #4A5568;
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+
+.card-show p {
   opacity: 0.8;
   color: #4A5568;
   margin-bottom: 0;

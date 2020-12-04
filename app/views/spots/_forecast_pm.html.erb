@@ -4,7 +4,7 @@
               <% @forecasts_pm.each do |forecast| %>
                 <%# card div %>
                 <div class="col px-3 text-center h-100%">
-                  <div class="shadow rounded ">
+                  <div class="shadow rounded card-show">
                     <div id="top-of-card mt-5" class="d-flex flex-column justify-content-center card-top-custom-show ">
                       <h4 class="mt-5"><%= forecast.source %></h4>
                       <div class="d-flex justify-content-center">
@@ -39,20 +39,20 @@
                           </div>
                         </div>
                         <div class="d-flex justify-content-around align-items-center mt-3  my-0 px-2">
-                          <div class="d-flex align-center" style="position: relative;">
+                          <div class="d-flex align-items-center" style="position: relative;">
                             <% if forecast.swell_height < 0.5 %>
-                              <p><%= inline_svg("1-wave.svg", options={class: "picto-wave"})%></p>
+                              <%= inline_svg("1-wave.svg", options={class: "picto-wave"})%>
                               <p class="pl-2 picto-icon"><%= forecast.wave_height.round(1)%>m</p>
                             <% elsif forecast.swell_height < 1.5 %>
-                              <p><%= inline_svg("2-waves.svg", options={class: "picto-wave"})%></p>
+                              <%= inline_svg("2-waves.svg", options={class: "picto-wave"})%>
                               <p class="pl-2 picto-icon"><%= forecast.swell_height.round(1)%>m</p>
                             <% else %>
-                              <p><%= inline_svg("3-waves.svg", options={class: "picto-wave"})%></p>
+                              <%= inline_svg("3-waves.svg", options={class: "picto-wave"})%>
                               <p class="pl-2 picto-icon"><%= forecast.swell_height.round(1)%>m</p>
                             <% end %>
                           </div>
-                          <div class="d-flex" style="position: relative;">
-                            <p><i class="fas fa-arrow-down picto-icon" style="transform: rotate(<%= forecast.swell_direction %>deg); -ms-transform: rotate(<%= forecast.swell_direction %>deg); -webkit-transform: rotate(<%= forecast.swell_direction %>deg);"></i>
+                          <div class="d-flex align-items-center" style="position: relative;">
+                            <i class="fas fa-arrow-down picto-icon" style="transform: rotate(<%= forecast.swell_direction %>deg); -ms-transform: rotate(<%= forecast.swell_direction %>deg); -webkit-transform: rotate(<%= forecast.swell_direction %>deg);"></i>
                             <p class="pl-2 picto-icon"><%= forecast.swell_direction %>° </p>
                           </div>
                         </div>
@@ -61,14 +61,14 @@
                       <div id="wind-conditions">
                         <p class="mt-2"> Wind</p>
                         <hr style="width:50%;" class="my-1 text-center mb-2">
-                        <div class="d-flex justify-content-around  mx-2 my-0">
-                          <div class="d-flex" style="position: relative;">
-                            <p style="position: relative; bottom: 5px; "><i class="fas fa-wind pr-2 picto-icon"></i></p>
-                            <p class="pl-2 picto-icon"> <%= forecast.wind_speed %>kts </p>
+                        <div class="d-flex justify-content-around align-items-center mb-4 mt-3 mx-2 my-0">
+                          <div class="d-flex align-items-center" style="position: relative;">
+                            <i class="fas fa-wind pr-2 picto-icon"></i>
+                            <p class="picto-icon"> <%= forecast.wind_speed %>kts </p>
                           </div>
 
-                          <div class="d-flex mb-5" style="position: relative;">
-                            <p style="position: relative; bottom: 5px;"><i class="fas fa-location-arrow picto-icon" style="transform: rotate(<%= (forecast.wind_direction-210) %>deg); -ms-transform: rotate(<%= (forecast.wind_direction-210) %>deg); -webkit-transform: rotate(<%= (forecast.wind_direction-210) %>deg);"></i>
+                          <div class="d-flex align-items-center" style="position: relative;">
+                            <i class="fas fa-location-arrow picto-icon" style="transform: rotate(<%= (forecast.wind_direction-210) %>deg); -ms-transform: rotate(<%= (forecast.wind_direction-210) %>deg); -webkit-transform: rotate(<%= (forecast.wind_direction-210) %>deg);"></i>
                             <p class="pl-2 picto-icon"> <%= forecast.wind_direction %>° </p>
                           </div>
                         </div>
