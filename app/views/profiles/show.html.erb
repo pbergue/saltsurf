@@ -57,12 +57,12 @@
             <div class="d-flex icons-opacity">
               <% spot = Spot.find(sesh.spot_id) %>
               <div class="px-4">
-                <% if spot.forecasts.first.wave_height < 0.5 %>
-                <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
-                <% elsif spot.forecasts.first.wave_height < 1 %>
-                <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px, color:#0D535B")%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <% if spot.forecast_today.wave_height < 0.5 %>
+                <p><%= image_tag("1-wave.svg",class: "picto-wave ",style:"width: 20px; height: 20px")%> <%= (spot.forecast_today.wave_height*10).round/10.to_f%>m</p>
+                <% elsif spot.forecast_today.wave_height < 1 %>
+                <p><%= image_tag("2-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px, color:#0D535B")%> <%= (spot.forecast_today.wave_height*10).round/10.to_f%>m</p>
                 <% else %>
-                <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px, color:#0D535B" )%> <%= (spot.forecasts.first.wave_height*10).round/10.to_f%>m</p>
+                <p><%= image_tag("3-waves.svg",class: "picto-wave ",style:"width: 20px; height: 20px, color:#0D535B" )%> <%= (spot.forecast_today.wave_height*10).round/10.to_f%>m</p>
                 <% end %>
               </div>
               <div class=" px-4">
