@@ -81,8 +81,8 @@
           <p class="mx-3"><i class="fas fa-thermometer-three-quarters picto-icon"></i> <%= @spot.forecast_today.water_temperature %>°C</p>
         </div>
         <div class=" pt-3">
-          <p>High Tide: <%= @today_high_tides.empty? ? "no data" : @today_high_tides.first.timestamp.strftime('%I:%M %p') %></p>
-          <p>Low Tide: <%= @today_low_tides.empty? ? "no data" : @today_low_tides.first.timestamp.strftime('%I:%M %p') %></p>
+          <p>High Tide: <strong><%= @today_high_tides.empty? ? "no data" : @today_high_tides.first.timestamp.strftime('%I:%M %p') %></strong></p>
+          <p>Low Tide: <strong><%= @today_low_tides.empty? ? "no data" : @today_low_tides.first.timestamp.strftime('%I:%M %p') %></strong></p>
         </div>
       </div>
     </div>
