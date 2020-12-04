@@ -31,7 +31,7 @@
                   <div class="d-flex align-items-center">
                     <i class="fas fa-location-arrow" style="transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -ms-transform: rotate(<%= spot.forecast_today.wind_direction %>deg); -webkit-transform: rotate(<%= spot.forecast_today.wind_direction %>deg);"></i>
                     <p class="<%= if spot.forecast_today.wind_speed >= 15 then 'text-warning' elsif spot.forecast_today.wind_speed >= 10 then 'text-danger' else 'text-success' end %>">
-                      <%= spot.forecast_today.wind_speed %>kn
+                      <%= spot.forecast_today.wind_speed %>kts
                     </p>
                   </div>
                 </div>

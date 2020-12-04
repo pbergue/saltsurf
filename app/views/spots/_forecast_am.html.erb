@@ -64,7 +64,9 @@
                         <div class="d-flex justify-content-around align-items-center mb-4 mt-3 mx-2 my-0">
                           <div class="d-flex align-items-center" style="position: relative;">
                             <i class="fas fa-wind pr-2 picto-icon"></i>
-                            <p class="picto-icon"> <%= forecast.wind_speed %>kts </p>
+                            <p class="<%= if forecast.wind_speed >= 15 then 'text-warning' elsif forecast.wind_speed >= 10 then 'text-danger' else 'text-success' end %>">
+                              <%= forecast.wind_speed %>kts
+                            </p>
                           </div>
 
                           <div class="d-flex align-items-center" style="position: relative;">
